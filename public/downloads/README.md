@@ -1,9 +1,11 @@
 # APK downloads
 
-Put the MDS APK here with this exact filename:
+Put the DMS APK here with this exact filename:
 
-mds.apk
+dms.apk
 
-The website download button points to:
+The website download button should point to:
 
-/downloads/mds.apk
+/downloads/dms.apk
+
+This folder is only for website download hosting. It does not change the DMS app code.
