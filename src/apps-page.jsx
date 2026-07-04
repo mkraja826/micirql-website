@@ -31,7 +31,7 @@ function TopBar() {
 function Sidebar() {
   return (
     <aside className="market-sidebar">
-      {menu.map((item, index) => <a className={index === 1 ? 'active' : ''} key={item} href={index === 0 ? '/' : '#apps'}><span>{['⌂','▦','🏥','📊','🚀','⋯'][index]}</span>{item}</a>)}
+      {menu.map((item, index) => <a className={index === 1 ? 'active' : ''} key={item} href={index === 0 ? '/' : '/apps.html'}><span>{['⌂','▦','🏥','📊','🚀','⋯'][index]}</span>{item}</a>)}
     </aside>
   );
 }
