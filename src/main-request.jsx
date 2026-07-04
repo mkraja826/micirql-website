@@ -5,30 +5,6 @@ import { RequestForm } from './RequestForm';
 import './styles.css';
 import './RequestForm.css';
 
-const products = [
-  {
-    name: 'DMS Dental Management System',
-    status: 'APK Coming Soon',
-    icon: '🏥',
-    description:
-      'A practical clinic workflow app designed for patient records, visits, appointments, queue management, payments, prescriptions, and follow-ups.',
-  },
-  {
-    name: 'Clinic Website Systems',
-    status: 'Available',
-    icon: '🌐',
-    description:
-      'Professional landing pages and clinic websites built to improve trust, appointment enquiries, and digital presence.',
-  },
-  {
-    name: 'Business Dashboard Apps',
-    status: 'Custom Build',
-    icon: '📊',
-    description:
-      'Clean dashboards for owners to manage leads, customers, revenue, staff, reports, and daily business operations.',
-  },
-];
-
 const principles = [
   'Problem-first product thinking',
   'Simple interfaces for real users',
@@ -54,8 +30,8 @@ function App() {
     <main>
       <header className="navbar">
         <a className="brand" href="#home"><span className="brand-mark">M</span><span>Micirql</span></a>
-        <nav className="nav-links"><a href="#vision">Vision</a><a href="#apps">Apps</a><a href="#clients">Clients</a><a href="#contact">Requests</a></nav>
-        <a className="nav-cta" href="#contact">Start Project</a>
+        <nav className="nav-links"><a href="#vision">Vision</a><a href="/apps.html">Apps</a><a href="#clients">Clients</a><a href="#contact">Requests</a></nav>
+        <a className="nav-cta" href="/apps.html">Open App Store</a>
       </header>
 
       <section id="home" className="hero section-padding">
@@ -64,7 +40,7 @@ function App() {
           <h1>Building problem-focused digital solutions for modern businesses.</h1>
           <p>Micirql is a software company focused on Android apps, business dashboards, clinic systems, landing pages, and custom software that solve real operational problems.</p>
           <div className="hero-actions">
-            <a className="primary-button" href="#apps">Explore Apps <span>→</span></a>
+            <a className="primary-button" href="/apps.html">Visit Micirql Apps <span>→</span></a>
             <a className="secondary-button" href="#contact">Request a Solution</a>
           </div>
           <div className="stats-row">
@@ -75,7 +51,7 @@ function App() {
           </div>
         </div>
         <div className="hero-visual" aria-hidden="true">
-          <div className="phone-shell"><div className="phone-camera" /><div className="phone-screen"><div className="screen-top"><span>Micirql</span><span>✦</span></div><div className="screen-card primary-card"><span>Vision</span><strong>Problem → Product</strong></div><div className="screen-grid"><span /><span /><span /><span /></div><div className="screen-card"><span>App Store</span><strong>DMS Coming Soon</strong></div></div></div>
+          <div className="phone-shell"><div className="phone-camera" /><div className="phone-screen"><div className="screen-top"><span>Micirql</span><span>✦</span></div><div className="screen-card primary-card"><span>Vision</span><strong>Problem → Product</strong></div><div className="screen-grid"><span /><span /><span /><span /></div><div className="screen-card"><span>Separate Page</span><strong>Micirql Apps</strong></div></div></div>
         </div>
       </section>
 
@@ -89,11 +65,6 @@ function App() {
             <div className="founder-tags">{principles.map((item) => <span key={item}>{item}</span>)}</div>
           </div>
         </div>
-      </section>
-
-      <section id="apps" className="section-padding">
-        <div className="section-heading"><div className="section-label">Micirql Apps</div><h2>A growing product hub for business apps and downloads.</h2><p>DMS APK will be added here when ready. Future Micirql apps will also be listed in this section.</p></div>
-        <div className="apps-grid">{products.map((product) => <Card key={product.name} item={product} />)}</div>
       </section>
 
       <section id="clients" className="section-padding">
