@@ -12,6 +12,8 @@ const principles = [
   'Long-term scalable systems',
 ];
 
+const micirqlLogoUrl = 'https://pub-a30eed1be922456381eeec57b51e396a.r2.dev/brand/micirql.png';
+
 const contactLinks = [
   {
     label: 'Email',
@@ -73,7 +75,7 @@ function App() {
   return (
     <main>
       <header className="navbar">
-        <a className="brand brand-with-logo" href="#home"><img className="brand-logo" src="/micirql-logo.svg" alt="Micirql" /></a>
+        <a className="brand brand-with-logo" href="#home"><img className="brand-logo" src={micirqlLogoUrl} alt="Micirql" /></a>
         <nav className="nav-links"><a href="#vision">Vision</a><a href="/apps/">Apps</a><a href="#clients">Clients</a><a href="#contact">Contact</a></nav>
         <a className="nav-cta" href="/apps/">Open Store</a>
       </header>
