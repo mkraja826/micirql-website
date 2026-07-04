@@ -12,6 +12,37 @@ const principles = [
   'Long-term scalable systems',
 ];
 
+const contactLinks = [
+  {
+    label: 'Email',
+    value: 'karthikraja826@gmail.com',
+    icon: '✉️',
+    href: 'mailto:karthikraja826@gmail.com?subject=Project%20Request%20for%20Micirql',
+    active: true,
+  },
+  {
+    label: 'WhatsApp',
+    value: 'Add WhatsApp number',
+    icon: '💬',
+    href: '#contact',
+    active: false,
+  },
+  {
+    label: 'LinkedIn',
+    value: 'Add LinkedIn profile',
+    icon: '💼',
+    href: '#contact',
+    active: false,
+  },
+  {
+    label: 'Instagram',
+    value: 'Add Instagram profile',
+    icon: '📸',
+    href: '#contact',
+    active: false,
+  },
+];
+
 function Card({ item }) {
   return (
     <article className="app-card">
@@ -25,12 +56,25 @@ function Card({ item }) {
   );
 }
 
+function ContactLinks() {
+  return (
+    <div className="quick-contact-grid">
+      {contactLinks.map((link) => (
+        <a className={link.active ? 'quick-contact-card' : 'quick-contact-card inactive'} href={link.href} key={link.label} target={link.active ? '_blank' : undefined} rel="noreferrer">
+          <span className="quick-contact-icon">{link.icon}</span>
+          <span><strong>{link.label}</strong><small>{link.value}</small></span>
+        </a>
+      ))}
+    </div>
+  );
+}
+
 function App() {
   return (
     <main>
       <header className="navbar">
         <a className="brand" href="#home"><span className="brand-mark">M</span><span>Micirql</span></a>
-        <nav className="nav-links"><a href="#vision">Vision</a><a href="/apps">Apps</a><a href="#clients">Clients</a><a href="#contact">Requests</a></nav>
+        <nav className="nav-links"><a href="#vision">Vision</a><a href="/apps">Apps</a><a href="#clients">Clients</a><a href="#contact">Contact</a></nav>
         <a className="nav-cta" href="/apps">Open App Store</a>
       </header>
 
@@ -74,7 +118,8 @@ function App() {
 
       <section id="contact" className="section-padding contact-section">
         <div className="contact-card">
-          <div><div className="section-label">Project Request</div><h2>Have a problem that needs a software solution?</h2><p>Send your requirement for an Android app, landing page, dashboard, clinic system, or custom software. Your request will be saved securely in the Veil Supabase project.</p></div>
+          <div><div className="section-label">Contact</div><h2>Reach Micirql directly or send a project request.</h2><p>Choose a direct contact option or submit the form for Android apps, landing pages, dashboards, clinic systems, and custom software.</p></div>
+          <ContactLinks />
           <RequestForm />
         </div>
       </section>
