@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { isSupabaseConfigured, supabase } from './supabaseClient';
+import { isSupabaseConfigured, submitWebsiteRequest } from './supabaseClient';
 
 const initialForm = {
   name: '',
@@ -27,7 +27,7 @@ export function RequestForm() {
       return;
     }
 
-    if (!isSupabaseConfigured || !supabase) {
+    if (!isSupabaseConfigured) {
       setStatus({
         type: 'error',
         message: 'Supabase is not configured yet. Add VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY.',
@@ -38,25 +38,24 @@ export function RequestForm() {
     setLoading(true);
     setStatus({ type: 'idle', message: '' });
 
-    const { error } = await supabase.from('website_requests').insert({
-      name: form.name.trim(),
-      email: form.email.trim() || null,
-      phone: form.phone.trim(),
-      company: form.company.trim() || null,
-      service: form.service,
-      message: form.message.trim(),
-      source: 'micirql-website',
-    });
+    try {
+      await submitWebsiteRequest({
+        name: form.name.trim(),
+        email: form.email.trim() || null,
+        phone: form.phone.trim(),
+        company: form.company.trim() || null,
+        service: form.service,
+        message: form.message.trim(),
+        source: 'micirql-website',
+      });
 
-    setLoading(false);
-
-    if (error) {
+      setForm(initialForm);
+      setStatus({ type: 'success', message: 'Request sent successfully. Micirql will contact you soon.' });
+    } catch (error) {
       setStatus({ type: 'error', message: error.message || 'Request failed. Please try again.' });
-      return;
+    } finally {
+      setLoading(false);
     }
-
-    setForm(initialForm);
-    setStatus({ type: 'success', message: 'Request sent successfully. Micirql will contact you soon.' });
   }
 
   return (
