@@ -1,6 +1,6 @@
 export const clients = [
   {
-    name: 'clinicapro.com',
+    name: 'clinicaprollc.com',
     status: 'Clinic Software',
     icon: '🏥',
     description:
