@@ -30,8 +30,8 @@ function App() {
     <main>
       <header className="navbar">
         <a className="brand" href="#home"><span className="brand-mark">M</span><span>Micirql</span></a>
-        <nav className="nav-links"><a href="#vision">Vision</a><a href="/apps.html">Apps</a><a href="#clients">Clients</a><a href="#contact">Requests</a></nav>
-        <a className="nav-cta" href="/apps.html">Open App Store</a>
+        <nav className="nav-links"><a href="#vision">Vision</a><a href="/apps">Apps</a><a href="#clients">Clients</a><a href="#contact">Requests</a></nav>
+        <a className="nav-cta" href="/apps">Open App Store</a>
       </header>
 
       <section id="home" className="hero section-padding">
@@ -40,7 +40,7 @@ function App() {
           <h1>Building problem-focused digital solutions for modern businesses.</h1>
           <p>Micirql is a software company focused on Android apps, business dashboards, clinic systems, landing pages, and custom software that solve real operational problems.</p>
           <div className="hero-actions">
-            <a className="primary-button" href="/apps.html">Visit Micirql Apps <span>→</span></a>
+            <a className="primary-button" href="/apps">Visit Micirql Apps <span>→</span></a>
             <a className="secondary-button" href="#contact">Request a Solution</a>
           </div>
           <div className="stats-row">
