@@ -15,34 +15,10 @@ const principles = [
 const micirqlLogoUrl = 'https://pub-a30eed1be922456381eeec57b51e396a.r2.dev/brand/micirql.png';
 
 const contactLinks = [
-  {
-    label: 'Email',
-    value: 'karthikraja826@gmail.com',
-    icon: '✉️',
-    href: 'mailto:karthikraja826@gmail.com?subject=Project%20Request%20for%20Micirql',
-    active: true,
-  },
-  {
-    label: 'WhatsApp',
-    value: '+91 94415 81114',
-    icon: '💬',
-    href: 'https://wa.me/919441581114?text=Hi%20Karthik%2C%20I%20want%20to%20discuss%20a%20project%20with%20Micirql.',
-    active: true,
-  },
-  {
-    label: 'LinkedIn',
-    value: 'Micirql company page',
-    icon: '💼',
-    href: 'https://www.linkedin.com/company/micirql/',
-    active: true,
-  },
-  {
-    label: 'Instagram',
-    value: 'Add profile link',
-    icon: '📸',
-    href: '#contact',
-    active: false,
-  },
+  { label: 'Email', value: 'karthikraja826@gmail.com', icon: '✉️', href: 'mailto:karthikraja826@gmail.com?subject=Project%20Request%20for%20Micirql', active: true },
+  { label: 'WhatsApp', value: '+91 94415 81114', icon: '💬', href: 'https://wa.me/919441581114?text=Hi%20Karthik%2C%20I%20want%20to%20discuss%20a%20project%20with%20Micirql.', active: true },
+  { label: 'LinkedIn', value: 'Micirql company page', icon: '💼', href: 'https://www.linkedin.com/company/micirql/', active: true },
+  { label: 'Instagram', value: 'Add profile link', icon: '📸', href: '#contact', active: false },
 ];
 
 function Card({ item }) {
@@ -53,6 +29,7 @@ function Card({ item }) {
         <span className="status">{item.status}</span>
       </div>
       <h3>{item.name}</h3>
+      <div className="client-website">{item.website}</div>
       <p>{item.description}</p>
     </article>
   );
@@ -114,7 +91,7 @@ function App() {
       </section>
 
       <section id="clients" className="section-padding">
-        <div className="section-heading"><div className="section-label">Clients</div><h2>Brands and projects connected with Micirql.</h2><p>Micirql supports clinics, service businesses, and startups with websites, dashboards, and software products.</p></div>
+        <div className="section-heading"><div className="section-label">Clients</div><h2>Brands and projects connected with Micirql.</h2><p>Micirql supports staffing, software, clinics, service businesses, and startups with websites, dashboards, and software products.</p></div>
         <div className="apps-grid">{clients.map((client) => <Card key={client.name} item={client} />)}</div>
       </section>
 
