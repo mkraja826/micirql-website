@@ -1,21 +1,5 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import {
-  ArrowRight,
-  Code2,
-  Globe2,
-  Hospital,
-  LayoutDashboard,
-  Mail,
-  MapPin,
-  MonitorSmartphone,
-  Phone,
-  Rocket,
-  ShieldCheck,
-  Sparkles,
-  Store,
-  UserRound,
-} from 'lucide-react';
 import './styles.css';
 
 const navItems = ['Home', 'About', 'Founder', 'Apps', 'Services', 'Contact'];
@@ -24,28 +8,28 @@ const apps = [
   {
     name: 'Dental Management System',
     status: 'Pilot Testing',
-    icon: Hospital,
+    icon: '🏥',
     description:
       'A mobile-first clinic management app for patients, visits, appointments, payments, staff, prescriptions, and follow-ups.',
   },
   {
     name: 'Clinic Landing Pages',
     status: 'Available',
-    icon: Globe2,
+    icon: '🌐',
     description:
       'Premium healthcare landing pages with appointment sections, service highlights, gallery, doctor profile, and contact flows.',
   },
   {
     name: 'Business Dashboard Apps',
     status: 'Custom Build',
-    icon: LayoutDashboard,
+    icon: '📊',
     description:
       'Dashboards for leads, customers, revenue, staff, reports, and daily operations with clean owner-friendly controls.',
   },
   {
     name: 'Startup MVP Apps',
     status: 'Available',
-    icon: Rocket,
+    icon: '🚀',
     description:
       'Idea-to-launch MVP development with Android app UI, landing page, backend setup, and admin dashboard planning.',
   },
@@ -54,22 +38,22 @@ const apps = [
 const services = [
   {
     title: 'Android App Development',
-    icon: MonitorSmartphone,
+    icon: '📱',
     text: 'Modern Android apps built for real business workflows, not just screens.',
   },
   {
     title: 'Landing Page Design',
-    icon: Globe2,
+    icon: '🌐',
     text: 'Premium websites for clinics, startups, local brands, and digital products.',
   },
   {
     title: 'Business Software',
-    icon: ShieldCheck,
+    icon: '🛡️',
     text: 'Simple dashboards, management tools, and automation systems for daily work.',
   },
   {
     title: 'MVP Launch Support',
-    icon: Rocket,
+    icon: '🚀',
     text: 'Fast product planning, app structure, clean UI, and launch-ready foundations.',
   },
 ];
@@ -80,6 +64,10 @@ const stats = [
   ['3D UI', 'Premium website design'],
   ['Business-ready', 'Digital systems'],
 ];
+
+function MiniIcon({ children }) {
+  return <span className="mini-icon" aria-hidden="true">{children}</span>;
+}
 
 function Navbar() {
   return (
@@ -114,7 +102,7 @@ function FloatingPhone() {
         <div className="phone-screen">
           <div className="screen-top">
             <span>Micirql OS</span>
-            <Sparkles size={16} />
+            <span>✦</span>
           </div>
           <div className="screen-card primary-card">
             <span>App Store</span>
@@ -133,15 +121,15 @@ function FloatingPhone() {
         </div>
       </div>
       <div className="float-card float-card-one">
-        <Code2 size={18} />
+        <MiniIcon>💻</MiniIcon>
         <span>React + Android</span>
       </div>
       <div className="float-card float-card-two">
-        <Store size={18} />
+        <MiniIcon>🛒</MiniIcon>
         <span>App Store</span>
       </div>
       <div className="float-card float-card-three">
-        <LayoutDashboard size={18} />
+        <MiniIcon>📊</MiniIcon>
         <span>Dashboards</span>
       </div>
     </div>
@@ -149,29 +137,27 @@ function FloatingPhone() {
 }
 
 function AppCard({ app }) {
-  const Icon = app.icon;
   return (
     <article className="app-card">
       <div className="app-card-head">
         <div className="icon-box">
-          <Icon size={24} />
+          <MiniIcon>{app.icon}</MiniIcon>
         </div>
         <span className="status">{app.status}</span>
       </div>
       <h3>{app.name}</h3>
       <p>{app.description}</p>
       <a href="#contact" className="card-link">
-        View App <ArrowRight size={16} />
+        View App <span>→</span>
       </a>
     </article>
   );
 }
 
 function ServiceCard({ service }) {
-  const Icon = service.icon;
   return (
     <article className="service-card">
-      <Icon size={26} />
+      <MiniIcon>{service.icon}</MiniIcon>
       <h3>{service.title}</h3>
       <p>{service.text}</p>
     </article>
@@ -186,7 +172,7 @@ function App() {
       <section id="home" className="hero section-padding">
         <div className="hero-copy">
           <div className="eyebrow">
-            <Sparkles size={16} />
+            <MiniIcon>✦</MiniIcon>
             Software company founded by Karthik Raja
           </div>
           <h1>Android apps and digital software built for modern businesses.</h1>
@@ -196,7 +182,7 @@ function App() {
           </p>
           <div className="hero-actions">
             <a className="primary-button" href="#apps">
-              Explore Apps <ArrowRight size={18} />
+              Explore Apps <span>→</span>
             </a>
             <a className="secondary-button" href="#contact">
               Start a Project
@@ -237,7 +223,7 @@ function App() {
       <section id="founder" className="section-padding founder-section">
         <div className="founder-card">
           <div className="founder-avatar">
-            <UserRound size={72} />
+            <span className="founder-avatar-letter">KR</span>
           </div>
           <div className="founder-content">
             <div className="section-label">Founder Page</div>
@@ -298,13 +284,13 @@ function App() {
           </div>
           <div className="contact-list">
             <a href="mailto:karthikraja826@gmail.com">
-              <Mail size={18} /> karthikraja826@gmail.com
+              <MiniIcon>✉️</MiniIcon> karthikraja826@gmail.com
             </a>
             <a href="tel:+910000000000">
-              <Phone size={18} /> Contact number placeholder
+              <MiniIcon>☎️</MiniIcon> Contact number placeholder
             </a>
             <span>
-              <MapPin size={18} /> India
+              <MiniIcon>📍</MiniIcon> India
             </span>
           </div>
         </div>
