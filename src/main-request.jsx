@@ -29,14 +29,14 @@ const contactLinks = [
   },
   {
     label: 'LinkedIn',
-    value: 'Add LinkedIn profile',
+    value: 'Add profile link',
     icon: '💼',
     href: '#contact',
     active: false,
   },
   {
     label: 'Instagram',
-    value: 'Add Instagram profile',
+    value: 'Add profile link',
     icon: '📸',
     href: '#contact',
     active: false,
@@ -74,8 +74,8 @@ function App() {
     <main>
       <header className="navbar">
         <a className="brand" href="#home"><span className="brand-mark">M</span><span>Micirql</span></a>
-        <nav className="nav-links"><a href="#vision">Vision</a><a href="/apps.html">Apps</a><a href="#clients">Clients</a><a href="#contact">Contact</a></nav>
-        <a className="nav-cta" href="/apps.html">Open App Store</a>
+        <nav className="nav-links"><a href="#vision">Vision</a><a href="/apps/">Apps</a><a href="#clients">Clients</a><a href="#contact">Contact</a></nav>
+        <a className="nav-cta" href="/apps/">Open Store</a>
       </header>
 
       <section id="home" className="hero section-padding">
@@ -84,7 +84,7 @@ function App() {
           <h1>Building problem-focused digital solutions for modern businesses.</h1>
           <p>Micirql is a software company focused on Android apps, business dashboards, clinic systems, landing pages, and custom software that solve real operational problems.</p>
           <div className="hero-actions">
-            <a className="primary-button" href="/apps.html">Visit Micirql Apps <span>→</span></a>
+            <a className="primary-button" href="/apps/">Visit Micirql Store <span>→</span></a>
             <a className="secondary-button" href="#contact">Request a Solution</a>
           </div>
           <div className="stats-row">
@@ -95,7 +95,7 @@ function App() {
           </div>
         </div>
         <div className="hero-visual" aria-hidden="true">
-          <div className="phone-shell"><div className="phone-camera" /><div className="phone-screen"><div className="screen-top"><span>Micirql</span><span>✦</span></div><div className="screen-card primary-card"><span>Vision</span><strong>Problem → Product</strong></div><div className="screen-grid"><span /><span /><span /><span /></div><div className="screen-card"><span>Separate Page</span><strong>Micirql Apps</strong></div></div></div>
+          <div className="phone-shell"><div className="phone-camera" /><div className="phone-screen"><div className="screen-top"><span>Micirql</span><span>✦</span></div><div className="screen-card primary-card"><span>Vision</span><strong>Problem → Product</strong></div><div className="screen-grid"><span /><span /><span /><span /></div><div className="screen-card"><span>Product Store</span><strong>DMS App</strong></div></div></div>
         </div>
       </section>
 
@@ -117,10 +117,21 @@ function App() {
       </section>
 
       <section id="contact" className="section-padding contact-section">
-        <div className="contact-card">
-          <div><div className="section-label">Contact</div><h2>Reach Micirql directly or send a project request.</h2><p>Choose a direct contact option or submit the form for Android apps, landing pages, dashboards, clinic systems, and custom software.</p></div>
-          <ContactLinks />
-          <RequestForm />
+        <div className="contact-card contact-dashboard">
+          <div className="contact-copy">
+            <div className="section-label">Contact</div>
+            <h2>Start your project with Micirql.</h2>
+            <p>Choose a quick contact option or send a short request. I will connect back for Android apps, landing pages, dashboards, clinic systems, or custom software.</p>
+            <div className="contact-metrics">
+              <span><strong>Fast</strong><small>Direct reply</small></span>
+              <span><strong>Simple</strong><small>Clear requirement</small></span>
+              <span><strong>Build</strong><small>MVP focused</small></span>
+            </div>
+          </div>
+          <div className="contact-action-panel">
+            <ContactLinks />
+            <RequestForm />
+          </div>
         </div>
       </section>
     </main>
