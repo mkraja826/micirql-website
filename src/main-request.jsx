@@ -22,10 +22,10 @@ const contactLinks = [
   },
   {
     label: 'WhatsApp',
-    value: 'Add WhatsApp number',
+    value: '+91 94415 81114',
     icon: '💬',
-    href: '#contact',
-    active: false,
+    href: 'https://wa.me/919441581114?text=Hi%20Karthik%2C%20I%20want%20to%20discuss%20a%20project%20with%20Micirql.',
+    active: true,
   },
   {
     label: 'LinkedIn',
