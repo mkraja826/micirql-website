@@ -29,10 +29,10 @@ const contactLinks = [
   },
   {
     label: 'LinkedIn',
-    value: 'Add profile link',
+    value: 'Micirql company page',
     icon: '💼',
-    href: '#contact',
-    active: false,
+    href: 'https://www.linkedin.com/company/micirql/',
+    active: true,
   },
   {
     label: 'Instagram',
