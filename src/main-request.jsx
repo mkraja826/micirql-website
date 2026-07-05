@@ -53,8 +53,8 @@ function App() {
     <main>
       <header className="navbar">
         <a className="brand brand-with-logo" href="#home"><img className="brand-logo" src={micirqlLogoUrl} alt="Micirql" /></a>
-        <nav className="nav-links"><a href="#vision">Vision</a><a href="/apps/">Apps</a><a href="#clients">Clients</a><a href="#contact">Contact</a></nav>
-        <a className="nav-cta" href="/apps/">Open Store</a>
+        <nav className="nav-links"><a href="#vision">Vision</a><a href="/dental-management-system/">DMS Clinic</a><a href="/apps/">Apps</a><a href="#clients">Clients</a><a href="#contact">Contact</a></nav>
+        <a className="nav-cta" href="/dental-management-system/">DMS Software</a>
       </header>
 
       <section id="home" className="hero section-padding">
@@ -63,7 +63,7 @@ function App() {
           <h1>Building problem-focused digital solutions for modern businesses.</h1>
           <p>Micirql is a software company focused on Android apps, business dashboards, clinic systems, landing pages, and custom software that solve real operational problems.</p>
           <div className="hero-actions">
-            <a className="primary-button" href="/apps/">Visit Micirql Store <span>→</span></a>
+            <a className="primary-button" href="/dental-management-system/">Explore DMS Clinic <span>→</span></a>
             <a className="secondary-button" href="#contact">Request a Solution</a>
           </div>
           <div className="stats-row">
