@@ -53,7 +53,7 @@ function App() {
     <main>
       <header className="navbar">
         <a className="brand brand-with-logo" href="#home"><img className="brand-logo" src={micirqlLogoUrl} alt="Micirql" /></a>
-        <nav className="nav-links"><a href="#vision">Vision</a><a href="/dental-management-system/">DMS Clinic</a><a href="/apps/">Apps</a><a href="#clients">Clients</a><a href="#contact">Contact</a></nav>
+        <nav className="nav-links"><a href="#vision">Vision</a><a href="/dental-management-system/">DMS Clinic</a><a href="/apps/">Apps</a><a href="/blogs/">Blogs</a><a href="#clients">Clients</a><a href="#contact">Contact</a></nav>
         <a className="nav-cta" href="/dental-management-system/">DMS Software</a>
       </header>
 
