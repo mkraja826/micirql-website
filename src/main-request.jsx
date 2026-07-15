@@ -97,7 +97,7 @@ function App() {
           <a href="#work">What we build</a>
           <a href="/capdent/">CapDent</a>
           <a href="/apps/">Apps</a>
-          <a href="/blogs/">Insights</a>
+          <a href="/blogs/">Blogs</a>
         </nav>
         <a className="nav-cta" href="#contact">Start a project <span>↗</span></a>
       </header>
@@ -212,7 +212,7 @@ function App() {
       <footer className="footer shell">
         <img src={micirqlLogoUrl} alt="Micirql" />
         <p>Problem-focused digital products, built with intent.</p>
-        <div><a href="/blogs/">Insights</a><a href="#home">Back to top ↑</a></div>
+        <div><a href="/blogs/">Blogs</a><a href="#home">Back to top ↑</a></div>
       </footer>
     </main>
   );
