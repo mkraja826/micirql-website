@@ -38,5 +38,17 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main-request.jsx"></script>
+    <script>
+      const syncCapDentPricingCopy = () => {
+        document.querySelectorAll('.feature-list span').forEach((item) => {
+          if (item.textContent.trim() === 'Free plan available') {
+            item.textContent = 'All features free · 1 GB included';
+          }
+        });
+      };
+      const pricingCopyObserver = new MutationObserver(syncCapDentPricingCopy);
+      pricingCopyObserver.observe(document.getElementById('root'), { childList: true, subtree: true });
+      syncCapDentPricingCopy();
+    </script>
   </body>
 </html>
