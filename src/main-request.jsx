@@ -1,13 +1,19 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import { clients } from './clients';
 import { RequestForm } from './RequestForm';
-import { ThreeHero } from './ThreeHero';
 import './styles.css';
 import './hero-polish.css';
 import './RequestForm.css';
 
 const micirqlLogoUrl = 'https://pub-a30eed1be922456381eeec57b51e396a.r2.dev/brand/micirql.png';
+
+const navItems = [
+  { label: 'What we build', href: '#work' },
+  { label: 'CapDent', href: '/capdent/' },
+  { label: 'Apps', href: '/apps/' },
+  { label: 'Blogs', href: '/blogs/' },
+];
 
 const capabilities = [
   {
@@ -37,10 +43,124 @@ const process = [
 ];
 
 const contactLinks = [
-  { label: 'Email', value: 'karthikraja826@gmail.com', icon: '↗', href: 'mailto:karthikraja826@gmail.com?subject=Project%20Request%20for%20Micirql', active: true },
-  { label: 'WhatsApp', value: '+91 94415 81114', icon: '↗', href: 'https://wa.me/919441581114?text=Hi%20Karthik%2C%20I%20want%20to%20discuss%20a%20project%20with%20Micirql.', active: true },
-  { label: 'LinkedIn', value: 'Micirql company page', icon: '↗', href: 'https://www.linkedin.com/company/micirql/', active: true },
+  { label: 'Email', value: 'karthikraja826@gmail.com', icon: '↗', href: 'mailto:karthikraja826@gmail.com?subject=Project%20Request%20for%20Micirql' },
+  { label: 'WhatsApp', value: '+91 94415 81114', icon: '↗', href: 'https://wa.me/919441581114?text=Hi%20Karthik%2C%20I%20want%20to%20discuss%20a%20project%20with%20Micirql.' },
+  { label: 'LinkedIn', value: 'Micirql company page', icon: '↗', href: 'https://www.linkedin.com/company/micirql/' },
 ];
+
+function Navbar() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') setMenuOpen(false);
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    document.body.classList.toggle('menu-open', menuOpen);
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+      document.body.classList.remove('menu-open');
+    };
+  }, [menuOpen]);
+
+  const closeMenu = () => setMenuOpen(false);
+
+  return (
+    <>
+      <header className="navbar">
+        <a className="brand brand-with-logo" href="#home" aria-label="Micirql home" onClick={closeMenu}>
+          <img className="brand-logo" src={micirqlLogoUrl} alt="Micirql" />
+        </a>
+
+        <nav className="nav-links" aria-label="Main navigation">
+          {navItems.map((item) => <a href={item.href} key={item.label}>{item.label}</a>)}
+        </nav>
+
+        <a className="nav-cta desktop-nav-cta" href="#contact">Start a project <span>↗</span></a>
+
+        <button
+          className={`menu-toggle${menuOpen ? ' is-open' : ''}`}
+          type="button"
+          aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+          aria-expanded={menuOpen}
+          aria-controls="mobile-navigation"
+          onClick={() => setMenuOpen((open) => !open)}
+        >
+          <span />
+          <span />
+          <span />
+        </button>
+      </header>
+
+      <div className={`mobile-menu-backdrop${menuOpen ? ' is-open' : ''}`} onClick={closeMenu} aria-hidden="true" />
+      <nav id="mobile-navigation" className={`mobile-menu${menuOpen ? ' is-open' : ''}`} aria-label="Mobile navigation">
+        <div className="mobile-menu-label">Navigate / Micirql</div>
+        <div className="mobile-menu-links">
+          {navItems.map((item, index) => (
+            <a href={item.href} key={item.label} onClick={closeMenu}>
+              <span>0{index + 1}</span>
+              <strong>{item.label}</strong>
+              <i>↗</i>
+            </a>
+          ))}
+        </div>
+        <a className="mobile-menu-cta" href="#contact" onClick={closeMenu}>Start a project <span>↗</span></a>
+        <p>Focused Android apps, clinic systems, dashboards and websites built around real workflows.</p>
+      </nav>
+    </>
+  );
+}
+
+function HeroSystemBoard() {
+  return (
+    <div className="studio-board" aria-label="Micirql product studio workflow preview">
+      <div className="studio-board-top">
+        <div><span className="board-live-dot" /> MICIRQL / PRODUCT SYSTEM</div>
+        <strong>ACTIVE</strong>
+      </div>
+
+      <div className="studio-board-grid">
+        <section className="board-primary-card">
+          <div className="board-card-label">Current focus</div>
+          <h2>Turn a real bottleneck into a product people can use.</h2>
+          <div className="board-flow" aria-label="Product workflow">
+            <div><span>01</span><strong>Problem</strong><small>Observe the daily friction</small></div>
+            <i>→</i>
+            <div><span>02</span><strong>System</strong><small>Design the simplest useful flow</small></div>
+            <i>→</i>
+            <div><span>03</span><strong>Outcome</strong><small>Ship, learn and improve</small></div>
+          </div>
+        </section>
+
+        <a className="board-product-card" href="/capdent/">
+          <div className="board-card-label">Flagship product</div>
+          <strong>CapDent</strong>
+          <p>Dental clinic workflow, records, payments and follow-ups in one focused Android product.</p>
+          <span>Explore product ↗</span>
+        </a>
+
+        <div className="board-metric-card">
+          <div className="board-card-label">Build principle</div>
+          <strong>Clarity first.</strong>
+          <p>Fewer screens. Faster actions. Better decisions.</p>
+        </div>
+
+        <div className="board-stack-card">
+          <div className="board-card-label">Delivery stack</div>
+          <div><span>Android</span><span>Web</span><span>Cloud</span><span>SEO</span></div>
+        </div>
+      </div>
+
+      <div className="board-status-row">
+        <span><i /> Founder-led</span>
+        <span><i /> Product-first</span>
+        <span><i /> Built for real use</span>
+      </div>
+    </div>
+  );
+}
 
 function CapabilityCard({ item }) {
   return (
@@ -88,38 +208,26 @@ function App() {
   return (
     <main>
       <div className="page-noise" aria-hidden="true" />
-
-      <header className="navbar">
-        <a className="brand brand-with-logo" href="#home" aria-label="Micirql home">
-          <img className="brand-logo" src={micirqlLogoUrl} alt="Micirql" />
-        </a>
-        <nav className="nav-links" aria-label="Main navigation">
-          <a href="#work">What we build</a>
-          <a href="/capdent/">CapDent</a>
-          <a href="/apps/">Apps</a>
-          <a href="/blogs/">Blogs</a>
-        </nav>
-        <a className="nav-cta" href="#contact">Start a project <span>↗</span></a>
-      </header>
+      <Navbar />
 
       <section id="home" className="hero shell">
         <div className="hero-copy">
           <div className="eyebrow"><span className="pulse-dot" /> Independent product studio · India</div>
-          <h1>We turn real-world friction into <span>digital momentum.</span></h1>
-          <p>Micirql designs and builds focused software products for clinics, service businesses, and ambitious founders—combining sharp product thinking with reliable execution.</p>
+          <h1>Useful software starts with a <span>clearer problem.</span></h1>
+          <p>Micirql turns real operational friction into focused Android apps, clinic systems, dashboards and websites—designed for people who need the product to work every day.</p>
           <div className="hero-actions">
             <a className="primary-button" href="/capdent/">Explore CapDent <span>↗</span></a>
-            <a className="text-button" href="#work">See our capabilities <span>↓</span></a>
+            <a className="text-button" href="#work">See what we build <span>↓</span></a>
           </div>
           <div className="hero-signal-row" aria-label="Studio strengths">
             <span><strong>01</strong> Founder-led</span>
-            <span><strong>02</strong> Product-first</span>
-            <span><strong>03</strong> Built to scale</span>
+            <span><strong>02</strong> Workflow-first</span>
+            <span><strong>03</strong> Built to evolve</span>
           </div>
         </div>
 
-        <div className="hero-visual" aria-label="Interactive three-dimensional Micirql product core">
-          <ThreeHero />
+        <div className="hero-visual">
+          <HeroSystemBoard />
         </div>
       </section>
 
