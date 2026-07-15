@@ -1,0 +1,167 @@
+/* Homepage hero UX refinements — loaded after the base visual system. */
+
+.hero {
+  grid-template-columns: minmax(0, 0.98fr) minmax(540px, 1.02fr);
+  gap: 48px;
+  padding-top: 142px;
+  padding-bottom: 68px;
+}
+
+.hero-copy {
+  max-width: 720px;
+}
+
+.hero h1 {
+  max-width: 700px;
+  font-size: clamp(52px, 5.75vw, 88px);
+  line-height: 0.93;
+  letter-spacing: -0.066em;
+}
+
+.hero-copy > p {
+  max-width: 620px;
+  margin-top: 26px;
+  color: #b4bbc8;
+  font-size: 18px;
+  line-height: 1.72;
+}
+
+.hero-actions {
+  margin-top: 32px;
+}
+
+.hero-signal-row {
+  margin-top: 42px;
+}
+
+.hero-visual {
+  min-height: 660px;
+}
+
+.three-stage {
+  border-radius: 36px;
+}
+
+/* Pull the rendered WebGL composition back without changing scene behaviour. */
+.three-stage canvas {
+  inset: -7%;
+  width: 114%;
+  height: 114%;
+  transform: scale(0.88);
+  transform-origin: center;
+}
+
+.scene-interface-side {
+  right: 22px;
+  bottom: 64px;
+}
+
+.scene-coordinate {
+  bottom: 22px;
+}
+
+/* Keep the full hero usable on common 768–850px laptop viewports. */
+@media (min-width: 1101px) and (max-height: 850px) {
+  .navbar {
+    top: 14px;
+    min-height: 64px;
+  }
+
+  .hero {
+    min-height: auto;
+    padding-top: 110px;
+    padding-bottom: 38px;
+    gap: 42px;
+  }
+
+  .eyebrow {
+    margin-bottom: 20px;
+  }
+
+  .hero h1 {
+    max-width: 660px;
+    font-size: clamp(50px, 5.15vw, 78px);
+    line-height: 0.94;
+  }
+
+  .hero-copy > p {
+    margin-top: 21px;
+    font-size: 16px;
+    line-height: 1.65;
+  }
+
+  .hero-actions {
+    margin-top: 27px;
+  }
+
+  .hero-signal-row {
+    margin-top: 30px;
+  }
+
+  .hero-visual {
+    min-height: 590px;
+  }
+
+  .scene-interface-side {
+    bottom: 56px;
+  }
+}
+
+@media (max-width: 1100px) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 52px;
+    padding-top: 148px;
+  }
+
+  .hero-copy {
+    max-width: 830px;
+  }
+
+  .hero h1 {
+    max-width: 780px;
+  }
+
+  .hero-visual {
+    min-height: 610px;
+  }
+}
+
+@media (max-width: 760px) {
+  .hero {
+    gap: 40px;
+    padding-top: 124px;
+    padding-bottom: 34px;
+  }
+
+  .hero h1 {
+    font-size: clamp(47px, 13.5vw, 69px);
+    line-height: 0.94;
+  }
+
+  .hero-copy > p {
+    margin-top: 22px;
+    font-size: 15.5px;
+  }
+
+  .hero-actions {
+    margin-top: 28px;
+  }
+
+  .hero-visual {
+    min-height: 500px;
+  }
+
+  .three-stage canvas {
+    inset: -5%;
+    width: 110%;
+    height: 110%;
+    transform: scale(0.9);
+  }
+
+  .scene-interface-side {
+    right: 14px;
+    bottom: 48px;
+    width: 190px;
+  }
+}
