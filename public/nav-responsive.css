@@ -1,0 +1,40 @@
+/* Keep the full navigation on tablet and desktop. The burger menu is mobile-only. */
+@media (min-width: 761px) and (max-width: 1100px) {
+  body.menu-open {
+    overflow: auto !important;
+  }
+
+  .navbar {
+    grid-template-columns: auto minmax(0, 1fr) auto !important;
+    gap: 14px !important;
+    padding-left: 14px !important;
+  }
+
+  .brand-logo {
+    width: 126px !important;
+  }
+
+  .nav-links {
+    display: flex !important;
+    gap: 0 !important;
+    font-size: 12px !important;
+  }
+
+  .nav-links a {
+    padding: 10px 8px !important;
+    white-space: nowrap;
+  }
+
+  .desktop-nav-cta {
+    display: inline-flex !important;
+    padding: 12px 13px !important;
+    font-size: 12px !important;
+    white-space: nowrap;
+  }
+
+  .menu-toggle,
+  .mobile-menu,
+  .mobile-menu-backdrop {
+    display: none !important;
+  }
+}
