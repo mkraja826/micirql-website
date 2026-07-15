@@ -10,6 +10,7 @@ export default defineConfig({
         main: resolve(__dirname, 'index.html'),
         apps: resolve(__dirname, 'apps.html'),
         blogs: resolve(__dirname, 'blogs/index.html'),
+        capdent: resolve(__dirname, 'capdent.html'),
       },
     },
   },
