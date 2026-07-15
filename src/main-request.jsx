@@ -4,6 +4,7 @@ import { clients } from './clients';
 import { RequestForm } from './RequestForm';
 import { ThreeHero } from './ThreeHero';
 import './styles.css';
+import './hero-polish.css';
 import './RequestForm.css';
 
 const micirqlLogoUrl = 'https://pub-a30eed1be922456381eeec57b51e396a.r2.dev/brand/micirql.png';
@@ -94,7 +95,7 @@ function App() {
         </a>
         <nav className="nav-links" aria-label="Main navigation">
           <a href="#work">What we build</a>
-          <a href="/dental-management-system/">CapDent</a>
+          <a href="/capdent/">CapDent</a>
           <a href="/apps/">Apps</a>
           <a href="/blogs/">Insights</a>
         </nav>
@@ -107,7 +108,7 @@ function App() {
           <h1>We turn real-world friction into <span>digital momentum.</span></h1>
           <p>Micirql designs and builds focused software products for clinics, service businesses, and ambitious founders—combining sharp product thinking with reliable execution.</p>
           <div className="hero-actions">
-            <a className="primary-button" href="/dental-management-system/">Explore CapDent <span>↗</span></a>
+            <a className="primary-button" href="/capdent/">Explore CapDent <span>↗</span></a>
             <a className="text-button" href="#work">See our capabilities <span>↓</span></a>
           </div>
           <div className="hero-signal-row" aria-label="Studio strengths">
@@ -150,7 +151,7 @@ function App() {
             <span>Android-first experience</span>
             <span>Free plan available</span>
           </div>
-          <a className="primary-button" href="/dental-management-system/">Enter CapDent <span>↗</span></a>
+          <a className="primary-button" href="/capdent/">Enter CapDent <span>↗</span></a>
         </div>
         <div className="product-console" aria-hidden="true">
           <div className="console-top"><span>CAPDENT / CLINIC CONTROL</span><span className="console-live">● LIVE</span></div>
