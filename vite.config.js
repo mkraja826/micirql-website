@@ -9,7 +9,7 @@ export default defineConfig({
       input: {
         main: resolve(__dirname, 'index.html'),
         apps: resolve(__dirname, 'apps.html'),
-        blogs: resolve(__dirname, 'blogs.html'),
+        blogs: resolve(__dirname, 'blogs/index.html'),
       },
     },
   },
