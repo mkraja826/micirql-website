@@ -3,214 +3,196 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DMS Clinic | Dental Management System Software for Clinics | Micirql</title>
-  <meta name="description" content="DMS Clinic by Micirql is simple dental management software for modern dental clinics. Manage patients, appointments, OP fees, prescriptions, X-rays, pending payments, follow-ups, staff roles, and clinic reports." />
-  <meta name="keywords" content="DMS Clinic, dental management system, dental clinic management software, dental software, dental clinic app, dental practice management software, dental patient management system, dental appointment software, dental billing software, dental software India, Micirql DMS" />
+  <meta name="theme-color" content="#061614" />
+  <title>CapDent | Dental Clinic Management App by Micirql</title>
+  <meta name="description" content="CapDent is an Android-first dental clinic management app by Micirql for patient records, appointments, visits, payments, prescriptions, X-rays, follow-ups, staff roles and clinic reports." />
+  <meta name="keywords" content="CapDent, dental clinic management app, dental software, dental patient records, dental appointments, dental billing, dental clinic reports, clinic management software India, Micirql" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://micirql.com/dental-management-system/" />
   <link rel="icon" type="image/svg+xml" href="/micirql-mark.svg" />
-  <meta property="og:type" content="article" />
+  <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Micirql" />
-  <meta property="og:title" content="DMS Clinic | Dental Management System Software for Clinics" />
-  <meta property="og:description" content="Simple dental clinic management software for patient records, appointments, OP fees, prescriptions, X-rays, pending payments, follow-ups, staff roles, and owner reports." />
+  <meta property="og:title" content="CapDent | Dental Clinic Management App" />
+  <meta property="og:description" content="One practical workspace for patients, visits, payments, clinical uploads, follow-ups, staff and owner reports." />
   <meta property="og:url" content="https://micirql.com/dental-management-system/" />
   <meta property="og:image" content="https://pub-a30eed1be922456381eeec57b51e396a.r2.dev/brand/micirql.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="DMS Clinic | Dental Management System Software" />
-  <meta name="twitter:description" content="Dental clinic management software by Micirql for modern dental clinics." />
+  <meta name="twitter:title" content="CapDent | Dental Clinic Management App" />
+  <meta name="twitter:description" content="A clear digital workflow for everyday dental clinic operations." />
   <meta name="twitter:image" content="https://pub-a30eed1be922456381eeec57b51e396a.r2.dev/brand/micirql.png" />
   <style>
-    :root{--bg:#030712;--panel:rgba(255,255,255,.07);--panel2:rgba(255,255,255,.105);--border:rgba(255,255,255,.13);--text:#f8fafc;--muted:rgba(248,250,252,.7);--soft:rgba(248,250,252,.55);--cyan:#22d3ee;--violet:#8b5cf6;--green:#22c55e}
-    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.65}.page{min-height:100vh;background:radial-gradient(circle at 15% 7%,rgba(34,211,238,.2),transparent 30%),radial-gradient(circle at 84% 14%,rgba(139,92,246,.22),transparent 34%),linear-gradient(180deg,#030712,#07111f 42%,#030712)}a{color:inherit}.wrap{width:min(1140px,calc(100% - 32px));margin:0 auto}.nav{padding:24px 0;display:flex;align-items:center;justify-content:space-between;gap:18px}.brand img{display:block;width:178px;border-radius:14px}.navlinks{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.navlinks a,.btn{border-radius:999px;text-decoration:none;font-weight:900}.navlinks a{padding:10px 15px;color:var(--muted);background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.1)}.navlinks .active{background:#fff;color:#020617}.hero{padding:64px 0 46px;display:grid;grid-template-columns:1.08fr .92fr;gap:42px;align-items:center}.eyebrow{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:999px;color:#a5f3fc;background:rgba(34,211,238,.11);border:1px solid rgba(34,211,238,.25);font-size:14px;font-weight:950}.hero h1{font-size:clamp(43px,7vw,82px);line-height:.94;letter-spacing:-.065em;margin:18px 0}.gradient{background:linear-gradient(135deg,var(--cyan),var(--violet));-webkit-background-clip:text;background-clip:text;color:transparent}.lead{font-size:clamp(17px,2vw,21px);color:var(--muted);max-width:740px}.actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}.btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 20px;border:1px solid rgba(255,255,255,.12)}.primary{background:linear-gradient(135deg,var(--cyan),var(--violet));color:#fff;box-shadow:0 20px 60px rgba(34,211,238,.16)}.secondary{background:rgba(255,255,255,.07);color:#fff}.hero-card{padding:24px;border-radius:34px;background:linear-gradient(145deg,var(--panel2),rgba(255,255,255,.04));border:1px solid var(--border);box-shadow:0 34px 100px rgba(0,0,0,.34)}.workflow{display:grid;gap:13px}.flow-item{padding:16px;border-radius:20px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.11);display:flex;gap:12px;align-items:flex-start}.num{width:30px;height:30px;border-radius:10px;background:linear-gradient(135deg,var(--cyan),var(--violet));display:grid;place-items:center;font-weight:1000;flex:0 0 auto}.flow-item strong{display:block;font-size:15px}.flow-item span{display:block;color:var(--soft);font-size:14px;margin-top:2px}.section{padding:44px 0}.section h2{font-size:clamp(30px,4.5vw,50px);line-height:1.05;letter-spacing:-.04em;margin:0 0 16px}.section p{color:var(--muted);font-size:17px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:24px}.card{padding:22px;border-radius:26px;background:var(--panel);border:1px solid var(--border)}.card h3{margin:0 0 10px;font-size:20px;letter-spacing:-.02em}.card p,.card li{color:var(--muted);margin:0}.card ul{padding-left:20px;margin:0}.two{grid-template-columns:1fr 1fr}.article{max-width:900px;margin:0 auto}.article-block{padding:30px;border-radius:30px;background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.11);margin:18px 0}.article-block h2{font-size:clamp(28px,3.7vw,42px)}.article-block h3{font-size:24px;letter-spacing:-.02em;margin:26px 0 8px}.article-block p{margin:12px 0}.list{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:18px}.pill{padding:13px 14px;border-radius:18px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:var(--muted);font-weight:750}.cta{padding:38px;border-radius:36px;background:linear-gradient(135deg,rgba(34,211,238,.18),rgba(139,92,246,.18));border:1px solid rgba(255,255,255,.16);display:grid;grid-template-columns:1.2fr .8fr;gap:24px;align-items:center}.cta h2{margin:0 0 10px}.faq details{padding:18px 20px;border-radius:22px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.11);margin:12px 0}.faq summary{cursor:pointer;font-weight:950}.faq p{margin:10px 0 0}.footer{padding:34px 0 42px;color:var(--soft);border-top:1px solid rgba(255,255,255,.09)}.footer a{color:#a5f3fc;text-decoration:none}.kicker{color:#67e8f9;font-weight:950;letter-spacing:.08em;text-transform:uppercase;font-size:12px}.note{font-size:14px;color:var(--soft)}@media(max-width:900px){.hero,.grid,.two,.cta{grid-template-columns:1fr}.hero{padding-top:32px}.brand img{width:152px}.nav{align-items:flex-start;flex-direction:column}.list{grid-template-columns:1fr}.hero h1{font-size:46px}.cta{padding:26px}}
+    :root{
+      color-scheme:dark;
+      --bg:#04110f;--bg2:#071b18;--surface:rgba(255,255,255,.065);--surface2:rgba(255,255,255,.105);
+      --line:rgba(213,255,246,.14);--line2:rgba(45,212,191,.34);--text:#f7fffd;--muted:#9db9b3;
+      --teal:#14b8a6;--mint:#5eead4;--green:#34d399;--navy:#102a43;--danger:#fb7185;
+      --shadow:0 40px 120px rgba(0,0,0,.42);--radius:28px;
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    }
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);overflow-x:hidden}
+    body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.38;background-image:linear-gradient(rgba(94,234,212,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(94,234,212,.045) 1px,transparent 1px);background-size:64px 64px;mask-image:linear-gradient(to bottom,#000,transparent 88%)}
+    body:after{content:"";position:fixed;inset:-30%;pointer-events:none;background:radial-gradient(circle at 18% 16%,rgba(20,184,166,.19),transparent 27%),radial-gradient(circle at 82% 12%,rgba(52,211,153,.13),transparent 25%),radial-gradient(circle at 55% 70%,rgba(45,212,191,.08),transparent 28%);filter:blur(20px)}
+    a{color:inherit;text-decoration:none}.page{position:relative;z-index:1}.shell{width:min(1180px,calc(100% - 38px));margin:auto}.section{padding:104px 0}.section-kicker{display:flex;align-items:center;gap:10px;color:var(--mint);font-size:12px;font-weight:900;letter-spacing:.18em;text-transform:uppercase}.section-kicker:before{content:"";width:28px;height:1px;background:var(--mint)}
+    .nav{position:sticky;top:14px;z-index:20;margin-top:14px;padding:12px 14px;display:flex;align-items:center;justify-content:space-between;gap:22px;border:1px solid var(--line);border-radius:999px;background:rgba(4,17,15,.76);backdrop-filter:blur(22px);box-shadow:0 18px 60px rgba(0,0,0,.28)}
+    .brand{display:flex;align-items:center;gap:11px;font-weight:950;letter-spacing:-.03em}.brand-mark{width:42px;height:42px;display:grid;place-items:center;border-radius:15px;background:linear-gradient(145deg,#ecfffb,#a7f3d0);box-shadow:inset 0 0 0 1px rgba(255,255,255,.8),0 12px 28px rgba(20,184,166,.22)}
+    .brand-mark svg{width:27px;height:27px}.brand-copy{display:grid;line-height:1}.brand-copy strong{font-size:18px}.brand-copy small{margin-top:5px;color:var(--muted);font-size:10px;letter-spacing:.12em;text-transform:uppercase}
+    .nav-links{display:flex;align-items:center;gap:4px;color:var(--muted);font-size:13px;font-weight:800}.nav-links a{padding:10px 13px;border-radius:999px}.nav-links a:hover{color:var(--text);background:rgba(255,255,255,.07)}
+    .nav-cta,.button{display:inline-flex;align-items:center;justify-content:center;gap:9px;border-radius:999px;font-weight:900;transition:.22s ease}.nav-cta{padding:12px 17px;color:#03201c;background:linear-gradient(135deg,var(--mint),var(--green));box-shadow:0 12px 38px rgba(45,212,191,.22)}
+    .nav-cta:hover,.button:hover{transform:translateY(-2px)}
+    .hero{min-height:calc(100vh - 90px);display:grid;grid-template-columns:1.04fr .96fr;align-items:center;gap:58px;padding:76px 0 66px}
+    .eyebrow{display:inline-flex;align-items:center;gap:9px;padding:9px 13px;border:1px solid var(--line2);border-radius:999px;color:#c7fff4;background:rgba(20,184,166,.09);font-size:12px;font-weight:900;letter-spacing:.08em;text-transform:uppercase}.live-dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 5px rgba(52,211,153,.12),0 0 24px var(--green)}
+    .hero h1{max-width:760px;margin:22px 0 22px;font-size:clamp(52px,7.8vw,96px);line-height:.91;letter-spacing:-.075em}.hero h1 span{background:linear-gradient(115deg,#f7fffd 10%,var(--mint) 55%,var(--green));-webkit-background-clip:text;background-clip:text;color:transparent}
+    .hero-copy>p{max-width:690px;margin:0;color:var(--muted);font-size:18px;line-height:1.75}.hero-actions{display:flex;flex-wrap:wrap;gap:13px;margin-top:32px}.button{min-height:52px;padding:0 20px;border:1px solid var(--line)}.button.primary{color:#03201c;background:linear-gradient(135deg,var(--mint),var(--green));box-shadow:0 22px 64px rgba(20,184,166,.2)}.button.secondary{background:rgba(255,255,255,.055)}
+    .hero-proof{display:flex;flex-wrap:wrap;gap:9px;margin-top:34px}.hero-proof span{padding:10px 12px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.035);color:#c7dcd8;font-size:12px;font-weight:800}
+    .hero-stage{position:relative;min-height:660px;display:grid;place-items:center;perspective:1600px}.stage-glow{position:absolute;width:440px;height:440px;border-radius:50%;background:radial-gradient(circle,rgba(94,234,212,.28),rgba(20,184,166,.08) 42%,transparent 70%);filter:blur(12px)}
+    .orbit{position:absolute;width:540px;height:540px;border:1px solid rgba(94,234,212,.19);border-radius:50%;transform:rotateX(67deg) rotateZ(-12deg);animation:orbit 18s linear infinite}.orbit:before,.orbit:after{content:"";position:absolute;border-radius:50%;border:1px solid rgba(94,234,212,.12)}.orbit:before{inset:55px}.orbit:after{inset:112px}
+    .device-wrap{position:relative;width:340px;transform-style:preserve-3d;transform:rotateY(-14deg) rotateX(6deg);transition:transform .2s ease-out;z-index:2}.phone{position:relative;height:680px;padding:12px;border-radius:48px;background:linear-gradient(145deg,#d9fff8,#1e4a44 26%,#061614 55%);box-shadow:var(--shadow),inset 0 1px 0 #fff}.phone:before{content:"";position:absolute;top:22px;left:50%;width:94px;height:26px;transform:translateX(-50%);border-radius:999px;background:#03110f;z-index:4}.screen{height:100%;overflow:hidden;border-radius:38px;background:linear-gradient(180deg,#f7fafc,#eef7f6);color:var(--navy);padding:52px 17px 18px}.screen-top{display:flex;justify-content:space-between;align-items:center}.screen-brand{display:flex;align-items:center;gap:8px;font-weight:950}.screen-brand i{width:30px;height:30px;display:grid;place-items:center;border-radius:10px;background:#ddf8f2;color:#0f766e;font-style:normal}.screen-avatar{width:31px;height:31px;border-radius:50%;background:linear-gradient(135deg,#0f766e,#5eead4)}
+    .welcome{margin-top:20px}.welcome small{color:#627d98;font-weight:800}.welcome h3{margin:5px 0 0;font-size:25px;letter-spacing:-.04em}.metric-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:17px}.metric{padding:14px;border-radius:17px;background:#fff;border:1px solid #d8e3ea;box-shadow:0 8px 22px rgba(15,118,110,.07)}.metric small{color:#627d98;font-size:10px;font-weight:900;text-transform:uppercase}.metric strong{display:block;margin-top:7px;font-size:23px}.metric.teal{background:linear-gradient(145deg,#0f766e,#14b8a6);color:#fff;border:0}.metric.teal small{color:#cafff5}.queue{margin-top:14px;padding:15px;border-radius:20px;background:#fff;border:1px solid #d8e3ea}.queue-head{display:flex;justify-content:space-between;font-size:12px;font-weight:900}.queue-head span:last-child{color:#0f766e}.patient-row{display:flex;align-items:center;gap:10px;margin-top:13px;padding:11px;border-radius:15px;background:#eef7f6}.patient-row i{width:35px;height:35px;display:grid;place-items:center;border-radius:12px;background:#ddf8f2;color:#0f766e;font-style:normal;font-weight:950}.patient-row strong,.patient-row small{display:block}.patient-row small{margin-top:3px;color:#627d98;font-size:10px}.bottom-tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:14px}.bottom-tabs span{padding:10px 3px;text-align:center;border-radius:12px;color:#627d98;font-size:9px;font-weight:850}.bottom-tabs span.active{background:#ddf8f2;color:#0f766e}
+    .float-card{position:absolute;z-index:3;width:190px;padding:14px;border:1px solid rgba(255,255,255,.2);border-radius:20px;background:rgba(6,31,27,.78);backdrop-filter:blur(18px);box-shadow:0 24px 60px rgba(0,0,0,.32)}.float-card small,.float-card strong{display:block}.float-card small{color:var(--muted);font-size:9px;font-weight:900;letter-spacing:.14em;text-transform:uppercase}.float-card strong{margin-top:7px;font-size:14px}.float-card.one{top:116px;right:-18px;animation:float 4.8s ease-in-out infinite}.float-card.two{left:-28px;bottom:130px;animation:float 5.6s ease-in-out infinite reverse}.float-card b{display:inline-block;margin-top:9px;color:var(--mint);font-size:11px}
+    .signal-strip{border-block:1px solid var(--line);background:rgba(255,255,255,.025);overflow:hidden}.signal-track{width:max-content;display:flex;gap:30px;align-items:center;padding:16px 0;animation:marquee 26s linear infinite;color:#c1d8d3;font-size:12px;font-weight:900;letter-spacing:.15em}.signal-track i{color:var(--mint);font-style:normal}
+    .section-intro{display:grid;grid-template-columns:1.12fr .88fr;gap:52px;align-items:end;margin-top:18px}.section-intro h2{margin:0;font-size:clamp(40px,6vw,70px);line-height:.96;letter-spacing:-.065em}.section-intro p{margin:0;color:var(--muted);font-size:17px;line-height:1.75}
+    .workflow-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;margin-top:44px}.workflow-card,.feature-card,.role-card,.plan,.trust-card{border:1px solid var(--line);background:var(--surface);backdrop-filter:blur(16px)}.workflow-card{padding:22px;border-radius:24px;min-height:230px;display:flex;flex-direction:column}.workflow-card .index{color:var(--mint);font-size:12px;font-weight:950}.workflow-card h3{margin:46px 0 10px;font-size:21px}.workflow-card p{margin:0;color:var(--muted);line-height:1.65;font-size:14px}.workflow-card .arrow{margin-top:auto;color:var(--mint);font-size:20px}
+    .feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:42px}.feature-card{padding:24px;border-radius:26px;transition:.25s ease}.feature-card:hover{transform:translateY(-5px);border-color:var(--line2);background:var(--surface2)}.feature-icon{width:46px;height:46px;display:grid;place-items:center;border-radius:16px;background:rgba(20,184,166,.12);color:var(--mint);font-size:20px}.feature-card h3{margin:22px 0 10px;font-size:20px}.feature-card p{margin:0;color:var(--muted);line-height:1.65;font-size:14px}
+    .product-section{display:grid;grid-template-columns:.9fr 1.1fr;gap:36px;align-items:center}.product-copy h2{margin:16px 0 20px;font-size:clamp(42px,5.5vw,68px);line-height:.96;letter-spacing:-.06em}.product-copy>p{color:var(--muted);line-height:1.75}.check-list{display:grid;gap:10px;margin:26px 0}.check-list span{display:flex;align-items:center;gap:10px;color:#d2e7e2;font-size:14px;font-weight:800}.check-list span:before{content:"✓";width:25px;height:25px;display:grid;place-items:center;border-radius:9px;background:rgba(52,211,153,.13);color:var(--green)}
+    .console{padding:20px;border:1px solid var(--line);border-radius:34px;background:linear-gradient(145deg,rgba(255,255,255,.11),rgba(255,255,255,.035));box-shadow:var(--shadow)}.console-top{display:flex;align-items:center;justify-content:space-between;padding:4px 4px 18px;color:var(--muted);font-size:11px;font-weight:900;letter-spacing:.12em}.console-live{color:var(--green)}.console-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:12px}.console-card{padding:18px;border-radius:22px;background:rgba(2,16,14,.72);border:1px solid var(--line);min-height:150px}.console-card.large{grid-row:span 2}.console-card small{color:var(--muted);font-size:9px;font-weight:900;letter-spacing:.13em}.console-card h3{margin:12px 0 4px;font-size:24px}.bar{height:7px;margin-top:18px;border-radius:999px;background:rgba(255,255,255,.08);overflow:hidden}.bar i{display:block;height:100%;width:78%;border-radius:inherit;background:linear-gradient(90deg,var(--teal),var(--green))}.mini-list{display:grid;gap:8px;margin-top:18px}.mini-list span{display:flex;justify-content:space-between;padding:10px;border-radius:13px;background:rgba(255,255,255,.045);color:#cde2dd;font-size:11px}.mini-list b{color:var(--mint)}.console-number{display:block;margin-top:12px;font-size:34px;letter-spacing:-.05em}.console-card em{display:block;margin-top:9px;color:var(--muted);font-size:11px;font-style:normal}
+    .roles-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}.role-card{padding:26px;border-radius:27px}.role-label{display:inline-flex;padding:7px 10px;border-radius:999px;background:rgba(20,184,166,.1);color:var(--mint);font-size:10px;font-weight:950;letter-spacing:.1em}.role-card h3{margin:22px 0 11px;font-size:24px}.role-card p{margin:0;color:var(--muted);line-height:1.7}.role-card ul{margin:20px 0 0;padding-left:19px;color:#cbdeda}.role-card li{margin:8px 0;font-size:13px}
+    .pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:42px}.plan{position:relative;padding:27px;border-radius:29px;display:flex;flex-direction:column}.plan.popular{border-color:rgba(94,234,212,.48);background:linear-gradient(160deg,rgba(20,184,166,.16),rgba(255,255,255,.055));box-shadow:0 26px 80px rgba(20,184,166,.12)}.plan-badge{position:absolute;top:17px;right:17px;padding:6px 9px;border-radius:999px;background:var(--mint);color:#04221e;font-size:9px;font-weight:950;letter-spacing:.1em}.plan h3{margin:0;font-size:23px}.plan>p{min-height:69px;color:var(--muted);line-height:1.6;font-size:13px}.price{margin:10px 0 23px;font-size:38px;font-weight:950;letter-spacing:-.05em}.price small{font-size:13px;color:var(--muted);letter-spacing:0}.plan ul{padding-left:19px;margin:0 0 26px;color:#cfe2de}.plan li{margin:9px 0;font-size:13px}.plan .button{margin-top:auto}.fine-print{margin-top:18px;color:var(--muted);font-size:12px;line-height:1.6}
+    .trust-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:16px;margin-top:40px}.trust-card{padding:28px;border-radius:28px}.trust-card h3{margin:0 0 12px;font-size:27px}.trust-card p{margin:0;color:var(--muted);line-height:1.75}.trust-points{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:22px}.trust-points span{padding:13px;border:1px solid var(--line);border-radius:15px;color:#d0e4df;font-size:12px;font-weight:800}
+    .faq{max-width:900px}.faq details{border-bottom:1px solid var(--line);padding:22px 0}.faq summary{cursor:pointer;list-style:none;font-size:18px;font-weight:900}.faq summary::-webkit-details-marker{display:none}.faq summary:after{content:"+";float:right;color:var(--mint)}.faq details[open] summary:after{content:"−"}.faq p{max-width:780px;margin:13px 0 0;color:var(--muted);line-height:1.75}
+    .cta{margin-bottom:90px;padding:46px;border:1px solid rgba(94,234,212,.25);border-radius:38px;background:radial-gradient(circle at 80% 15%,rgba(52,211,153,.2),transparent 31%),linear-gradient(135deg,rgba(20,184,166,.17),rgba(255,255,255,.045));display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:center}.cta h2{margin:8px 0 13px;font-size:clamp(38px,5vw,62px);line-height:.96;letter-spacing:-.06em}.cta p{margin:0;color:var(--muted);line-height:1.7}.cta-actions{display:flex;justify-content:flex-end;flex-wrap:wrap;gap:12px}
+    .footer{padding:28px 0 42px;border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:18px;color:var(--muted);font-size:12px}.footer-links{display:flex;gap:16px}.footer a:hover{color:var(--mint)}
+    .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}.reveal.visible{opacity:1;transform:none}
+    @keyframes orbit{to{transform:rotateX(67deg) rotateZ(348deg)}}@keyframes float{50%{transform:translateY(-13px)}}@keyframes marquee{to{transform:translateX(-50%)}}
+    @media(max-width:1000px){.nav-links{display:none}.hero,.section-intro,.product-section,.trust-grid,.cta{grid-template-columns:1fr}.hero{padding-top:54px}.hero-stage{min-height:610px}.workflow-grid{grid-template-columns:repeat(2,1fr)}.feature-grid,.roles-grid,.pricing-grid{grid-template-columns:repeat(2,1fr)}.pricing-grid .plan:last-child{grid-column:span 2}.cta-actions{justify-content:flex-start}}
+    @media(max-width:680px){.shell{width:min(100% - 24px,1180px)}.nav{top:8px;margin-top:8px}.brand-copy small{display:none}.nav-cta{padding:11px 13px;font-size:12px}.hero{padding-top:46px}.hero h1{font-size:50px}.hero-copy>p{font-size:16px}.hero-stage{min-height:520px}.device-wrap{width:270px}.phone{height:540px;border-radius:39px}.screen{padding:48px 13px 13px;border-radius:31px}.metric strong{font-size:18px}.patient-row:nth-of-type(3){display:none}.float-card{width:156px}.float-card.one{right:-6px}.float-card.two{left:-7px;bottom:74px}.orbit{width:390px;height:390px}.section{padding:76px 0}.section-intro h2,.product-copy h2{font-size:42px}.workflow-grid,.feature-grid,.roles-grid,.pricing-grid,.trust-points,.console-grid{grid-template-columns:1fr}.pricing-grid .plan:last-child{grid-column:auto}.workflow-card{min-height:205px}.console-card.large{grid-row:auto}.cta{padding:28px;margin-bottom:60px}.footer{align-items:flex-start;flex-direction:column}.hero-proof{display:grid;grid-template-columns:repeat(2,1fr)}.hero-proof span{text-align:center}.signal-track{animation-duration:18s}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.orbit,.float-card,.signal-track{animation:none}.reveal{opacity:1;transform:none}.device-wrap{transition:none}}
   </style>
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
     "@graph":[
-      {
-        "@type":"Organization",
-        "name":"Micirql",
-        "url":"https://micirql.com/",
-        "logo":"https://pub-a30eed1be922456381eeec57b51e396a.r2.dev/brand/micirql.png",
-        "sameAs":["https://www.linkedin.com/company/micirql/"]
-      },
-      {
-        "@type":"SoftwareApplication",
-        "name":"DMS Clinic",
-        "applicationCategory":"BusinessApplication",
-        "operatingSystem":"Android",
-        "url":"https://micirql.com/dental-management-system/",
-        "publisher":{"@type":"Organization","name":"Micirql"},
-        "description":"DMS Clinic is dental clinic management software for patient records, appointments, OP fees, prescriptions, X-rays, pending payments, follow-ups, staff roles, and clinic reports.",
-        "offers":{"@type":"Offer","price":"0","priceCurrency":"INR","availability":"https://schema.org/InStock"}
-      },
-      {
-        "@type":"FAQPage",
-        "mainEntity":[
-          {"@type":"Question","name":"What is DMS Clinic?","acceptedAnswer":{"@type":"Answer","text":"DMS Clinic is dental management software by Micirql for managing patient records, appointments, OP fees, doctor visits, prescriptions, X-rays, pending payments, follow-ups, staff roles, and clinic reports."}},
-          {"@type":"Question","name":"Who can use DMS Clinic?","acceptedAnswer":{"@type":"Answer","text":"DMS Clinic is suitable for single-doctor dental clinics, small dental clinics, multi-staff clinics, and clinics moving from paper records to digital workflow."}},
-          {"@type":"Question","name":"Does DMS Clinic replace the doctor’s diagnosis?","acceptedAnswer":{"@type":"Answer","text":"No. DMS Clinic does not diagnose patients or replace clinical judgment. It helps clinics organize records, payments, appointments, prescriptions, uploads, follow-ups, and daily workflow."}}
-        ]
-      }
+      {"@type":"Organization","name":"Micirql","url":"https://micirql.com/","logo":"https://pub-a30eed1be922456381eeec57b51e396a.r2.dev/brand/micirql.png","sameAs":["https://www.linkedin.com/company/micirql/"]},
+      {"@type":"SoftwareApplication","name":"CapDent","applicationCategory":"BusinessApplication","operatingSystem":"Android","url":"https://micirql.com/dental-management-system/","publisher":{"@type":"Organization","name":"Micirql"},"description":"CapDent is dental clinic management software for patient records, appointments, visits, payments, prescriptions, X-rays, photos, follow-ups, staff roles and clinic reports.","offers":[{"@type":"Offer","name":"Free","price":"0","priceCurrency":"INR"},{"@type":"Offer","name":"CapDent Professional","price":"799","priceCurrency":"INR"},{"@type":"Offer","name":"CapDent Clinic Intelligence","price":"1500","priceCurrency":"INR"}]},
+      {"@type":"FAQPage","mainEntity":[
+        {"@type":"Question","name":"What is CapDent?","acceptedAnswer":{"@type":"Answer","text":"CapDent is a dental clinic management app by Micirql for organizing patient records, appointments, visits, payments, clinical uploads, follow-ups, staff and reports."}},
+        {"@type":"Question","name":"Who can use CapDent?","acceptedAnswer":{"@type":"Answer","text":"CapDent supports clinic owners or head doctors, working doctors and receptionists through role-based workflows."}},
+        {"@type":"Question","name":"Does CapDent diagnose patients?","acceptedAnswer":{"@type":"Answer","text":"No. CapDent organizes clinic workflow and records. Diagnosis and treatment decisions remain with qualified dental professionals."}}
+      ]}
     ]
   }
   </script>
 </head>
 <body>
   <main class="page">
-    <header class="wrap nav">
-      <a class="brand" href="/" aria-label="Micirql home"><img src="https://pub-a30eed1be922456381eeec57b51e396a.r2.dev/brand/micirql.png" alt="Micirql" /></a>
-      <nav class="navlinks" aria-label="Main navigation">
-        <a href="/">Home</a>
-        <a class="active" href="/dental-management-system/">DMS Clinic</a>
-        <a href="/apps/">Apps</a>
-        <a href="/#contact">Request Demo</a>
-      </nav>
+    <header class="nav shell">
+      <a class="brand" href="/" aria-label="Micirql home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 64 64" fill="none"><path d="M18 10c6-3 10 2 14 2s8-5 14-2c9 4 9 15 5 25-3 7-4 19-10 19-5 0-4-12-9-12s-4 12-9 12c-6 0-7-12-10-19-4-10-4-21 5-25Z" fill="#0F766E"/><path d="M22 17c3 3 6 4 10 4s7-1 10-4" stroke="#DDF8F2" stroke-width="4" stroke-linecap="round"/></svg>
+        </span>
+        <span class="brand-copy"><strong>CapDent</strong><small>by Micirql</small></span>
+      </a>
+      <nav class="nav-links" aria-label="CapDent navigation"><a href="#workflow">Workflow</a><a href="#features">Features</a><a href="#roles">Roles</a><a href="#pricing">Plans</a><a href="#faq">FAQ</a></nav>
+      <a class="nav-cta" href="https://play.google.com/store/apps/details?id=com.dms.clinic" target="_blank" rel="noreferrer">Open Google Play ↗</a>
     </header>
 
-    <section class="wrap hero">
-      <div>
-        <span class="eyebrow">Dental Management System Software</span>
-        <h1>DMS Clinic: Simple Dental Management Software for <span class="gradient">Modern Dental Clinics</span></h1>
-        <p class="lead">DMS Clinic is a dental management system built to make daily clinic work simple, organized, and faster. It helps dental clinics manage patient records, OP fees, appointments, prescriptions, X-rays, pending payments, follow-ups, staff work, and owner reports from one clean workflow.</p>
-        <div class="actions">
-          <a class="btn primary" href="/#contact">Request a Demo</a>
-          <a class="btn secondary" href="/apps/">View Android App</a>
+    <section class="hero shell" id="home">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="live-dot"></span> Dental clinic management · Android-first</div>
+        <h1>Your clinic flow, finally <span>under control.</span></h1>
+        <p>CapDent brings patient records, visits, appointments, payments, prescriptions, X-rays, follow-ups, staff access and owner reports into one practical workspace built around the way dental clinics actually operate.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="https://play.google.com/store/apps/details?id=com.dms.clinic" target="_blank" rel="noreferrer">Get CapDent <span>↗</span></a>
+          <a class="button secondary" href="/#contact">Request a guided demo</a>
         </div>
+        <div class="hero-proof"><span>Role-based access</span><span>Clinical uploads</span><span>Payment tracking</span><span>Owner reports</span></div>
       </div>
-      <aside class="hero-card" aria-label="DMS Clinic workflow">
-        <div class="workflow">
-          <div class="flow-item"><div class="num">1</div><div><strong>Reception check-in</strong><span>Add patient details, collect OP fee, and send the patient to the waiting queue.</span></div></div>
-          <div class="flow-item"><div class="num">2</div><div><strong>Doctor visit</strong><span>Open patient history, add visit details, upload prescription, X-ray, or clinical photos.</span></div></div>
-          <div class="flow-item"><div class="num">3</div><div><strong>Payments and follow-up</strong><span>Track treatment payments, pending amounts, appointment dates, and review visits.</span></div></div>
-          <div class="flow-item"><div class="num">4</div><div><strong>Owner dashboard</strong><span>Review patient count, daily revenue, staff activity, and clinic workflow.</span></div></div>
+
+      <div class="hero-stage" aria-label="CapDent mobile dashboard preview">
+        <div class="stage-glow"></div><div class="orbit"></div>
+        <div class="device-wrap" id="capdent-device">
+          <div class="phone"><div class="screen">
+            <div class="screen-top"><div class="screen-brand"><i>✦</i> CapDent</div><div class="screen-avatar"></div></div>
+            <div class="welcome"><small>Good morning, Doctor</small><h3>Clinic overview</h3></div>
+            <div class="metric-grid"><div class="metric teal"><small>Today</small><strong>18</strong><span>patients</span></div><div class="metric"><small>Waiting</small><strong>04</strong><span>in queue</span></div><div class="metric"><small>Collected</small><strong>₹8,450</strong></div><div class="metric"><small>Follow-ups</small><strong>07</strong></div></div>
+            <div class="queue"><div class="queue-head"><span>Waiting queue</span><span>View all</span></div><div class="patient-row"><i>AK</i><div><strong>Anil Kumar</strong><small>RCT review · 10:30 AM</small></div></div><div class="patient-row"><i>SM</i><div><strong>Sana Mirza</strong><small>Consultation · 10:45 AM</small></div></div></div>
+            <div class="bottom-tabs"><span class="active">Home</span><span>Patients</span><span>Queue</span><span>More</span></div>
+          </div></div>
+          <div class="float-card one"><small>Record status</small><strong>Prescription uploaded</strong><b>Patient profile synced</b></div>
+          <div class="float-card two"><small>Clinic signal</small><strong>7 follow-ups ready</strong><b>Review today →</b></div>
         </div>
-      </aside>
-    </section>
-
-    <section class="wrap section">
-      <div class="grid">
-        <article class="card"><h3>Patient Records</h3><p>Store patient details, phone number, age, gender, address, medical history, visit history, prescriptions, and treatment records.</p></article>
-        <article class="card"><h3>Queue and Appointments</h3><p>Manage patient check-in, waiting queue, completed visits, next appointment dates, and follow-up reminders.</p></article>
-        <article class="card"><h3>Payments and Reports</h3><p>Track OP fee, treatment payments, medication fees, X-ray fees, pending amounts, and owner revenue reports.</p></article>
-      </div>
-    </section>
-
-    <section class="wrap article section">
-      <article class="article-block">
-        <p class="kicker">Overview</p>
-        <h2>Managing a dental clinic needs more than paper files</h2>
-        <p>Managing a dental clinic is not only about treating patients. Every day, a clinic has to handle patient records, OP fees, appointments, prescriptions, X-rays, pending payments, follow-ups, staff work, and owner reports. When all this is handled through paper files or scattered WhatsApp messages, it becomes difficult to track everything properly.</p>
-        <p>DMS Clinic is designed especially for dental clinics where receptionists, doctors, and clinic owners work together. The goal is not to make clinic work complicated with too many unnecessary features. The goal is to create a clean digital workflow that saves time and keeps patient records easy to find.</p>
-      </article>
-
-      <article class="article-block">
-        <p class="kicker">What is DMS Clinic?</p>
-        <h2>Dental clinic management software for daily workflow</h2>
-        <p>DMS Clinic helps clinics manage patient records, appointments, OP fee collection, doctor visits, prescriptions, X-rays, before and after photos, pending payments, follow-up reminders, clinic revenue, and staff roles.</p>
-        <p>Instead of searching through paper files, the clinic team can open a patient profile and see important details in one place.</p>
-        <div class="list">
-          <div class="pill">Patient records</div><div class="pill">Appointments</div><div class="pill">OP fee collection</div><div class="pill">Doctor visits</div><div class="pill">Prescriptions</div><div class="pill">X-rays and photos</div><div class="pill">Pending payments</div><div class="pill">Follow-up reminders</div><div class="pill">Clinic revenue</div><div class="pill">Staff roles</div>
-        </div>
-      </article>
-
-      <article class="article-block">
-        <p class="kicker">Why clinics need it</p>
-        <h2>Common problems in paper-based dental clinics</h2>
-        <p>Many dental clinics still depend on paper records. This works in the beginning, but as patient visits increase, problems start appearing.</p>
-        <div class="grid two">
-          <div class="card"><ul><li>Old patient files are hard to find</li><li>Pending payments are forgotten</li><li>Follow-up patients are missed</li><li>Prescription photos are not organized</li></ul></div>
-          <div class="card"><ul><li>X-rays are stored in different places</li><li>Owner cannot easily check daily revenue</li><li>Reception and doctor workflow becomes confusing</li><li>Daily patient reports become inaccurate</li></ul></div>
-        </div>
-        <p>DMS Clinic is built to solve these daily clinic problems with a simple, role-based workflow.</p>
-      </article>
-
-      <article class="article-block">
-        <p class="kicker">Workflow</p>
-        <h2>How DMS Clinic works</h2>
-        <p>When a patient comes to the clinic, the receptionist adds the patient details and collects the OP fee. The patient then appears in the waiting queue for the doctor.</p>
-        <p>The doctor opens the patient profile, adds the visit details, uploads prescription or X-ray files, and schedules the next appointment if needed.</p>
-        <p>The owner can later check patient count, revenue, pending payments, and clinic activity.</p>
-        <p><strong>Simple flow:</strong> Reception → Patient check-in → Doctor visit → Prescription/X-ray upload → Payment → Follow-up.</p>
-      </article>
-    </section>
-
-    <section class="wrap section">
-      <p class="kicker">Key Features</p>
-      <h2>Features built for dental clinic operations</h2>
-      <div class="grid">
-        <article class="card"><h3>1. Patient Management</h3><p>DMS Clinic stores patient details like name, phone number, age, gender, address, and medical history. Old patients can be added and managed properly. When an old patient visits again, the system can count them in that day’s patient list based on their visit.</p></article>
-        <article class="card"><h3>2. Appointment and Waiting Queue</h3><p>Reception staff can check in patients and send them to the doctor queue. Doctors can easily see who is waiting. Once the doctor adds a visit, the patient is marked as completed and removed from the waiting queue.</p></article>
-        <article class="card"><h3>3. OP Fee and Payment Tracking</h3><p>Track OP fees, treatment payments, medication fees, X-ray fees, and pending payments. Clinic owners can view today’s revenue, pending amount, OP fee collection, treatment collection, and pending payment collection.</p></article>
-        <article class="card"><h3>4. Prescription and X-ray Uploads</h3><p>Doctors or clinic staff can upload prescription photos, X-rays, reports, and before/after photos. Visual dental records stay connected to the correct patient profile instead of being scattered in phone galleries.</p></article>
-        <article class="card"><h3>5. Follow-up Reminders</h3><p>Dental treatments often need follow-up visits. DMS Clinic helps track follow-up dates for root canals, braces, extractions, implants, crowns, and review visits.</p></article>
-        <article class="card"><h3>6. Role-Based Access</h3><p>DMS Clinic supports Owner / Head Doctor, Working Doctor, and Receptionist roles. Reception handles patient entry and payments, doctors handle visits and clinical records, and owners review activity and revenue.</p></article>
       </div>
     </section>
 
-    <section class="wrap section">
-      <div class="grid two">
-        <article class="card">
-          <h2>Benefits of DMS Clinic</h2>
-          <p>DMS Clinic helps dental clinics become more organized without making the workflow difficult.</p>
-          <ul>
-            <li>Faster patient check-in</li><li>Easy patient history access</li><li>Better payment tracking</li><li>Organized prescriptions and X-rays</li><li>Clear waiting queue</li><li>Follow-up management</li><li>Daily patient count</li><li>Clinic owner dashboard</li><li>Less paper dependency</li><li>Better staff coordination</li>
-          </ul>
-        </article>
-        <article class="card">
-          <h2>Built for Indian Dental Clinics</h2>
-          <p>DMS Clinic is designed with real Indian dental clinic workflows in mind. It supports OP fee collection, pending payments, prescription photo uploads, X-ray records, old patient management, and staff-based clinic operations.</p>
-          <ul>
-            <li>Single-doctor dental clinics</li><li>Small dental clinics</li><li>Multi-staff clinics</li><li>Clinics with receptionists and working doctors</li><li>Clinics moving from paper records to digital records</li>
-          </ul>
-        </article>
+    <section class="signal-strip" aria-label="CapDent capabilities"><div class="signal-track"><span>PATIENT RECORDS</span><i>✦</i><span>WAITING QUEUE</span><i>✦</i><span>VISIT HISTORY</span><i>✦</i><span>PRESCRIPTIONS</span><i>✦</i><span>X-RAYS & PHOTOS</span><i>✦</i><span>PAYMENTS</span><i>✦</i><span>FOLLOW-UPS</span><i>✦</i><span>CLINIC REPORTS</span><i>✦</i><span>PATIENT RECORDS</span><i>✦</i><span>WAITING QUEUE</span><i>✦</i><span>VISIT HISTORY</span><i>✦</i><span>PRESCRIPTIONS</span><i>✦</i><span>X-RAYS & PHOTOS</span><i>✦</i><span>PAYMENTS</span><i>✦</i><span>FOLLOW-UPS</span><i>✦</i><span>CLINIC REPORTS</span></div></section>
+
+    <section class="section shell reveal" id="workflow">
+      <div class="section-kicker">The clinic day</div><div class="section-intro"><h2>One connected flow from reception to review.</h2><p>CapDent is designed around daily clinic movement, not around complex enterprise menus. Each role sees the work needed to move a patient forward.</p></div>
+      <div class="workflow-grid">
+        <article class="workflow-card"><span class="index">01 / CHECK-IN</span><h3>Register and receive</h3><p>Add a new or returning patient, collect the required fee and move the patient into the clinic queue.</p><span class="arrow">→</span></article>
+        <article class="workflow-card"><span class="index">02 / CONSULT</span><h3>Open the full history</h3><p>Review medical history, previous visits and patient files before adding the current clinical visit.</p><span class="arrow">→</span></article>
+        <article class="workflow-card"><span class="index">03 / RECORD</span><h3>Keep evidence together</h3><p>Attach prescriptions, X-rays, reports and patient photos directly to the correct patient profile.</p><span class="arrow">→</span></article>
+        <article class="workflow-card"><span class="index">04 / FOLLOW-UP</span><h3>Close the loop</h3><p>Record payments, set the next appointment and review reminders, pending work and clinic reports.</p><span class="arrow">✓</span></article>
       </div>
     </section>
 
-    <section class="wrap article section">
-      <article class="article-block">
-        <p class="kicker">Why DMS Clinic is different</p>
-        <h2>Simple software built around real clinic flow</h2>
-        <p>Many clinic software systems become too complicated. DMS Clinic focuses on the actual daily workflow of a dental clinic.</p>
-        <p>The system is built around one simple idea: <strong>make clinic work faster, clearer, and easier to manage.</strong></p>
-        <p>It does not try to replace the doctor’s judgment. It does not claim to diagnose patients. It simply helps clinics store, manage, and track their daily work in a better way.</p>
-      </article>
-
-      <article class="article-block">
-        <p class="kicker">Final Thoughts</p>
-        <h2>A smoother digital workflow for dental clinics</h2>
-        <p>A dental clinic needs more than treatment skills to run smoothly. It also needs good patient record management, payment tracking, appointment planning, staff coordination, and follow-up discipline.</p>
-        <p>DMS Clinic helps dental clinics move from paper-based work to a simple digital workflow. For clinics that want better organization without unnecessary complexity, DMS Clinic is a practical first step.</p>
-      </article>
-    </section>
-
-    <section class="wrap section faq">
-      <p class="kicker">FAQ</p>
-      <h2>Dental Management System FAQ</h2>
-      <details open><summary>What is DMS Clinic?</summary><p>DMS Clinic is a dental management system by Micirql that helps dental clinics manage patient records, appointments, OP fees, doctor visits, prescriptions, X-rays, pending payments, follow-ups, staff roles, and clinic reports.</p></details>
-      <details><summary>Is DMS Clinic suitable for small dental clinics?</summary><p>Yes. DMS Clinic is built for single-doctor clinics, small dental clinics, multi-staff clinics, and clinics moving from paper files to digital records.</p></details>
-      <details><summary>Can DMS Clinic manage pending payments?</summary><p>Yes. DMS Clinic helps track OP fees, treatment payments, medication fees, X-ray fees, pending amounts, and pending payment collection.</p></details>
-      <details><summary>Does DMS Clinic provide diagnosis?</summary><p>No. DMS Clinic is not a diagnosis tool and does not replace a doctor’s clinical judgment. It is software for organizing clinic workflow, records, appointments, uploads, payments, and follow-ups.</p></details>
-    </section>
-
-    <section class="wrap section">
-      <div class="cta">
-        <div>
-          <p class="kicker">Micirql DMS</p>
-          <h2>Want to digitize your dental clinic workflow?</h2>
-          <p>DMS Clinic is available as an Android app for pilot testing and demo discussions.</p>
-        </div>
-        <div class="actions">
-          <a class="btn primary" href="/#contact">Request Demo</a>
-          <a class="btn secondary" href="/apps/">Download APK</a>
-        </div>
+    <section class="section shell reveal" id="features">
+      <div class="section-kicker">Real product scope</div><div class="section-intro"><h2>Built for records, revenue and reliable follow-up.</h2><p>The public product page reflects the workflows already present inside CapDent, including role-specific dashboards and operational reports.</p></div>
+      <div class="feature-grid">
+        <article class="feature-card"><div class="feature-icon">◉</div><h3>Patient profiles</h3><p>Manage patient details, medical history, medications, visit history and ongoing treatment information.</p></article>
+        <article class="feature-card"><div class="feature-icon">⌁</div><h3>Appointments & queue</h3><p>Book appointments, check patients in and keep the doctor-facing waiting flow clear.</p></article>
+        <article class="feature-card"><div class="feature-icon">✚</div><h3>Clinical visits</h3><p>Add visit records and keep each consultation connected to the patient’s complete timeline.</p></article>
+        <article class="feature-card"><div class="feature-icon">▧</div><h3>Prescriptions & X-rays</h3><p>Upload prescriptions, X-rays, reports and patient photos through focused upload workflows.</p></article>
+        <article class="feature-card"><div class="feature-icon">₹</div><h3>Payments</h3><p>Collect consultation, OP, medication and treatment payments while tracking pending amounts.</p></article>
+        <article class="feature-card"><div class="feature-icon">↻</div><h3>Reminders & follow-ups</h3><p>Review upcoming patient follow-ups and keep ongoing treatment work visible.</p></article>
+        <article class="feature-card"><div class="feature-icon">▥</div><h3>Clinic reports</h3><p>Review clinic activity, payments, treatments, follow-ups and staff performance from dedicated reports.</p></article>
+        <article class="feature-card"><div class="feature-icon">♙</div><h3>Staff management</h3><p>Add staff and organize access for clinic owners, working doctors and receptionists.</p></article>
+        <article class="feature-card"><div class="feature-icon">✦</div><h3>Branding & gallery</h3><p>Maintain clinic branding and gallery content alongside the core operational workspace.</p></article>
       </div>
-      <p class="note">Note: DMS Clinic is a clinic workflow and record-management system. It is not a medical diagnosis system.</p>
     </section>
 
-    <footer class="wrap footer">
-      <p>© Micirql. Building problem-focused digital solutions. <a href="/">Home</a> · <a href="/apps/">Apps</a> · <a href="https://www.linkedin.com/company/micirql/" target="_blank" rel="noreferrer">LinkedIn</a></p>
-    </footer>
+    <section class="section shell product-section reveal">
+      <div class="product-copy"><div class="section-kicker">Owner visibility</div><h2>Know what is moving—and what needs attention.</h2><p>CapDent gives owners and head doctors operational visibility without turning the clinic into a spreadsheet. Daily activity, revenue, follow-ups, treatments and staff performance stay reviewable.</p><div class="check-list"><span>Daily clinic activity and patient movement</span><span>Payment and pending collection reports</span><span>Follow-up and treatment review</span><span>Staff performance visibility</span></div><a class="button secondary" href="#pricing">Compare plans ↓</a></div>
+      <div class="console" aria-label="CapDent reports preview"><div class="console-top"><span>CAPDENT / CLINIC CONTROL</span><span class="console-live">● SYNCED</span></div><div class="console-grid"><div class="console-card large"><small>TODAY'S CLINIC FLOW</small><h3>18 patients</h3><div class="bar"><i></i></div><div class="mini-list"><span>Completed <b>12</b></span><span>Waiting <b>04</b></span><span>Follow-up booked <b>07</b></span><span>Pending review <b>02</b></span></div></div><div class="console-card"><small>COLLECTION</small><strong class="console-number">₹8,450</strong><em>Consultation + treatment</em></div><div class="console-card"><small>FOLLOW-UP HEALTH</small><strong class="console-number">87%</strong><em>Patients organized</em></div></div></div>
+    </section>
+
+    <section class="section shell reveal" id="roles">
+      <div class="section-kicker">Role-based workspace</div><div class="section-intro"><h2>The right work for each clinic role.</h2><p>CapDent separates responsibilities so reception, doctors and owners can work inside the same clinic system without seeing a confusing one-size-fits-all dashboard.</p></div>
+      <div class="roles-grid"><article class="role-card"><span class="role-label">OWNER / HEAD DOCTOR</span><h3>Control and review</h3><p>Oversee the clinic, staff access, reports, payments, treatments and overall workflow.</p><ul><li>Owner dashboard and clinic reports</li><li>Staff management</li><li>Revenue and activity review</li></ul></article><article class="role-card"><span class="role-label">WORKING DOCTOR</span><h3>Clinical continuity</h3><p>Open patient records, review history, add visits and keep clinical files organized.</p><ul><li>Patient history and visits</li><li>Prescriptions and X-rays</li><li>Follow-ups and ongoing treatments</li></ul></article><article class="role-card"><span class="role-label">RECEPTIONIST</span><h3>Fast front-desk flow</h3><p>Handle patient entry, check-in, appointments and fee collection without clinical complexity.</p><ul><li>Patient check-in and queue</li><li>Appointments</li><li>Reception and OP fees</li></ul></article></div>
+    </section>
+
+    <section class="section shell reveal" id="pricing">
+      <div class="section-kicker">Simple plans</div><div class="section-intro"><h2>Start free. Upgrade as the clinic grows.</h2><p>Core clinic work remains available on the Free plan. Paid plans are managed through Google Play inside the Android app.</p></div>
+      <div class="pricing-grid">
+        <article class="plan"><h3>Free</h3><p>For a new single-owner clinic that wants to start clean without costly software.</p><div class="price">₹0</div><ul><li>Core clinic management</li><li>Patient and daily workflow foundation</li><li>Upgrade remains optional</li></ul><a class="button secondary" href="https://play.google.com/store/apps/details?id=com.dms.clinic" target="_blank" rel="noreferrer">Start free</a></article>
+        <article class="plan popular"><span class="plan-badge">POPULAR</span><h3>Professional</h3><p>For growing clinics that need unlimited core work, owner controls, reminders and an organized daily workflow.</p><div class="price">₹799 <small>/ month</small></div><ul><li>Professional clinic workflow</li><li>Owner controls and reminders</li><li>Google Play monthly billing</li></ul><a class="button primary" href="https://play.google.com/store/apps/details?id=com.dms.clinic" target="_blank" rel="noreferrer">Start in the app</a></article>
+        <article class="plan"><h3>Clinic Intelligence</h3><p>For clinics that need deeper owner analytics, clinic-flow review and advanced operational direction.</p><div class="price">₹1,500 <small>/ month</small></div><ul><li>Advanced owner analytics</li><li>Clinic flow and revenue quality</li><li>Google Play monthly billing</li></ul><a class="button secondary" href="/#contact">Discuss this plan</a></article>
+      </div>
+      <p class="fine-print">Professional is configured with a 3-month free trial through Google Play for eligible subscriptions, followed by ₹799/month auto-renewal. Google Play controls offer eligibility and billing. Plans can be cancelled through Play Store subscriptions.</p>
+    </section>
+
+    <section class="section shell reveal">
+      <div class="section-kicker">Responsible clinic software</div><div class="trust-grid"><article class="trust-card"><h3>Designed for authorized clinic use.</h3><p>CapDent uses authenticated, role-based access and keeps clinic records in a connected backend workflow. Clinic owners remain responsible for staff access, credential security and appropriate handling of patient information.</p><div class="trust-points"><span>Role-based access</span><span>Account deletion support</span><span>Privacy and terms pages</span><span>Issue reporting</span></div></article><article class="trust-card"><h3>It supports care. It does not replace it.</h3><p>CapDent is an administrative and record-management tool. It does not provide a diagnosis or replace the clinical judgment of a qualified dental professional.</p></article></div>
+    </section>
+
+    <section class="section shell faq reveal" id="faq">
+      <div class="section-kicker">FAQ</div><h2 style="font-size:clamp(38px,5vw,62px);letter-spacing:-.06em;margin:18px 0 30px">Questions clinics ask before switching.</h2>
+      <details open><summary>What is CapDent?</summary><p>CapDent is a dental clinic management app by Micirql. It organizes patient records, appointments, visits, fees, payments, prescriptions, X-rays, photos, reminders, staff workflows and clinic reports.</p></details>
+      <details><summary>Is CapDent suitable for a small clinic?</summary><p>Yes. The Free plan is positioned for a new single-owner clinic, while Professional and Clinic Intelligence plans support clinics that need more owner controls and analytics.</p></details>
+      <details><summary>Which staff roles are supported?</summary><p>CapDent includes role-specific application areas for the owner or head doctor, working doctors and receptionists.</p></details>
+      <details><summary>Can CapDent store clinical images?</summary><p>Yes. The app includes focused upload routes for prescriptions, X-rays and patient photos, keeping those files connected to the correct patient.</p></details>
+      <details><summary>Does CapDent provide medical diagnosis?</summary><p>No. It is clinic workflow and record-management software. Diagnosis and treatment decisions remain with qualified dental professionals.</p></details>
+    </section>
+
+    <section class="cta shell reveal"><div><div class="section-kicker">Move beyond paper</div><h2>Give your clinic one clear digital workspace.</h2><p>Start with CapDent on Android or request a guided walkthrough for your clinic team.</p></div><div class="cta-actions"><a class="button primary" href="https://play.google.com/store/apps/details?id=com.dms.clinic" target="_blank" rel="noreferrer">Open Google Play ↗</a><a class="button secondary" href="/#contact">Request demo</a></div></section>
+
+    <footer class="footer shell"><span>© Micirql · CapDent dental clinic management</span><div class="footer-links"><a href="/">Micirql</a><a href="/apps/">Apps</a><a href="/blogs/">Insights</a><a href="https://www.linkedin.com/company/micirql/" target="_blank" rel="noreferrer">LinkedIn</a></div></footer>
   </main>
+  <script>
+    const device=document.getElementById('capdent-device');
+    const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(device&&!reduce){window.addEventListener('pointermove',event=>{const x=(event.clientX/window.innerWidth-.5)*12;const y=(event.clientY/window.innerHeight-.5)*-8;device.style.transform=`rotateY(${-14+x}deg) rotateX(${6+y}deg)`},{passive:true});}
+    const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting)entry.target.classList.add('visible')}),{threshold:.12});
+    document.querySelectorAll('.reveal').forEach(element=>observer.observe(element));
+  </script>
 </body>
 </html>

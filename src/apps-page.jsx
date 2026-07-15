@@ -6,7 +6,7 @@ import './apps-page.css';
 const menu = ['Home', 'Apps', 'Clinic', 'Dashboards', 'MVP', 'More'];
 
 const featured = [
-  { name: 'DMS Dental Management System', icon: '🏥', tag: 'Clinic Management', status: 'APK Coming Soon', rating: 'Pilot', desc: 'Patients, queue, visits, payments, prescriptions and follow-ups for dental clinics.' },
+  { name: 'CapDent', icon: '🦷', tag: 'Dental Clinic Management', status: 'Google Play', rating: 'Android', desc: 'Patients, queue, visits, payments, prescriptions, X-rays, follow-ups, staff and reports for dental clinics.', href: '/dental-management-system/' },
   { name: 'ClinicPro Website Suite', icon: '🌐', tag: 'Web Product', status: 'Available', rating: 'New', desc: 'Premium clinic websites with service pages, appointment enquiry and gallery.' },
   { name: 'Owner Dashboard', icon: '📊', tag: 'Dashboard', status: 'Custom Build', rating: 'Custom', desc: 'Revenue, leads, staff, reports and business overview in one dashboard.' },
 ];
@@ -31,36 +31,40 @@ function TopBar() {
 function Sidebar() {
   return (
     <aside className="market-sidebar">
-      {menu.map((item, index) => <a className={index === 1 ? 'active' : ''} key={item} href={index === 0 ? '/' : '/apps.html'}><span>{['⌂','▦','🏥','📊','🚀','⋯'][index]}</span>{item}</a>)}
+      {menu.map((item, index) => <a className={index === 1 ? 'active' : ''} key={item} href={index === 0 ? '/' : '/apps.html'}><span>{['⌂','▦','🦷','📊','🚀','⋯'][index]}</span>{item}</a>)}
     </aside>
   );
 }
 
 function HeroApp({ app }) {
-  return (
-    <article className="hero-app-card">
+  const content = (
+    <>
       <div className="hero-art"><span>{app.icon}</span></div>
       <div className="hero-app-bottom">
         <div className="small-icon">{app.icon}</div>
         <div><h3>{app.name}</h3><p>★ {app.rating}</p></div>
-        <button disabled>{app.status.includes('Coming') ? 'COMING SOON' : 'REQUEST'}</button>
+        <button>{app.href ? 'EXPLORE' : app.status.includes('Coming') ? 'COMING SOON' : 'REQUEST'}</button>
       </div>
-    </article>
+    </>
   );
+
+  return app.href ? <a className="hero-app-card" href={app.href}>{content}</a> : <article className="hero-app-card">{content}</article>;
 }
 
 function AppTile({ app }) {
-  return (
-    <article className="market-app-tile">
+  const content = (
+    <>
       <div className="tile-art"><span>{app.icon}</span></div>
       <div className="tile-info">
         <div className="small-icon">{app.icon}</div>
         <div><h3>{app.name}</h3><p>★ {app.rating}</p></div>
       </div>
       <p className="tile-desc">{app.desc}</p>
-      <button disabled={app.status.includes('Coming')}>{app.status.includes('Coming') ? 'COMING SOON' : 'REQUEST'}</button>
-    </article>
+      <button disabled={!app.href && app.status.includes('Coming')}>{app.href ? 'EXPLORE' : app.status.includes('Coming') ? 'COMING SOON' : 'REQUEST'}</button>
+    </>
   );
+
+  return app.href ? <a className="market-app-tile" href={app.href}>{content}</a> : <article className="market-app-tile">{content}</article>;
 }
 
 function AppsPage() {
@@ -71,12 +75,12 @@ function AppsPage() {
         <Sidebar />
         <section className="market-content" id="apps">
           <div className="market-banner">
-            <div><strong>Micirql Business Apps</strong><span>Problem-focused Android apps, dashboards, clinic systems and future downloads.</span></div>
+            <div><strong>Micirql Business Apps</strong><span>Problem-focused Android apps, dashboards, clinic systems and future products.</span></div>
             <a href="/">Back to Website</a>
           </div>
 
           <section className="market-section dark-showcase">
-            <div className="section-title"><div><h2>Featured Apps</h2><p>DMS and future Micirql products</p></div><a href="/#contact">MORE</a></div>
+            <div className="section-title"><div><h2>Featured Apps</h2><p>CapDent and future Micirql products</p></div><a href="/#contact">MORE</a></div>
             <div className="hero-app-row">{featured.map((app) => <HeroApp key={app.name} app={app} />)}</div>
           </section>
 
