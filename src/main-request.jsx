@@ -94,7 +94,7 @@ function App() {
         </a>
         <nav className="nav-links" aria-label="Main navigation">
           <a href="#work">What we build</a>
-          <a href="/dental-management-system/">DMS Clinic</a>
+          <a href="/dental-management-system/">CapDent</a>
           <a href="/apps/">Apps</a>
           <a href="/blogs/">Insights</a>
         </nav>
@@ -107,7 +107,7 @@ function App() {
           <h1>We turn real-world friction into <span>digital momentum.</span></h1>
           <p>Micirql designs and builds focused software products for clinics, service businesses, and ambitious founders—combining sharp product thinking with reliable execution.</p>
           <div className="hero-actions">
-            <a className="primary-button" href="/dental-management-system/">Explore DMS Clinic <span>↗</span></a>
+            <a className="primary-button" href="/dental-management-system/">Explore CapDent <span>↗</span></a>
             <a className="text-button" href="#work">See our capabilities <span>↓</span></a>
           </div>
           <div className="hero-signal-row" aria-label="Studio strengths">
@@ -142,21 +142,21 @@ function App() {
       <section className="product-feature shell">
         <div className="product-copy">
           <div className="section-kicker">Flagship product</div>
-          <h2>DMS Clinic turns everyday dental work into one clear system.</h2>
-          <p>Patient records, appointments, clinical photos, follow-ups, staff workflows, and billing—designed for practical clinic use without enterprise-level complexity.</p>
+          <h2>CapDent turns everyday dental work into one clear system.</h2>
+          <p>Patient records, appointments, clinical photos, follow-ups, staff workflows, and payments—designed for practical clinic use without enterprise-level complexity.</p>
           <div className="feature-list">
             <span>Fast patient workflow</span>
-            <span>Clinic team access</span>
+            <span>Role-based clinic access</span>
             <span>Android-first experience</span>
-            <span>Affordable by design</span>
+            <span>Free plan available</span>
           </div>
-          <a className="primary-button" href="/dental-management-system/">Enter DMS Clinic <span>↗</span></a>
+          <a className="primary-button" href="/dental-management-system/">Enter CapDent <span>↗</span></a>
         </div>
         <div className="product-console" aria-hidden="true">
-          <div className="console-top"><span>DMS / OPERATING SYSTEM</span><span className="console-live">● LIVE</span></div>
+          <div className="console-top"><span>CAPDENT / CLINIC CONTROL</span><span className="console-live">● LIVE</span></div>
           <div className="console-grid">
             <div className="console-patient"><small>ACTIVE PATIENT</small><strong>Clinical workflow</strong><span>Record synced · Follow-up ready</span></div>
-            <div className="console-orbit"><div className="orbit-center">DMS</div><i /><i /><i /></div>
+            <div className="console-orbit"><div className="orbit-center">CD</div><i /><i /><i /></div>
             <div className="console-metric"><small>WORKFLOW</small><strong>01:42</strong><span>Average focused action</span></div>
             <div className="console-metric"><small>STATUS</small><strong>READY</strong><span>Built for daily clinic use</span></div>
           </div>
