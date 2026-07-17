@@ -1,22 +1,8 @@
-<svg width="160" height="160" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
   <title id="title">Micirql mark</title>
-  <desc id="desc">Micirql circular connected M icon.</desc>
-  <defs>
-    <linearGradient id="ring" x1="22" y1="24" x2="136" y2="128" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#22D3EE"/>
-      <stop offset="0.52" stop-color="#3B82F6"/>
-      <stop offset="1" stop-color="#8B5CF6"/>
-    </linearGradient>
-    <linearGradient id="accent" x1="58" y1="88" x2="106" y2="109" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#22D3EE"/>
-      <stop offset="1" stop-color="#8B5CF6"/>
-    </linearGradient>
-  </defs>
-  <rect width="160" height="160" rx="36" fill="#020617"/>
-  <circle cx="80" cy="80" r="56" stroke="url(#ring)" stroke-width="8"/>
-  <circle cx="80" cy="24" r="12" fill="#020617" stroke="#22D3EE" stroke-width="8"/>
-  <circle cx="24" cy="80" r="12" fill="#020617" stroke="#22D3EE" stroke-width="8"/>
-  <circle cx="80" cy="136" r="12" fill="#020617" stroke="#8B5CF6" stroke-width="8"/>
-  <path d="M48 106V54L80 88L112 54V106H97V88L80 109L63 88V106H48Z" fill="#F8FAFC"/>
-  <path d="M60 90L80 111L101 90V107L80 125L60 107V90Z" fill="url(#accent)"/>
+  <desc id="desc">Two interlocking geometric forms suggesting construction, motion and connection.</desc>
+  <rect width="64" height="64" rx="14" fill="#11141A"/>
+  <path d="M11 47V22L24 12L37 22V35L24 25V47L11 47Z" fill="#6268FF"/>
+  <path d="M28 45V31L41 21L53 30V45L41 36V31L28 41V45Z" fill="#F5F3EE"/>
+  <rect x="46" y="10" width="8" height="8" rx="2" fill="#FFB45B"/>
 </svg>
