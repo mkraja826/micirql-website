@@ -3,64 +3,104 @@ import { createRoot } from 'react-dom/client';
 import { clients } from './clients';
 import { RequestForm } from './RequestForm';
 import './styles.css';
-import './hero-polish.css';
 import './RequestForm.css';
 
-const micirqlLogoUrl = 'https://pub-a30eed1be922456381eeec57b51e396a.r2.dev/brand/micirql.png';
+const capDentUrl = 'https://capdent.micirql.com/';
 
 const navItems = [
-  { label: 'What we build', href: '#work' },
-  { label: 'CapDent', href: '/capdent/' },
-  { label: 'Apps', href: '/apps/' },
-  { label: 'Blogs', href: '/blogs/' },
+  { label: 'Company', href: '#company' },
+  { label: 'Capabilities', href: '#capabilities' },
+  { label: 'Products', href: '#products' },
+  { label: 'Work', href: '#work' },
+  { label: 'Insights', href: '/blogs/' },
 ];
 
 const capabilities = [
   {
     number: '01',
     title: 'Product engineering',
-    description: 'Focused Android apps and web products shaped around the real workflow, not a generic template.',
-    tags: ['React', 'Expo', 'Supabase'],
+    description: 'Android and web products designed around the actual work people need to complete every day.',
+    detail: 'Product strategy · UX architecture · Application development',
   },
   {
     number: '02',
     title: 'Operational systems',
-    description: 'Dashboards, clinic software, internal tools, and automation that remove repetitive work.',
-    tags: ['Dashboards', 'Cloud', 'Automation'],
+    description: 'Clinic software, internal platforms and business dashboards that bring scattered work into one reliable system.',
+    detail: 'Workflow design · Role-based access · Reporting',
   },
   {
     number: '03',
-    title: 'Digital presence',
-    description: 'High-conversion landing pages and company websites with speed, clarity, and strong visual identity.',
-    tags: ['Web', 'SEO', 'Brand'],
+    title: 'Digital platforms',
+    description: 'Professional websites and customer-facing platforms built for credibility, clarity, performance and growth.',
+    detail: 'Corporate websites · SEO foundations · Conversion design',
   },
 ];
 
-const process = [
-  ['Discover', 'Understand the people, bottlenecks, and business outcome before choosing technology.'],
-  ['Prototype', 'Turn the workflow into a clear, testable product experience without unnecessary complexity.'],
-  ['Build & evolve', 'Ship a reliable first version, measure real usage, and improve the system continuously.'],
+const deliverySteps = [
+  {
+    number: '01',
+    title: 'Understand the operation',
+    description: 'We map the people, decisions, information and friction before deciding what should be built.',
+  },
+  {
+    number: '02',
+    title: 'Design the useful system',
+    description: 'We reduce the workflow to a clear product structure, test the critical paths and remove unnecessary complexity.',
+  },
+  {
+    number: '03',
+    title: 'Build and evolve',
+    description: 'We ship a dependable first version, observe real use and improve the product around evidence rather than assumptions.',
+  },
 ];
 
 const contactLinks = [
-  { label: 'Email', value: 'karthikraja826@gmail.com', icon: '↗', href: 'mailto:karthikraja826@gmail.com?subject=Project%20Request%20for%20Micirql' },
-  { label: 'WhatsApp', value: '+91 94415 81114', icon: '↗', href: 'https://wa.me/919441581114?text=Hi%20Karthik%2C%20I%20want%20to%20discuss%20a%20project%20with%20Micirql.' },
-  { label: 'LinkedIn', value: 'Micirql company page', icon: '↗', href: 'https://www.linkedin.com/company/micirql/' },
+  {
+    label: 'Email',
+    value: 'support@micirql.com',
+    href: 'mailto:support@micirql.com?subject=Project%20Request%20for%20Micirql',
+  },
+  {
+    label: 'WhatsApp',
+    value: '+91 94415 81114',
+    href: 'https://wa.me/919441581114?text=Hi%20Karthik%2C%20I%20want%20to%20discuss%20a%20project%20with%20Micirql.',
+  },
+  {
+    label: 'LinkedIn',
+    value: 'Micirql company page',
+    href: 'https://www.linkedin.com/company/micirql/',
+  },
 ];
+
+function Brand({ footer = false }) {
+  return (
+    <span className={`brand-lockup${footer ? ' footer-brand' : ''}`}>
+      <img src="/micirql-mark.svg" alt="" width="42" height="42" />
+      <span>
+        <strong>Micirql</strong>
+        {footer ? <small>Product & engineering company</small> : null}
+      </span>
+    </span>
+  );
+}
+
+function Arrow({ direction = 'right' }) {
+  return <span aria-hidden="true">{direction === 'down' ? '↓' : '↗'}</span>;
+}
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleKeyDown = (event) => {
+    const closeWithEscape = (event) => {
       if (event.key === 'Escape') setMenuOpen(false);
     };
 
-    document.addEventListener('keydown', handleKeyDown);
+    document.addEventListener('keydown', closeWithEscape);
     document.body.classList.toggle('menu-open', menuOpen);
 
     return () => {
-      document.removeEventListener('keydown', handleKeyDown);
+      document.removeEventListener('keydown', closeWithEscape);
       document.body.classList.remove('menu-open');
     };
   }, [menuOpen]);
@@ -69,94 +109,87 @@ function Navbar() {
 
   return (
     <>
-      <header className="navbar">
-        <a className="brand brand-with-logo" href="#home" aria-label="Micirql home" onClick={closeMenu}>
-          <img className="brand-logo" src={micirqlLogoUrl} alt="Micirql" />
-        </a>
+      <header className="site-header">
+        <div className="container nav-shell">
+          <a className="brand-link" href="#home" aria-label="Micirql home" onClick={closeMenu}>
+            <Brand />
+          </a>
 
-        <nav className="nav-links" aria-label="Main navigation">
-          {navItems.map((item) => <a href={item.href} key={item.label}>{item.label}</a>)}
-        </nav>
+          <nav className="desktop-navigation" aria-label="Primary navigation">
+            {navItems.map((item) => <a href={item.href} key={item.label}>{item.label}</a>)}
+          </nav>
 
-        <a className="nav-cta desktop-nav-cta" href="#contact">Start a project <span>↗</span></a>
-
-        <button
-          className={`menu-toggle${menuOpen ? ' is-open' : ''}`}
-          type="button"
-          aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'}
-          aria-expanded={menuOpen}
-          aria-controls="mobile-navigation"
-          onClick={() => setMenuOpen((open) => !open)}
-        >
-          <span />
-          <span />
-          <span />
-        </button>
+          <div className="nav-actions">
+            <a className="nav-product-link" href={capDentUrl}>CapDent</a>
+            <a className="button button-dark desktop-contact" href="#contact">Start a project</a>
+            <button
+              className={`menu-button${menuOpen ? ' is-open' : ''}`}
+              type="button"
+              aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+              aria-expanded={menuOpen}
+              aria-controls="mobile-menu"
+              onClick={() => setMenuOpen((current) => !current)}
+            >
+              <span />
+              <span />
+              <span />
+            </button>
+          </div>
+        </div>
       </header>
 
-      <div className={`mobile-menu-backdrop${menuOpen ? ' is-open' : ''}`} onClick={closeMenu} aria-hidden="true" />
-      <nav id="mobile-navigation" className={`mobile-menu${menuOpen ? ' is-open' : ''}`} aria-label="Mobile navigation">
-        <div className="mobile-menu-label">Navigate / Micirql</div>
+      <div className={`menu-backdrop${menuOpen ? ' is-open' : ''}`} onClick={closeMenu} aria-hidden="true" />
+      <nav id="mobile-menu" className={`mobile-navigation${menuOpen ? ' is-open' : ''}`} aria-label="Mobile navigation">
+        <div className="mobile-menu-heading"><span>Micirql</span><small>Navigate</small></div>
         <div className="mobile-menu-links">
           {navItems.map((item, index) => (
             <a href={item.href} key={item.label} onClick={closeMenu}>
               <span>0{index + 1}</span>
               <strong>{item.label}</strong>
-              <i>↗</i>
+              <Arrow />
             </a>
           ))}
         </div>
-        <a className="mobile-menu-cta" href="#contact" onClick={closeMenu}>Start a project <span>↗</span></a>
-        <p>Focused Android apps, clinic systems, dashboards and websites built around real workflows.</p>
+        <div className="mobile-menu-actions">
+          <a className="button button-outline" href={capDentUrl} onClick={closeMenu}>Explore CapDent</a>
+          <a className="button button-primary" href="#contact" onClick={closeMenu}>Start a project</a>
+        </div>
       </nav>
     </>
   );
 }
 
-function HeroSystemBoard() {
+function CompanyOverview() {
   return (
-    <div className="studio-board" aria-label="Micirql product studio workflow preview">
-      <div className="studio-board-top">
-        <div><span className="board-live-dot" /> MICIRQL / PRODUCT SYSTEM</div>
-        <strong>ACTIVE</strong>
+    <div className="company-overview" aria-label="Micirql company overview">
+      <div className="overview-header">
+        <span>Micirql / Company overview</span>
+        <strong>India</strong>
       </div>
 
-      <div className="studio-board-grid">
-        <section className="board-primary-card">
-          <div className="board-card-label">Current focus</div>
-          <h2>Turn a real bottleneck into a product people can use.</h2>
-          <div className="board-flow" aria-label="Product workflow">
-            <div><span>01</span><strong>Problem</strong><small>Observe the daily friction</small></div>
-            <i>→</i>
-            <div><span>02</span><strong>System</strong><small>Design the simplest useful flow</small></div>
-            <i>→</i>
-            <div><span>03</span><strong>Outcome</strong><small>Ship, learn and improve</small></div>
-          </div>
-        </section>
+      <section className="overview-primary">
+        <p className="panel-label">What we build</p>
+        <h2>Products and systems that make daily work clearer.</h2>
+        <p>From a clinic workflow to a company website, the objective stays the same: reduce friction and create a dependable operating experience.</p>
+      </section>
 
-        <a className="board-product-card" href="/capdent/">
-          <div className="board-card-label">Flagship product</div>
+      <div className="overview-grid">
+        <a className="overview-card product-card" href={capDentUrl}>
+          <span className="panel-label">Flagship product</span>
           <strong>CapDent</strong>
-          <p>Dental clinic workflow, records, payments and follow-ups in one focused Android product.</p>
-          <span>Explore product ↗</span>
+          <p>Dental clinic management for patients, treatments, payments and follow-ups.</p>
+          <span className="card-link">View product <Arrow /></span>
         </a>
-
-        <div className="board-metric-card">
-          <div className="board-card-label">Build principle</div>
-          <strong>Clarity first.</strong>
-          <p>Fewer screens. Faster actions. Better decisions.</p>
+        <div className="overview-card">
+          <span className="panel-label">Delivery</span>
+          <strong>Android · Web · Cloud</strong>
+          <p>One accountable product partner from workflow definition to production release.</p>
         </div>
-
-        <div className="board-stack-card">
-          <div className="board-card-label">Delivery stack</div>
-          <div><span>Android</span><span>Web</span><span>Cloud</span><span>SEO</span></div>
+        <div className="overview-card">
+          <span className="panel-label">Operating principle</span>
+          <strong>Clarity before complexity</strong>
+          <p>Every feature must solve a real task, support a decision or remove repeated work.</p>
         </div>
-      </div>
-
-      <div className="board-status-row">
-        <span><i /> Founder-led</span>
-        <span><i /> Product-first</span>
-        <span><i /> Built for real use</span>
       </div>
     </div>
   );
@@ -164,13 +197,13 @@ function HeroSystemBoard() {
 
 function CapabilityCard({ item }) {
   return (
-    <article className="capability-card interactive-panel">
-      <div className="card-index">{item.number}</div>
+    <article className="capability-card">
+      <div className="capability-number">{item.number}</div>
       <div>
         <h3>{item.title}</h3>
         <p>{item.description}</p>
       </div>
-      <div className="tag-row">{item.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
+      <small>{item.detail}</small>
     </article>
   );
 }
@@ -178,15 +211,15 @@ function CapabilityCard({ item }) {
 function ClientCard({ client, index }) {
   const href = `https://${client.website.replace(/^https?:\/\//, '')}`;
   return (
-    <a className="client-card interactive-panel" href={href} target="_blank" rel="noreferrer">
+    <a className="client-card" href={href} target="_blank" rel="noreferrer">
       <div className="client-card-top">
-        <span className="client-number">0{index + 1}</span>
-        <span className="client-arrow">↗</span>
+        <span>0{index + 1}</span>
+        <Arrow />
       </div>
-      <div className="client-meta">{client.status}</div>
+      <small>{client.status}</small>
       <h3>{client.name}</h3>
       <p>{client.description}</p>
-      <span className="client-url">{client.website}</span>
+      <strong>{client.website}</strong>
     </a>
   );
 }
@@ -195,9 +228,9 @@ function ContactLinks() {
   return (
     <div className="quick-contact-grid">
       {contactLinks.map((link) => (
-        <a className="quick-contact-card" href={link.href} key={link.label} target="_blank" rel="noreferrer">
+        <a className="quick-contact-card" href={link.href} key={link.label} target={link.label === 'Email' ? undefined : '_blank'} rel={link.label === 'Email' ? undefined : 'noreferrer'}>
           <span><strong>{link.label}</strong><small>{link.value}</small></span>
-          <span className="quick-contact-icon">{link.icon}</span>
+          <Arrow />
         </a>
       ))}
     </div>
@@ -206,123 +239,174 @@ function ContactLinks() {
 
 function App() {
   return (
-    <main>
-      <div className="page-noise" aria-hidden="true" />
+    <>
       <Navbar />
-
-      <section id="home" className="hero shell">
-        <div className="hero-copy">
-          <div className="eyebrow"><span className="pulse-dot" /> Independent product studio · India</div>
-          <h1>Useful software starts with a <span>clearer problem.</span></h1>
-          <p>Micirql turns real operational friction into focused Android apps, clinic systems, dashboards and websites—designed for people who need the product to work every day.</p>
-          <div className="hero-actions">
-            <a className="primary-button" href="/capdent/">Explore CapDent <span>↗</span></a>
-            <a className="text-button" href="#work">See what we build <span>↓</span></a>
-          </div>
-          <div className="hero-signal-row" aria-label="Studio strengths">
-            <span><strong>01</strong> Founder-led</span>
-            <span><strong>02</strong> Workflow-first</span>
-            <span><strong>03</strong> Built to evolve</span>
-          </div>
-        </div>
-
-        <div className="hero-visual">
-          <HeroSystemBoard />
-        </div>
-      </section>
-
-      <section className="signal-strip" aria-label="Services">
-        <div className="signal-track">
-          <span>ANDROID PRODUCTS</span><i>✦</i><span>CLINIC SYSTEMS</span><i>✦</i><span>BUSINESS DASHBOARDS</span><i>✦</i><span>STARTUP MVPs</span><i>✦</i><span>HIGH-IMPACT WEBSITES</span>
-        </div>
-      </section>
-
-      <section id="work" className="section shell">
-        <div className="section-kicker">Capabilities / 2026</div>
-        <div className="section-intro">
-          <h2>One studio.<br />Three layers of impact.</h2>
-          <p>From the first product decision to the final interface, every layer is designed to make the business simpler, faster, and more valuable.</p>
-        </div>
-        <div className="capability-grid">
-          {capabilities.map((item) => <CapabilityCard item={item} key={item.number} />)}
-        </div>
-      </section>
-
-      <section className="product-feature shell">
-        <div className="product-copy">
-          <div className="section-kicker">Flagship product</div>
-          <h2>CapDent turns everyday dental work into one clear system.</h2>
-          <p>Patient records, appointments, clinical photos, follow-ups, staff workflows, and payments—designed for practical clinic use without enterprise-level complexity.</p>
-          <div className="feature-list">
-            <span>Fast patient workflow</span>
-            <span>Role-based clinic access</span>
-            <span>Android-first experience</span>
-            <span>Free plan available</span>
-          </div>
-          <a className="primary-button" href="/capdent/">Enter CapDent <span>↗</span></a>
-        </div>
-        <div className="product-console" aria-hidden="true">
-          <div className="console-top"><span>CAPDENT / CLINIC CONTROL</span><span className="console-live">● LIVE</span></div>
-          <div className="console-grid">
-            <div className="console-patient"><small>ACTIVE PATIENT</small><strong>Clinical workflow</strong><span>Record synced · Follow-up ready</span></div>
-            <div className="console-orbit"><div className="orbit-center">CD</div><i /><i /><i /></div>
-            <div className="console-metric"><small>WORKFLOW</small><strong>01:42</strong><span>Average focused action</span></div>
-            <div className="console-metric"><small>STATUS</small><strong>READY</strong><span>Built for daily clinic use</span></div>
-          </div>
-        </div>
-      </section>
-
-      <section className="section shell process-section">
-        <div className="section-kicker">How we work</div>
-        <div className="section-intro compact">
-          <h2>Clarity before code.</h2>
-          <p>Technology is only useful when the product logic is right. Our process keeps every decision tied to a real outcome.</p>
-        </div>
-        <div className="process-grid">
-          {process.map(([title, description], index) => (
-            <article className="process-step" key={title}>
-              <span>0{index + 1}</span>
-              <h3>{title}</h3>
-              <p>{description}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section id="clients" className="section shell clients-section">
-        <div className="section-kicker">Selected work</div>
-        <div className="section-intro">
-          <h2>Built across different business realities.</h2>
-          <p>Every client is different. The common thread is a focused digital experience that communicates clearly and performs reliably.</p>
-        </div>
-        <div className="clients-grid">
-          {clients.map((client, index) => <ClientCard client={client} index={index} key={client.name} />)}
-        </div>
-      </section>
-
-      <section id="contact" className="contact-section shell">
-        <div className="contact-dashboard">
-          <div className="contact-copy">
-            <div>
-              <div className="section-kicker">Start a project</div>
-              <h2>Bring the problem.<br /><span>We will shape the product.</span></h2>
-              <p>Share your idea, current workflow, or business bottleneck. You will speak directly with the person designing and building the solution.</p>
+      <main>
+        <section className="hero" id="home">
+          <div className="container hero-layout">
+            <div className="hero-copy">
+              <p className="eyebrow">Product and engineering company · India</p>
+              <h1>Software that makes complex work easier to run.</h1>
+              <p className="hero-intro">Micirql designs and builds focused software products, operational systems, business dashboards and professional digital platforms around real workflows.</p>
+              <div className="hero-actions">
+                <a className="button button-primary" href={capDentUrl}>Explore CapDent <Arrow /></a>
+                <a className="button button-outline" href="#contact">Discuss a project</a>
+              </div>
+              <div className="hero-facts" aria-label="Micirql working model">
+                <div><strong>Founder-led</strong><span>Direct product ownership</span></div>
+                <div><strong>Workflow-first</strong><span>Built around real operations</span></div>
+                <div><strong>Long-term</strong><span>Designed to improve over time</span></div>
+              </div>
             </div>
-            <ContactLinks />
+            <CompanyOverview />
           </div>
-          <div className="contact-action-panel">
-            <div className="form-heading"><span>PROJECT INTAKE</span><small>Usually replies directly</small></div>
-            <RequestForm />
-          </div>
-        </div>
-      </section>
+        </section>
 
-      <footer className="footer shell">
-        <img src={micirqlLogoUrl} alt="Micirql" />
-        <p>Problem-focused digital products, built with intent.</p>
-        <div><a href="/blogs/">Blogs</a><a href="#home">Back to top ↑</a></div>
+        <section className="company-strip" aria-label="Micirql disciplines">
+          <div className="container company-strip-inner">
+            <span>Product strategy</span>
+            <span>Experience design</span>
+            <span>Application engineering</span>
+            <span>Cloud systems</span>
+            <span>Digital platforms</span>
+          </div>
+        </section>
+
+        <section className="section company-section" id="company">
+          <div className="container company-grid">
+            <div className="section-heading">
+              <p className="eyebrow">About Micirql</p>
+              <h2>A product company shaped by real operational problems.</h2>
+            </div>
+            <div className="company-copy">
+              <p className="lead-copy">Micirql works where product thinking, business operations and software engineering meet.</p>
+              <p>We begin with the people doing the work: the clinic receptionist managing a changing queue, the owner reviewing daily collections, or the company trying to communicate its value clearly online. The system is then designed around what those people actually need to see, decide and complete.</p>
+              <div className="company-principles">
+                <article><strong>01</strong><span>Understand before designing</span></article>
+                <article><strong>02</strong><span>Make important actions obvious</span></article>
+                <article><strong>03</strong><span>Build for daily reliability</span></article>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="section capabilities-section" id="capabilities">
+          <div className="container">
+            <div className="section-intro">
+              <div><p className="eyebrow">Capabilities</p><h2>One partner across product, operations and digital presence.</h2></div>
+              <p>Micirql connects business understanding, interface design and engineering so the final system feels coherent rather than assembled from separate vendors.</p>
+            </div>
+            <div className="capability-grid">
+              {capabilities.map((item) => <CapabilityCard item={item} key={item.number} />)}
+            </div>
+          </div>
+        </section>
+
+        <section className="section products-section" id="products">
+          <div className="container">
+            <div className="section-intro">
+              <div><p className="eyebrow">Products and systems</p><h2>CapDent is the first product in a broader Micirql portfolio.</h2></div>
+              <p>Micirql is not a single-product website. CapDent demonstrates how we turn a specialised workflow into practical software, while the company also builds operational systems and digital platforms for other businesses.</p>
+            </div>
+
+            <div className="products-grid">
+              <article className="capdent-feature">
+                <div className="product-copy">
+                  <span className="status-pill">Live product</span>
+                  <p className="product-category">Dental clinic management</p>
+                  <h3>CapDent</h3>
+                  <p>Patient records, appointments, treatment progress, payments, follow-ups, clinical files and staff workflows in one focused clinic system.</p>
+                  <ul>
+                    <li>All current clinic-management features free</li>
+                    <li>Owner, doctor and receptionist workflows</li>
+                    <li>Android product with web-dashboard direction</li>
+                  </ul>
+                  <a className="button button-light" href={capDentUrl}>Visit CapDent <Arrow /></a>
+                </div>
+                <div className="capdent-interface" aria-label="CapDent workflow preview">
+                  <div className="interface-bar"><span>CapDent / Clinic overview</span><strong>Today</strong></div>
+                  <div className="interface-metrics"><div><small>Patients</small><strong>18</strong></div><div><small>Waiting</small><strong>4</strong></div><div><small>Collections</small><strong>₹42,600</strong></div></div>
+                  <div className="interface-list">
+                    <div className="interface-list-title"><strong>Patient workflow</strong><span>4 waiting</span></div>
+                    <article><i>AM</i><span><strong>Anita M.</strong><small>Root canal · Sitting 2</small></span><b>Ready</b></article>
+                    <article><i>RV</i><span><strong>Rahul V.</strong><small>Review appointment</small></span><b>Waiting</b></article>
+                    <article><i>SP</i><span><strong>Shreya P.</strong><small>New consultation</small></span><b>Check-in</b></article>
+                  </div>
+                  <small className="demo-label">Fictional interface data</small>
+                </div>
+              </article>
+
+              <article className="system-card">
+                <span className="panel-label">Operational systems</span>
+                <h3>Internal tools that replace fragmented work.</h3>
+                <p>Role-based workflows, dashboards, approvals, reporting and automation for teams that have outgrown spreadsheets and messaging threads.</p>
+                <a href="#contact">Discuss an internal system <Arrow /></a>
+              </article>
+
+              <article className="system-card">
+                <span className="panel-label">Digital platforms</span>
+                <h3>Corporate websites built for clarity and trust.</h3>
+                <p>Professional digital presence for companies and clinics, with structured content, responsive design, performance and SEO foundations.</p>
+                <a href="#work">See selected work <Arrow /></a>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section className="section delivery-section">
+          <div className="container">
+            <div className="section-intro">
+              <div><p className="eyebrow">Delivery model</p><h2>A disciplined path from problem to production.</h2></div>
+              <p>The process is intentionally straightforward. Each stage creates a concrete decision before the next layer of investment begins.</p>
+            </div>
+            <div className="delivery-grid">
+              {deliverySteps.map((step) => (
+                <article key={step.number}>
+                  <span>{step.number}</span>
+                  <h3>{step.title}</h3>
+                  <p>{step.description}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="section work-section" id="work">
+          <div className="container">
+            <div className="section-intro">
+              <div><p className="eyebrow">Selected work</p><h2>Different industries. The same standard of clarity.</h2></div>
+              <p>Micirql has delivered company, staffing and clinic websites with an emphasis on professional positioning, usable information and dependable performance.</p>
+            </div>
+            <div className="clients-grid">
+              {clients.map((client, index) => <ClientCard client={client} index={index} key={client.name} />)}
+            </div>
+          </div>
+        </section>
+
+        <section className="contact-section" id="contact">
+          <div className="container contact-layout">
+            <div className="contact-copy">
+              <p className="eyebrow light">Start a conversation</p>
+              <h2>Bring the workflow, bottleneck or product idea.</h2>
+              <p>Share what needs to work better. You will communicate directly with the person shaping and building the solution.</p>
+              <ContactLinks />
+            </div>
+            <div className="contact-form-panel">
+              <div className="form-heading"><span>Project enquiry</span><small>Required fields are marked *</small></div>
+              <RequestForm />
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer className="site-footer">
+        <div className="container footer-layout">
+          <div><Brand footer /><p>Focused products and business systems, built with clarity.</p></div>
+          <div className="footer-links"><a href={capDentUrl}>CapDent</a><a href="/apps/">Apps</a><a href="/blogs/">Insights</a><a href="#home">Back to top ↑</a></div>
+          <small>© 2026 Micirql. Founder-led product and engineering company, India.</small>
+        </div>
       </footer>
-    </main>
+    </>
   );
 }
 
