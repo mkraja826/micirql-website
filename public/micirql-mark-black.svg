@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-label="Micirql monochrome mark">
+  <path d="M7 50V20L23 8L39 20V36L23 24V50H7Z" fill="#000"/>
+  <path d="M28 48V30L44 18L58 29V48L44 38V31L28 43V48Z" fill="#000"/>
+  <rect x="48" y="5" width="10" height="10" rx="2" fill="#000"/>
+</svg>
