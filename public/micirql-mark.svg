@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
   <title id="title">Micirql mark</title>
-  <desc id="desc">Two interlocking geometric forms suggesting construction, motion and connection.</desc>
-  <rect width="64" height="64" rx="14" fill="#11141A"/>
-  <path d="M11 47V22L24 12L37 22V35L24 25V47L11 47Z" fill="#6268FF"/>
-  <path d="M28 45V31L41 21L53 30V45L41 36V31L28 41V45Z" fill="#F5F3EE"/>
-  <rect x="46" y="10" width="8" height="8" rx="2" fill="#FFB45B"/>
+  <desc id="desc">Interlocking geometric forms suggesting construction, motion and connection.</desc>
+  <rect width="64" height="64" rx="9" fill="#111216"/>
+  <path d="M10 47V22L24 11L38 22V35L24 25V47H10Z" fill="#2F5BFF"/>
+  <path d="M28 46V31L42 20L54 29V46L42 37V30L28 41V46Z" fill="#F2EFE8"/>
+  <rect x="47" y="9" width="8" height="8" fill="#F0642B"/>
 </svg>
