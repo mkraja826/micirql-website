@@ -30,7 +30,7 @@ export function RequestForm() {
     if (!isSupabaseConfigured) {
       setStatus({
         type: 'error',
-        message: 'Supabase is not configured yet. Add VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY.',
+        message: 'The enquiry service is temporarily unavailable. Please contact support@micirql.com.',
       });
       return;
     }
@@ -59,32 +59,32 @@ export function RequestForm() {
   }
 
   return (
-    <form className="request-form" onSubmit={handleSubmit}>
+    <form className="request-form" onSubmit={handleSubmit} aria-label="Micirql project enquiry form">
       <div className="form-grid">
-        <label>
+        <label htmlFor="request-name">
           Name *
-          <input value={form.name} onChange={(e) => updateField('name', e.target.value)} placeholder="Your name" />
+          <input id="request-name" name="name" autoComplete="name" value={form.name} onChange={(event) => updateField('name', event.target.value)} placeholder="Your name" required />
         </label>
-        <label>
+        <label htmlFor="request-phone">
           Phone *
-          <input value={form.phone} onChange={(e) => updateField('phone', e.target.value)} placeholder="Phone / WhatsApp" />
+          <input id="request-phone" name="phone" type="tel" inputMode="tel" autoComplete="tel" value={form.phone} onChange={(event) => updateField('phone', event.target.value)} placeholder="Phone / WhatsApp" required />
         </label>
       </div>
 
       <div className="form-grid">
-        <label>
+        <label htmlFor="request-email">
           Email
-          <input value={form.email} onChange={(e) => updateField('email', e.target.value)} placeholder="email@example.com" />
+          <input id="request-email" name="email" type="email" autoComplete="email" value={form.email} onChange={(event) => updateField('email', event.target.value)} placeholder="email@example.com" />
         </label>
-        <label>
+        <label htmlFor="request-company">
           Company / Clinic
-          <input value={form.company} onChange={(e) => updateField('company', e.target.value)} placeholder="Company or clinic name" />
+          <input id="request-company" name="company" autoComplete="organization" value={form.company} onChange={(event) => updateField('company', event.target.value)} placeholder="Company or clinic name" />
         </label>
       </div>
 
-      <label>
+      <label htmlFor="request-service">
         Service needed
-        <select value={form.service} onChange={(e) => updateField('service', e.target.value)}>
+        <select id="request-service" name="service" value={form.service} onChange={(event) => updateField('service', event.target.value)}>
           <option>Android App Development</option>
           <option>Landing Page Design</option>
           <option>Clinic Software</option>
@@ -94,16 +94,16 @@ export function RequestForm() {
         </select>
       </label>
 
-      <label>
+      <label htmlFor="request-message">
         Project details *
-        <textarea value={form.message} onChange={(e) => updateField('message', e.target.value)} placeholder="Tell us what you want to build" rows="5" />
+        <textarea id="request-message" name="message" value={form.message} onChange={(event) => updateField('message', event.target.value)} placeholder="Describe the workflow, problem or product you want to build" rows="5" required />
       </label>
 
-      <button className="primary-button form-button" type="submit" disabled={loading}>
-        {loading ? 'Sending...' : 'Send Request'} <span>→</span>
+      <button className="button button-primary form-button" type="submit" disabled={loading}>
+        {loading ? 'Sending…' : 'Send enquiry'} <span aria-hidden="true">→</span>
       </button>
 
-      {status.message ? <p className={`form-status ${status.type}`}>{status.message}</p> : null}
+      {status.message ? <p className={`form-status ${status.type}`} role="status" aria-live="polite">{status.message}</p> : null}
     </form>
   );
 }
