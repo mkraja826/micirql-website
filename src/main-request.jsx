@@ -5,7 +5,7 @@ import { RequestForm } from './RequestForm';
 import './styles.css';
 import './RequestForm.css';
 
-const capDentUrl = 'https://capdent.micirql.com/';
+const capDentUrl = 'https://capdent.in/';
 const playStoreUrl = 'https://play.google.com/store/apps/details?id=com.dms.clinic';
 
 const navItems = [
