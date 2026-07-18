@@ -10,7 +10,7 @@ Build search authority at two connected levels:
 The domains should reinforce each other without publishing duplicate pages:
 
 - `micirql.com` — company, engineering expertise, portfolio, founder vision and broader Android software topics.
-- `capdent.micirql.com` — CapDent product, dental workflows, product features, pricing, guides and product-intent content.
+- `capdent.in` — CapDent product, dental workflows, product features, pricing, guides and product-intent content.
 
 ---
 
@@ -109,7 +109,7 @@ Broader Micirql authority:
 
 ### CapDent product homepage
 
-**URL:** `https://capdent.micirql.com/`
+**URL:** `https://capdent.in/`
 
 **Title:**
 
@@ -161,7 +161,7 @@ Create `/about/` when the company history has enough depth for a dedicated page.
 
 ### Crawl and indexing
 
-- Maintain separate XML sitemaps for `micirql.com` and `capdent.micirql.com`.
+- Maintain separate XML sitemaps for `micirql.com` and `capdent.in`.
 - Reference each sitemap in the matching `robots.txt` file.
 - Add both properties to Google Search Console.
 - Use canonical URLs on every indexable page.
