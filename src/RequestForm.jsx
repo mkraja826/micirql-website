@@ -6,9 +6,21 @@ const initialForm = {
   email: '',
   phone: '',
   company: '',
-  service: 'Android App Development',
+  service: 'Website Design & Development',
   message: '',
 };
+
+const serviceOptions = [
+  'Website Design & Development',
+  'Web App / SaaS Platform',
+  'Mobile App Development',
+  'AI Integration',
+  'Healthcare / Dental Software',
+  'Business Portal / Dashboard',
+  'UI/UX & Product Design',
+  'SEO & AI Search Optimisation',
+  'Other',
+];
 
 export function RequestForm() {
   const [form, setForm] = useState(initialForm);
@@ -85,22 +97,17 @@ export function RequestForm() {
       <label htmlFor="request-service">
         Service needed
         <select id="request-service" name="service" value={form.service} onChange={(event) => updateField('service', event.target.value)}>
-          <option>Android App Development</option>
-          <option>Landing Page Design</option>
-          <option>Clinic Software</option>
-          <option>Business Dashboard</option>
-          <option>Startup MVP</option>
-          <option>Other</option>
+          {serviceOptions.map((option) => <option key={option}>{option}</option>)}
         </select>
       </label>
 
       <label htmlFor="request-message">
         Project details *
-        <textarea id="request-message" name="message" value={form.message} onChange={(event) => updateField('message', event.target.value)} placeholder="Describe the workflow, problem or product you want to build" rows="5" required />
+        <textarea id="request-message" name="message" value={form.message} onChange={(event) => updateField('message', event.target.value)} placeholder="What do you want to build, who will use it, and what should it improve?" rows="5" required />
       </label>
 
       <button className="button button-primary form-button" type="submit" disabled={loading}>
-        {loading ? 'Sending…' : 'Send enquiry'} <span aria-hidden="true">→</span>
+        {loading ? 'Sending…' : 'Send project enquiry'} <span aria-hidden="true">→</span>
       </button>
 
       {status.message ? <p className={`form-status ${status.type}`} role="status" aria-live="polite">{status.message}</p> : null}
