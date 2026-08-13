@@ -1,6 +1,8 @@
 :root {
   --ambient-shift-x: 0px;
   --ambient-shift-y: 0px;
+  --ambient-shift-x-neg: 0px;
+  --ambient-shift-y-neg: 0px;
   --ambient-scroll: 0px;
 }
 
@@ -29,7 +31,7 @@
     linear-gradient(rgba(167,139,250,.045) 1px, transparent 1px),
     linear-gradient(90deg, rgba(167,139,250,.045) 1px, transparent 1px);
   background-size: 72px 72px;
-  transform: perspective(900px) rotateX(62deg) translate3d(var(--ambient-shift-x), calc(9% + var(--ambient-shift-y)), 0) scale(1.18);
+  transform: perspective(900px) rotateX(62deg) translate3d(var(--ambient-shift-x), calc(9% + var(--ambient-shift-y) + var(--ambient-scroll)), 0) scale(1.18);
   transform-origin: 50% 58%;
   mask-image: linear-gradient(to bottom, rgba(0,0,0,.85), rgba(0,0,0,.24) 66%, transparent 94%);
   animation: ambientGridTravel 34s linear infinite;
@@ -58,7 +60,7 @@
   top: 14vh;
   opacity: .075;
   background: linear-gradient(76deg, transparent 28%, rgba(109,40,217,.56) 50%, transparent 69%);
-  transform: translate3d(calc(var(--ambient-shift-x) * -.45), calc(var(--ambient-shift-y) * -.45), 0) rotate(-15deg);
+  transform: translate3d(var(--ambient-shift-x-neg), var(--ambient-shift-y-neg), 0) rotate(-15deg);
   animation: ambientBeamB 26s ease-in-out infinite alternate;
 }
 
@@ -85,7 +87,7 @@
   left: -8rem;
   bottom: 4vh;
   opacity: .09;
-  transform: translate3d(calc(var(--ambient-shift-x) * -.35), calc(var(--ambient-shift-y) * -.35), 0);
+  transform: translate3d(var(--ambient-shift-x-neg), var(--ambient-shift-y-neg), 0);
   animation: ambientOrbB 21s ease-in-out infinite alternate;
 }
 
@@ -119,7 +121,6 @@
   animation: ambientParticleFloat var(--duration) ease-in-out var(--delay) infinite alternate;
 }
 
-/* Slow section-level illumination keeps the atmosphere visible even over solid panels. */
 body .services-section,
 body .work-section,
 body .preview-section,
