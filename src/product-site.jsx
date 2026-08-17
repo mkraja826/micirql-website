@@ -23,7 +23,7 @@ const faqs = [
   ['Do I have to host with MiCirql?','No. Managed hosting and maintenance are optional. The product is designed so the website can also be exported and hosted elsewhere.'],
 ];
 
-function Logo(){return <a className="brand" href="#top" aria-label="MiCirql home"><img src="/micirql-mark.svg" alt=""/><span>MICIRQL</span></a>}
+function Logo(){return <a className="brand" href="#top" aria-label="MiCirql home"><img src="/micirql-mark-new.webp?v=3" alt=""/><span>MICIRQL</span></a>}
 
 function App(){
   const [menu,setMenu]=useState(false);
