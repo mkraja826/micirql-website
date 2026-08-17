@@ -21,10 +21,32 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="MiCirql | AI Website Builder" />
     <meta name="twitter:description" content="Build visually, add real functionality, then publish or export." />
+    <style>
+      .brand[data-micirql-brand="new"]{display:inline-flex;align-items:center;gap:0!important;letter-spacing:0!important}
+      .brand[data-micirql-brand="new"] img{width:154px!important;height:auto!important;max-height:46px!important;object-fit:contain;display:block;border-radius:7px}
+      .brand[data-micirql-brand="new"] span{display:none!important}
+      footer .brand[data-micirql-brand="new"] img{width:140px!important}
+      @media(max-width:760px){.brand[data-micirql-brand="new"] img{width:132px!important;max-height:40px!important}}
+    </style>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"MiCirql","applicationCategory":"DesignApplication","operatingSystem":"Web","url":"https://micirql.com/","description":"AI-assisted website builder with structured business discovery, design recommendations, visual editing, backend functionality, publishing and export.","publisher":{"@type":"Organization","name":"MiCirql","url":"https://micirql.com/"},"featureList":["Structured business discovery","Industry design recommendations","Canvas-first visual editing","Responsive previews","Backend functionality","Custom domain publishing","Website export"]}</script>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/product-site.jsx"></script>
+    <script>
+      (()=>{
+        const logo='https://raw.githubusercontent.com/mkraja826/Micirql-website-builder/main/apps/builder/public/assets/micirql-logo.webp?v=20260817-2';
+        const apply=()=>document.querySelectorAll('.brand').forEach(el=>{
+          el.dataset.micirqlBrand='new';
+          let img=el.querySelector('img');
+          if(!img){img=document.createElement('img');el.prepend(img)}
+          img.src=logo;img.alt='MiCirql';
+          const text=el.querySelector('span');if(text)text.style.display='none';
+        });
+        const observer=new MutationObserver(apply);
+        observer.observe(document.documentElement,{childList:true,subtree:true});
+        apply();setTimeout(apply,0);setTimeout(apply,500);
+      })();
+    </script>
   </body>
 </html>
