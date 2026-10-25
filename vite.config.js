@@ -1,16 +1,16 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-import { resolve } from 'path';
+import { resolve } from 'node:path';
 
 export default defineConfig({
   plugins: [react()],
   build: {
     rollupOptions: {
       input: {
-        main: resolve(__dirname, 'index.html'),
-        apps: resolve(__dirname, 'apps.html'),
-        blogs: resolve(__dirname, 'blogs/index.html'),
-        capdent: resolve(__dirname, 'capdent/index.html'),
+        main: resolve(import.meta.dirname, 'index.html'),
+        apps: resolve(import.meta.dirname, 'apps.html'),
+        blogs: resolve(import.meta.dirname, 'blogs/index.html'),
+        capdent: resolve(import.meta.dirname, 'capdent/index.html'),
       },
     },
   },

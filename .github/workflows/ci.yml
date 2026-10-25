@@ -14,8 +14,26 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - run: npm install
+          cache: npm
+      - run: npm ci
       - run: npm run build
-        env:
-          VITE_SUPABASE_URL: https://example.supabase.co
-          VITE_SUPABASE_PUBLISHABLE_KEY: sb_publishable_build_check
+
+  product-ui:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install chromium
+      - run: npm run test:ui
+      - if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: marketing-ui-failure
+          path: |
+            playwright-report/
+            test-results/
+          if-no-files-found: ignore

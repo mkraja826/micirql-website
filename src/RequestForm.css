@@ -1,7 +1,7 @@
 .request-form {
-  margin-top: 23px;
+  margin-top: 27px;
   display: grid;
-  gap: 15px;
+  gap: 16px;
 }
 
 .form-grid {
@@ -13,12 +13,9 @@
 .request-form label {
   display: grid;
   gap: 8px;
-  color: #aeb2bc;
-  font-family: var(--mono);
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: .09em;
-  text-transform: uppercase;
+  color: #c4bfcb;
+  font-size: 0.75rem;
+  font-weight: 650;
 }
 
 .request-form input,
@@ -26,21 +23,20 @@
 .request-form textarea {
   width: 100%;
   min-width: 0;
-  padding: 14px 13px;
-  border: 1px solid #3d4049;
-  border-radius: 0;
+  min-height: 48px;
+  padding: 13px 14px;
+  border: 1px solid #44404b;
+  border-radius: 9px;
   outline: none;
   color: #fff;
-  background: #17191f;
+  background: #1b1820;
   font-family: var(--sans);
-  font-size: 13px;
-  text-transform: none;
-  letter-spacing: 0;
+  font-size: 0.94rem;
   transition: border-color .18s ease, background .18s ease, box-shadow .18s ease;
 }
 
 .request-form input::placeholder,
-.request-form textarea::placeholder { color: #686d78; }
+.request-form textarea::placeholder { color: #797480; }
 .request-form select { color-scheme: dark; }
 .request-form textarea { min-height: 132px; resize: vertical; }
 
@@ -48,13 +44,18 @@
 .request-form select:focus,
 .request-form textarea:focus {
   border-color: #708bff;
-  background: #1c1f27;
+  background: #201c25;
   box-shadow: 0 0 0 2px rgba(47,91,255,.22);
 }
 
 .form-button {
   width: 100%;
+  min-height: 50px;
   border: 0;
+  border-radius: 9px;
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 700;
   cursor: pointer;
   background: var(--cobalt);
 }
@@ -64,9 +65,10 @@
 
 .form-status {
   margin: 0;
-  padding: 12px 13px;
+  padding: 13px 14px;
   border-left: 3px solid currentColor;
-  font-size: 12px;
+  border-radius: 6px;
+  font-size: 0.78rem;
   font-weight: 700;
   line-height: 1.5;
 }

@@ -6,17 +6,16 @@ const initialForm = {
   email: '',
   phone: '',
   company: '',
-  service: 'Build a website with Micirql',
+  service: 'Build a certified industry website',
   message: '',
 };
 
 const serviceOptions = [
-  'Build a website with Micirql',
-  'Website + backend functionality',
-  'Website hosting and domain setup',
-  'Custom web app / SaaS platform',
-  'Mobile app development',
-  'AI integration',
+  'Build a certified industry website',
+  'Build a certified Dental website',
+  'Build a certified Physiotherapy website',
+  'Discuss a planned industry',
+  'Custom website or backend project',
   'Custom product engineering',
   'Other',
 ];
@@ -66,17 +65,17 @@ export function RequestForm() {
   }
 
   return (
-    <form className="request-form" onSubmit={handleSubmit} aria-label="Micirql enquiry form">
+    <form className="request-form" onSubmit={handleSubmit} aria-label="MiCirql enquiry form">
       <div className="form-grid">
-        <label htmlFor="request-name">Name *<input id="request-name" name="name" autoComplete="name" value={form.name} onChange={(event) => updateField('name', event.target.value)} placeholder="Your name" required /></label>
-        <label htmlFor="request-phone">Phone *<input id="request-phone" name="phone" type="tel" inputMode="tel" autoComplete="tel" value={form.phone} onChange={(event) => updateField('phone', event.target.value)} placeholder="Phone / WhatsApp" required /></label>
+        <label htmlFor="request-name">Name *<input id="request-name" name="name" autoComplete="name" maxLength="120" value={form.name} onChange={(event) => updateField('name', event.target.value)} placeholder="Your name" required /></label>
+        <label htmlFor="request-phone">Phone *<input id="request-phone" name="phone" type="tel" inputMode="tel" autoComplete="tel" maxLength="40" value={form.phone} onChange={(event) => updateField('phone', event.target.value)} placeholder="Phone / WhatsApp" required /></label>
       </div>
       <div className="form-grid">
-        <label htmlFor="request-email">Email<input id="request-email" name="email" type="email" autoComplete="email" value={form.email} onChange={(event) => updateField('email', event.target.value)} placeholder="email@example.com" /></label>
-        <label htmlFor="request-company">Business name<input id="request-company" name="company" autoComplete="organization" value={form.company} onChange={(event) => updateField('company', event.target.value)} placeholder="Company, clinic, restaurant…" /></label>
+        <label htmlFor="request-email">Email<input id="request-email" name="email" type="email" autoComplete="email" maxLength="320" value={form.email} onChange={(event) => updateField('email', event.target.value)} placeholder="email@example.com" /></label>
+        <label htmlFor="request-company">Business name<input id="request-company" name="company" autoComplete="organization" maxLength="160" value={form.company} onChange={(event) => updateField('company', event.target.value)} placeholder="Company, clinic, restaurant…" /></label>
       </div>
       <label htmlFor="request-service">What do you need?<select id="request-service" name="service" value={form.service} onChange={(event) => updateField('service', event.target.value)}>{serviceOptions.map((option) => <option key={option}>{option}</option>)}</select></label>
-      <label htmlFor="request-message">Tell us about it *<textarea id="request-message" name="message" value={form.message} onChange={(event) => updateField('message', event.target.value)} placeholder="What does your business do and what should the website or product help you achieve?" rows="5" required /></label>
+      <label htmlFor="request-message">Tell us about it *<textarea id="request-message" name="message" maxLength="3000" value={form.message} onChange={(event) => updateField('message', event.target.value)} placeholder="What does your business do and what should the website or product help you achieve?" rows="5" required /></label>
       <button className="button button-primary form-button" type="submit" disabled={loading}>{loading ? 'Sending…' : 'Send enquiry'} <span aria-hidden="true">→</span></button>
       {status.message ? <p className={`form-status ${status.type}`} role="status" aria-live="polite">{status.message}</p> : null}
     </form>

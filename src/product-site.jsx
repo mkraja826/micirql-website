@@ -1,60 +1,344 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import { RequestForm } from './RequestForm';
+import {
+  CAPABILITY_RELEASES,
+  INDUSTRY_RELEASES,
+  RELEASE_STATUS,
+  TOOL_RELEASES,
+} from './release-status';
 import './product-site.css';
 import './RequestForm.css';
 
 const BUILDER_URL = 'https://builder.micirql.com/';
+const FEATURED_INDUSTRY_IDS = new Set([
+  'clinic-dental',
+  'clinic-physiotherapy',
+  'restaurant-restaurant',
+]);
 
-const industries = ['Clinic', 'Restaurant', 'Real estate', 'SaaS', 'Construction', 'Professional services'];
-const steps = [
-  ['01','Tell us about the business','Services, audience, location, goals, languages and the functionality you need become a structured brief.'],
-  ['02','MiCirql chooses the system','The engine selects page structure, design direction, components and capabilities from a maintained library.'],
-  ['03','Choose a direction','Compare complete visual directions using the same business content instead of guessing from tiny theme swatches.'],
-  ['04','Edit on the website','Click text, replace images, drag sections, switch themes and tune typography, spacing and motion visually.'],
-  ['05','Add real functionality','Forms, authentication, databases, dashboards and business workflows can be connected when the website needs them.'],
-  ['06','Publish or export','Use a custom domain with MiCirql hosting or export the finished site and publish it wherever you want.'],
+const STEPS = [
+  {
+    number: '01',
+    title: 'Give us the facts',
+    description:
+      'Add the business, services, location, priorities and exact brand assets that must stay true.',
+  },
+  {
+    number: '02',
+    title: 'Compare real directions',
+    description:
+      'Review ranked, responsive structures from the certified industry pack—not palette-swapped templates.',
+  },
+  {
+    number: '03',
+    title: 'Choose, refine, check',
+    description:
+      'Select one direction, edit the same project and complete readiness checks before release.',
+  },
 ];
 
-const faqs = [
-  ['Is this just another prompt-to-website generator?','No. AI helps decide what to use, while layouts, controls and section systems come from a reusable library designed to stay editable and maintainable.'],
-  ['Can I edit the generated website myself?','Yes. The editor is canvas-first: change text in place, replace images, reorder sections and switch complete design systems without touching code.'],
-  ['Can MiCirql add a backend?','Yes. The platform is being built for forms, authentication, databases, dashboards and other business functionality—not only static pages.'],
-  ['Do I have to host with MiCirql?','No. Managed hosting and maintenance are optional. The product is designed so the website can also be exported and hosted elsewhere.'],
+const FAQS = [
+  [
+    'Which industries can I build today?',
+    'Dental and Physiotherapy are certified. Restaurants are the next certification target, but remain unavailable in the Builder until that gate is complete.',
+  ],
+  [
+    'Does Rank 1 mean the best-looking design?',
+    'No. Rank means strongest fit for the supplied brief. Every direction in a certified pack must pass the same technical and visual checks.',
+  ],
+  [
+    'Will MiCirql keep my logo and facts?',
+    'Yes. Supplied facts and brand assets are constraints. An uploaded logo must resolve to the exact stored asset; it is not silently replaced with text.',
+  ],
+  [
+    'Can I publish or export immediately?',
+    'Publishing, export and production media storage are still in commercial validation. The website reports that boundary instead of presenting unfinished paths as generally available.',
+  ],
 ];
 
-function Logo(){return <a className="brand" href="#top" aria-label="MiCirql home"><img src="/micirql-mark.svg" alt=""/><span>MICIRQL</span></a>}
-
-function App(){
-  const [menu,setMenu]=useState(false);
-  const [industry,setIndustry]=useState('Clinic');
-  const [faq,setFaq]=useState(0);
-  return <div className="site-shell" id="top">
-    <header className="topbar"><Logo/><nav className={menu?'open':''}><a href="#how" onClick={()=>setMenu(false)}>How it works</a><a href="#designs" onClick={()=>setMenu(false)}>Design system</a><a href="#backend" onClick={()=>setMenu(false)}>Backend</a><a href="#faq" onClick={()=>setMenu(false)}>FAQ</a><a className="nav-login" href={BUILDER_URL}>Sign in</a><a className="nav-cta" href={BUILDER_URL}>Start building</a></nav><button className="menu" onClick={()=>setMenu(v=>!v)} aria-label="Toggle navigation"><span/><span/></button></header>
-
-    <main>
-      <section className="hero">
-        <div className="hero-copy"><div className="pill"><i/> Website building, rethought</div><h1>Describe your business.<br/><em>Get a website built around it.</em></h1><p>MiCirql chooses the structure, design system and functionality. You refine it visually, then publish with us or export the finished website.</p><div className="hero-actions"><a className="primary" href={BUILDER_URL}>Start building <span>↗</span></a><a className="secondary" href="#how">See how it works</a></div><div className="hero-proof"><span>No code required</span><span>Backend-ready</span><span>Exportable</span></div></div>
-        <div className="builder-demo" aria-label="MiCirql builder preview"><div className="demo-head"><span><i/><i/><i/></span><b>builder.micirql.com</b><small>LIVE</small></div><div className="demo-body"><aside><strong>M</strong><button className="active">⌂</button><button>◇</button><button>◫</button><button>⚙</button></aside><div className="demo-canvas"><div className="canvas-top"><span>Homepage</span><div><button>Mobile</button><button className="active">Desktop</button></div></div><div className="website-card"><div className="mini-nav"><strong>ARC DENTAL</strong><span>About &nbsp; Treatments &nbsp; Cases</span><button>Book visit</button></div><div className="mini-hero"><div><small>ADVANCED IMPLANT DENTISTRY</small><h2>Confident smiles,<br/>planned precisely.</h2><p>Guided implant care with a clear treatment journey.</p><button>Request assessment</button></div><div className="mini-art"><span>25+</span><small>years experience</small></div></div><div className="mini-strip"><span>Implants</span><span>Guided surgery</span><span>Full-mouth care</span></div></div></div><div className="demo-panel"><small>DESIGN</small><strong>Premium Clinic</strong><label>Palette<div className="swatches"><i/><i/><i/><i/></div></label><label>Density<select><option>Balanced</option></select></label><label>Motion<select><option>Subtle</option></select></label><button>Apply design</button></div></div></div>
-      </section>
-
-      <section className="logo-line"><span>BUILT FOR</span>{industries.map(x=><button key={x} className={industry===x?'active':''} onClick={()=>setIndustry(x)}>{x}</button>)}</section>
-
-      <section className="section intro" id="how"><div className="section-label">01 / HOW IT WORKS</div><div className="section-title"><h2>AI makes the decisions.<br/>The system keeps them usable.</h2><p>Instead of generating an entire interface from nothing every time, MiCirql combines structured discovery with a maintained component and design library.</p></div><div className="steps">{steps.map(([n,t,d])=><article key={n}><span>{n}</span><h3>{t}</h3><p>{d}</p></article>)}</div></section>
-
-      <section className="section dark" id="designs"><div className="section-label light">02 / DESIGN SYSTEM</div><div className="section-title light"><h2>One business brief.<br/>Multiple credible directions.</h2><p>Choose complete design systems instead of wrestling with isolated fonts, colors and template fragments.</p></div><div className="direction-grid"><article className="direction violet"><header><span>01</span><b>Recommended</b></header><div className="direction-preview"><small>PREMIUM / CLINIC</small><h3>Precision feels reassuring.</h3><p>Editorial typography, restrained motion and high-trust spacing.</p></div><footer>Premium Implant Clinic <span>↗</span></footer></article><article className="direction blue"><header><span>02</span><b>Alternative</b></header><div className="direction-preview"><small>MODERN / CLINIC</small><h3>Clear. Calm. Clinical.</h3><p>Bright surfaces, direct navigation and approachable patient journeys.</p></div><footer>Modern Dental Clinic <span>↗</span></footer></article><article className="direction warm"><header><span>03</span><b>Alternative</b></header><div className="direction-preview"><small>HUMAN / CARE</small><h3>Healthcare with warmth.</h3><p>Organic shapes, softer contrast and content-led storytelling.</p></div><footer>Human Care <span>↗</span></footer></article></div></section>
-
-      <section className="section backend" id="backend"><div className="backend-copy"><div className="section-label">03 / BEYOND THE PAGE</div><h2>A website is only useful when it can do the work.</h2><p>MiCirql is designed to continue past the visual layer. Add the functions your business actually needs, while keeping the website experience in one system.</p><a className="primary" href={BUILDER_URL}>Start with your business <span>↗</span></a></div><div className="backend-grid"><article><span>01</span><h3>Forms & enquiries</h3><p>Capture leads directly into a secure backend instead of losing them in static forms.</p></article><article><span>02</span><h3>Authentication</h3><p>Add customer, staff or member access when the product needs private experiences.</p></article><article><span>03</span><h3>Database workflows</h3><p>Store structured business data and connect real operational workflows.</p></article><article><span>04</span><h3>Publishing & domains</h3><p>Take the finished project to a custom domain or export it for another host.</p></article></div></section>
-
-      <section className="section compare"><div className="section-label">04 / WHAT CHANGES</div><div className="compare-grid"><div><small>TYPICAL AI BUILDER</small><h3>Prompt → generated page → fight the output.</h3><ul><li>One-off generated structure</li><li>Generic visual decisions</li><li>Functionality becomes a separate problem</li><li>Hard to build a reusable design library</li></ul></div><div className="ours"><small>MICIRQL</small><h3>Discover → decide → design → function → ship.</h3><ul><li>Structured business understanding</li><li>Curated sections and industry systems</li><li>Canvas-first visual editing</li><li>Backend, domain and export path included</li></ul></div></div></section>
-
-      <section className="section faq" id="faq"><div><div className="section-label">05 / FAQ</div><h2>The important questions.</h2></div><div className="faq-list">{faqs.map(([q,a],i)=><button key={q} className={faq===i?'active':''} onClick={()=>setFaq(faq===i?-1:i)}><span><b>0{i+1}</b>{q}<em>{faq===i?'−':'+'}</em></span>{faq===i&&<p>{a}</p>}</button>)}</div></section>
-
-      <section className="section contact"><div className="contact-copy"><div className="section-label light">06 / TALK TO US</div><h2>Need the builder—or something beyond it?</h2><p>Use MiCirql yourself, or tell us what needs custom backend, integration or product engineering.</p><div className="contact-actions"><a href={BUILDER_URL}>Open builder ↗</a><a href="mailto:support@micirql.com">support@micirql.com</a></div></div><div className="form-wrap"><RequestForm/></div></section>
-    </main>
-
-    <footer><Logo/><p>Website builder + product engineering.</p><div><a href={BUILDER_URL}>Builder</a><a href="#how">How it works</a><a href="#backend">Backend</a><a href="mailto:support@micirql.com">Contact</a></div><small>© 2026 MiCirql · India</small></footer>
-  </div>
+function Logo({ compact = false }) {
+  return (
+    <a
+      className="brand"
+      href="#top"
+      aria-label={compact ? 'MiCirql home' : 'MiCirql Website systems home'}
+    >
+      <img src="/micirql-mark.svg" alt="" width="34" height="34" />
+      <span>MiCirql</span>
+      {!compact ? <small aria-hidden="true">Website systems</small> : null}
+    </a>
+  );
 }
 
-createRoot(document.getElementById('root')).render(<App/>);
+function StatusBadge({ status }) {
+  return <span className={`status status-${status}`}>{RELEASE_STATUS[status]}</span>;
+}
+
+function ProductScreenshot({ desktop, mobile, alt, eager = false }) {
+  return (
+    <picture>
+      <source media="(max-width: 640px)" srcSet={mobile} />
+      <img
+        src={desktop}
+        alt={alt}
+        loading={eager ? 'eager' : 'lazy'}
+        fetchPriority={eager ? 'high' : 'auto'}
+      />
+    </picture>
+  );
+}
+
+function App() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [openFaq, setOpenFaq] = useState(0);
+  const menuButtonRef = useRef(null);
+  const industries = INDUSTRY_RELEASES.filter((industry) =>
+    FEATURED_INDUSTRY_IDS.has(industry.id),
+  );
+
+  useEffect(() => {
+    if (!menuOpen) return undefined;
+
+    function closeOnEscape(event) {
+      if (event.key !== 'Escape') return;
+      setMenuOpen(false);
+      menuButtonRef.current?.focus();
+    }
+
+    window.addEventListener('keydown', closeOnEscape);
+    return () => window.removeEventListener('keydown', closeOnEscape);
+  }, [menuOpen]);
+
+  function closeMenu() {
+    setMenuOpen(false);
+  }
+
+  return (
+    <div className="site-shell" id="top">
+      <a className="skip-link" href="#main-content">Skip to content</a>
+
+      <header className="topbar">
+        <Logo />
+        <nav id="site-navigation" className={menuOpen ? 'open' : ''} aria-label="Primary navigation">
+          <a href="#proof" onClick={closeMenu}>Proof</a>
+          <a href="#workflow" onClick={closeMenu}>How it works</a>
+          <a href="#industries" onClick={closeMenu}>Industries</a>
+          <a href="#tools" onClick={closeMenu}>Tools</a>
+          <a href="#status" onClick={closeMenu}>Status</a>
+          <a className="nav-login" href={BUILDER_URL}>Sign in</a>
+          <a className="nav-cta" href={BUILDER_URL}>Open Builder</a>
+        </nav>
+        <button
+          ref={menuButtonRef}
+          className="menu"
+          type="button"
+          aria-controls="site-navigation"
+          aria-expanded={menuOpen}
+          aria-label={menuOpen ? 'Close navigation' : 'Open navigation'}
+          onClick={() => setMenuOpen((value) => !value)}
+        >
+          <span />
+          <span />
+        </button>
+      </header>
+
+      <main id="main-content">
+        <section className="hero" aria-labelledby="hero-title">
+          <div className="hero-copy">
+            <div className="eyebrow"><i /> Dental + Physiotherapy certified</div>
+            <h1 id="hero-title">A website shaped by your industry. <em>Not by a generic template.</em></h1>
+            <p>
+              MiCirql turns verified business facts into ranked, responsive website directions—then
+              keeps the same project ready for editing and release checks.
+            </p>
+            <div className="hero-actions">
+              <a className="primary" href={BUILDER_URL}>Start a certified website <span aria-hidden="true">↗</span></a>
+              <a className="secondary" href="#proof">See the product proof</a>
+            </div>
+            <dl className="outcome-strip" aria-label="Current certified product evidence">
+              <div><dt>40</dt><dd>certified directions</dd></div>
+              <div><dt>2</dt><dd>independent industry packs</dd></div>
+              <div><dt>5</dt><dd>responsive widths checked</dd></div>
+              <div><dt>Exact</dt><dd>supplied facts and logo</dd></div>
+            </dl>
+          </div>
+
+          <figure className="hero-product-shot">
+            <div className="shot-toolbar"><Logo compact /><span>Actual Builder QA capture</span></div>
+            <div className="shot-window shot-window-brief">
+              <ProductScreenshot
+                desktop="/product-proof/builder-brief-desktop.png"
+                mobile="/product-proof/builder-brief-mobile.png"
+                alt="MiCirql Builder business brief review screen for a Dental project"
+                eager
+              />
+            </div>
+            <figcaption>Structured brief · exact inputs · review before generation</figcaption>
+          </figure>
+        </section>
+
+        <section className="proof-band" id="proof" aria-labelledby="proof-title">
+          <div className="proof-copy">
+            <div className="section-kicker">REAL PRODUCT PROOF</div>
+            <h2 id="proof-title">Choose with evidence, not a thumbnail guess.</h2>
+            <p>
+              The Builder shows ranked directions in responsive previews before a full site is
+              created. Recommendation means brief fit—not that one visual style is universally better.
+            </p>
+            <ul>
+              <li>Four directions compared at a time</li>
+              <li>Mobile, tablet and desktop views</li>
+              <li>Supplied facts and brand kept constant</li>
+            </ul>
+          </div>
+          <figure className="review-shot">
+            <div className="shot-window shot-window-review">
+              <ProductScreenshot
+                desktop="/product-proof/design-review-desktop.png"
+                mobile="/product-proof/design-review-mobile.png"
+                alt="MiCirql design review showing four ranked Dental website directions"
+              />
+            </div>
+            <figcaption>Certified Dental design review · ranks 1–4 of 20</figcaption>
+          </figure>
+        </section>
+
+        <section className="section workflow" id="workflow" aria-labelledby="workflow-title">
+          <div className="section-heading">
+            <div className="section-kicker">A SIMPLE, INSPECTABLE WORKFLOW</div>
+            <h2 id="workflow-title">From business truth to a direction you can refine.</h2>
+            <p>Product chrome stays consistent. Each industry owns its content anatomy, conversion path, imagery rules and responsive behavior.</p>
+          </div>
+          <div className="step-grid">
+            {STEPS.map((step) => (
+              <article key={step.number}>
+                <span>{step.number}</span>
+                <h3>{step.title}</h3>
+                <p>{step.description}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="section industries" id="industries" aria-labelledby="industries-title">
+          <div className="section-heading compact">
+            <div className="section-kicker">ONE INDUSTRY AT A TIME</div>
+            <h2 id="industries-title">Certified only after the full system passes.</h2>
+            <p>A new industry does not enter the Builder until its own structures, journeys, imagery and responsive gates are complete.</p>
+          </div>
+          <div className="industry-grid">
+            {industries.map((industry, index) => (
+              <article key={industry.id} className={`industry-card industry-${industry.status}`}>
+                <header><span>{String(index + 1).padStart(2, '0')}</span><StatusBadge status={industry.status} /></header>
+                <h3>{industry.name}</h3>
+                <p>{industry.description}</p>
+                {industry.status === 'certified' ? <a href={BUILDER_URL}>Build with this pack <span aria-hidden="true">↗</span></a> : <small>Next certification target · not selectable yet</small>}
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="section products" id="tools" aria-labelledby="products-title">
+          <div className="section-heading inverse">
+            <div className="section-kicker">THREE WAYS TO WORK WITH MICIRQL</div>
+            <h2 id="products-title">Build, inspect, or scope the work together.</h2>
+            <p>These are related products with different jobs. Only verified tool routes are linked here.</p>
+          </div>
+          <div className="product-family">
+            <article className="family-card family-builder">
+              <div><span>01</span><StatusBadge status="validation" /></div>
+              <h3>Builder</h3>
+              <p>Create a certified Dental or Physiotherapy website from a structured brief, ranked directions and one editable project.</p>
+              <a href={BUILDER_URL}>Open Builder <span aria-hidden="true">↗</span></a>
+            </article>
+
+            <article className="family-card family-tools">
+              <div><span>02</span><StatusBadge status="beta" /></div>
+              <h3>Tools</h3>
+              <p>Inspect an existing website in a separate workspace. These beta tools do not modify a Builder draft.</p>
+              <div className="tool-list">
+                {TOOL_RELEASES.map((tool) => (
+                  <a key={tool.id} href={tool.href} target="_blank" rel="noreferrer">
+                    <span><strong>{tool.name}</strong><small>{tool.description}</small></span>
+                    <em aria-hidden="true">↗</em>
+                  </a>
+                ))}
+              </div>
+            </article>
+
+            <article className="family-card family-assisted">
+              <div><span>03</span><StatusBadge status="assisted" /></div>
+              <h3>Assisted engineering</h3>
+              <p>Custom websites, product work and backend requirements are scoped directly. They are not presented as automatic Builder features.</p>
+              <a href="#contact">Discuss a scoped project <span aria-hidden="true">↓</span></a>
+            </article>
+          </div>
+        </section>
+
+        <section className="section evidence" id="status" aria-labelledby="status-title">
+          <div className="status-heading">
+            <div className="section-kicker">EVIDENCE-BACKED STATUS</div>
+            <h2 id="status-title">What is ready—and what is still being proven.</h2>
+            <p>Local quality gates are not the same as a commercial release. MiCirql keeps that boundary visible.</p>
+          </div>
+          <div className="status-list">
+            {CAPABILITY_RELEASES.map((capability) => (
+              <article key={capability.name}>
+                <div><h3>{capability.name}</h3><StatusBadge status={capability.status} /></div>
+                <p>{capability.description}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="section faq-contact" id="contact">
+          <div className="faq-panel" id="faq">
+            <div className="section-kicker">FAQ</div>
+            <h2>Know the boundary before you start.</h2>
+            <div className="faq-list">
+              {FAQS.map(([question, answer], index) => {
+                const expanded = openFaq === index;
+                const answerId = `faq-answer-${index}`;
+                return (
+                  <article key={question}>
+                    <button
+                      type="button"
+                      aria-controls={answerId}
+                      aria-expanded={expanded}
+                      onClick={() => setOpenFaq(expanded ? -1 : index)}
+                    >
+                      <span>{question}</span><em aria-hidden="true">{expanded ? '−' : '+'}</em>
+                    </button>
+                    {expanded ? <p id={answerId}>{answer}</p> : null}
+                  </article>
+                );
+              })}
+            </div>
+          </div>
+
+          <div className="contact-panel">
+            <div className="section-kicker">START WITH THE TRUTH</div>
+            <h2>Build a certified clinic site—or scope something custom.</h2>
+            <p>Use Builder for Dental or Physiotherapy. For the next industry or a custom product, tell us what must work.</p>
+            <RequestForm />
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <Logo />
+        <p>Industry-specific website systems, released with evidence.</p>
+        <nav aria-label="Footer navigation">
+          <a href={BUILDER_URL}>Builder</a>
+          <a href="#tools">Tools</a>
+          <a href="#status">Status</a>
+          <a href="mailto:support@micirql.com">Contact</a>
+        </nav>
+        <small>© 2026 MiCirql · India</small>
+      </footer>
+    </div>
+  );
+}
+
+createRoot(document.getElementById('root')).render(<App />);
