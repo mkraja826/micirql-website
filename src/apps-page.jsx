@@ -1,97 +1,342 @@
-import React from 'react';
-import { createRoot } from 'react-dom/client';
-import './styles.css';
-import './apps-page.css';
+import React from "react";
+import { createRoot } from "react-dom/client";
+import {
+  INDUSTRY_RELEASES,
+  PRODUCT_RELEASES,
+  RELEASE_STATUS,
+  TOOL_RELEASES,
+} from "./release-status";
+import "./apps-page.css";
 
-const menu = ['Home', 'Apps', 'Clinic', 'Dashboards', 'MVP', 'More'];
+const PRODUCT_RELEASE_BY_ID = new Map(
+  PRODUCT_RELEASES.map((product) => [product.id, product]),
+);
+const CERTIFIED_PACK_COUNT = INDUSTRY_RELEASES.filter(
+  (industry) => industry.status === "certified",
+).length;
+const INDUSTRY_RELEASE_BY_ID = new Map(
+  INDUSTRY_RELEASES.map((industry) => [industry.id, industry]),
+);
 
-const featured = [
-  { name: 'CapDent', icon: '🦷', tag: 'Dental Clinic Management', status: 'Google Play', rating: 'Android', desc: 'Patients, queue, visits, payments, prescriptions, X-rays, follow-ups, staff and reports for dental clinics.', href: '/dental-management-system/' },
-  { name: 'ClinicPro Website Suite', icon: '🌐', tag: 'Web Product', status: 'Available', rating: 'New', desc: 'Premium clinic websites with service pages, appointment enquiry and gallery.' },
-  { name: 'Owner Dashboard', icon: '📊', tag: 'Dashboard', status: 'Custom Build', rating: 'Custom', desc: 'Revenue, leads, staff, reports and business overview in one dashboard.' },
+function releaseState(id) {
+  const release = PRODUCT_RELEASE_BY_ID.get(id);
+  if (!release) throw new Error(`Missing product release state for ${id}`);
+  return {
+    status: RELEASE_STATUS[release.status],
+    tone: release.status,
+  };
+}
+
+function industryFact(id) {
+  const release = INDUSTRY_RELEASE_BY_ID.get(id);
+  if (!release) throw new Error(`Missing industry release state for ${id}`);
+  return `${release.name} — ${RELEASE_STATUS[release.status]}`;
+}
+
+const products = [
+  {
+    id: "capdent",
+    number: "01",
+    name: "CapDent",
+    eyebrow: "Flagship Android product",
+    ...releaseState("capdent"),
+    statement: "Dental clinic work, kept in one operational record.",
+    description:
+      "CapDent brings patient records, waiting flow, visits, payments, prescriptions, clinical media, follow-ups, staff access and reports into one Android-first clinic system.",
+    facts: ["Google Play", "Android-first", "Clinic operations"],
+    actions: [
+      {
+        label: "Explore CapDent",
+        href: "/dental-management-system/",
+      },
+      {
+        label: "Open Google Play",
+        href: "https://play.google.com/store/apps/details?id=com.dms.clinic",
+        external: true,
+      },
+    ],
+  },
+  {
+    id: "builder",
+    number: "02",
+    name: "MiCirql Builder",
+    eyebrow: "Industry website system",
+    ...releaseState("builder"),
+    statement: "Start with business truth. Choose from certified directions.",
+    description:
+      "The Builder turns a structured brief into ranked, responsive website directions from certified industry packs, then keeps the chosen project editable through readiness checks.",
+    facts: [
+      industryFact("clinic-dental"),
+      industryFact("clinic-physiotherapy"),
+      industryFact("restaurant-restaurant"),
+    ],
+    actions: [
+      {
+        label: "Open Builder",
+        href: "https://builder.micirql.com/",
+      },
+      {
+        label: "See how it works",
+        href: "/#workflow",
+      },
+    ],
+  },
+  {
+    id: "tools",
+    number: "03",
+    name: "MiCirql Tools",
+    eyebrow: "Website inspection workspace",
+    ...releaseState("tools"),
+    statement: "Inspect an existing website without changing a Builder draft.",
+    description:
+      "Separate tools help inspect SEO structure, important journeys, typography, spacing, contrast and visual hierarchy. Tool status remains independent from Builder certification.",
+    facts: TOOL_RELEASES.map((tool) => tool.name),
+    actions: [
+      {
+        label: "Explore Tools",
+        href: "https://tools.micirql.com/tools/",
+        external: true,
+      },
+    ],
+  },
+  {
+    id: "assisted",
+    number: "04",
+    name: "Assisted engineering",
+    eyebrow: "Scoped product work",
+    ...releaseState("assisted"),
+    statement:
+      "Custom product requirements stay custom—not disguised as automation.",
+    description:
+      "Custom websites, operational dashboards, product interfaces and backend requirements are scoped directly around the business problem and delivery boundary.",
+    facts: ["Defined scope", "Explicit handoff", "No self-serve claim"],
+    actions: [
+      {
+        label: "Discuss the work",
+        href: "/#contact",
+      },
+    ],
+  },
 ];
 
-const apps = [
-  ...featured,
-  { name: 'Startup MVP Builder', icon: '🚀', tag: 'MVP', status: 'Available', rating: 'Custom', desc: 'Android app, backend, landing page and admin foundation for startup ideas.' },
-  { name: 'Appointment Booking App', icon: '📅', tag: 'Healthcare', status: 'Coming Soon', rating: 'Soon', desc: 'Booking and reminder system for clinics and service businesses.' },
-  { name: 'Lead Capture Landing Page', icon: '🎯', tag: 'Marketing', status: 'Available', rating: 'New', desc: 'Fast landing page for collecting enquiries and project requests.' },
+const releasePrinciples = [
+  {
+    number: "01",
+    title: "State before promotion",
+    body: "Live, certified, beta, validation and assisted work are labelled separately.",
+  },
+  {
+    number: "02",
+    title: "Evidence before claims",
+    body: "Responsive, accessibility and workflow gates must support what a product page says.",
+  },
+  {
+    number: "03",
+    title: "Boundaries stay visible",
+    body: "A local quality gate is not presented as a deployment or commercial release.",
+  },
 ];
 
-function TopBar() {
+function Brand({ compact = false }) {
   return (
-    <header className="market-topbar">
-      <a className="market-logo" href="/"><span>M</span><strong>Micirql Apps</strong></a>
-      <div className="market-search">Search apps, dashboards, clinic tools</div>
-      <a className="market-download" href="/#contact">Request App</a>
-    </header>
+    <span className={`apps-brand${compact ? " apps-brand-compact" : ""}`}>
+      <img src="/micirql-mark.svg" alt="" width="36" height="36" />
+      <span>
+        <strong>MiCirql</strong>
+        {!compact ? <small>Products</small> : null}
+      </span>
+    </span>
   );
 }
 
-function Sidebar() {
+function ProductCard({ product }) {
   return (
-    <aside className="market-sidebar">
-      {menu.map((item, index) => <a className={index === 1 ? 'active' : ''} key={item} href={index === 0 ? '/' : '/apps.html'}><span>{['⌂','▦','🦷','📊','🚀','⋯'][index]}</span>{item}</a>)}
-    </aside>
-  );
-}
-
-function HeroApp({ app }) {
-  const content = (
-    <>
-      <div className="hero-art"><span>{app.icon}</span></div>
-      <div className="hero-app-bottom">
-        <div className="small-icon">{app.icon}</div>
-        <div><h3>{app.name}</h3><p>★ {app.rating}</p></div>
-        <button>{app.href ? 'EXPLORE' : app.status.includes('Coming') ? 'COMING SOON' : 'REQUEST'}</button>
+    <article className={`product-card product-card-${product.tone}`}>
+      <header>
+        <span className="product-number" aria-hidden="true">
+          {product.number}
+        </span>
+        <span className={`release-badge release-${product.tone}`}>
+          {product.status}
+        </span>
+      </header>
+      <div className="product-copy">
+        <span className="product-eyebrow">{product.eyebrow}</span>
+        <h2>{product.name}</h2>
+        <p className="product-statement">{product.statement}</p>
+        <p className="product-description">{product.description}</p>
       </div>
-    </>
-  );
-
-  return app.href ? <a className="hero-app-card" href={app.href}>{content}</a> : <article className="hero-app-card">{content}</article>;
-}
-
-function AppTile({ app }) {
-  const content = (
-    <>
-      <div className="tile-art"><span>{app.icon}</span></div>
-      <div className="tile-info">
-        <div className="small-icon">{app.icon}</div>
-        <div><h3>{app.name}</h3><p>★ {app.rating}</p></div>
+      <ul className="product-facts" aria-label={`${product.name} facts`}>
+        {product.facts.map((fact) => (
+          <li key={fact}>{fact}</li>
+        ))}
+      </ul>
+      <div className="product-actions">
+        {product.actions.map((action, index) => (
+          <a
+            className={
+              index === 0
+                ? "product-action-primary"
+                : "product-action-secondary"
+            }
+            href={action.href}
+            key={action.label}
+            rel={action.external ? "noreferrer" : undefined}
+            target={action.external ? "_blank" : undefined}
+          >
+            {action.label}
+            <span aria-hidden="true">{action.external ? "↗" : "→"}</span>
+          </a>
+        ))}
       </div>
-      <p className="tile-desc">{app.desc}</p>
-      <button disabled={!app.href && app.status.includes('Coming')}>{app.href ? 'EXPLORE' : app.status.includes('Coming') ? 'COMING SOON' : 'REQUEST'}</button>
-    </>
+    </article>
   );
-
-  return app.href ? <a className="market-app-tile" href={app.href}>{content}</a> : <article className="market-app-tile">{content}</article>;
 }
 
 function AppsPage() {
   return (
-    <main className="market-page">
-      <TopBar />
-      <div className="market-layout">
-        <Sidebar />
-        <section className="market-content" id="apps">
-          <div className="market-banner">
-            <div><strong>Micirql Business Apps</strong><span>Problem-focused Android apps, dashboards, clinic systems and future products.</span></div>
-            <a href="/">Back to Website</a>
+    <div className="apps-site">
+      <a className="apps-skip-link" href="#main-content">
+        Skip to content
+      </a>
+      <header className="apps-topbar">
+        <a className="apps-home" href="/">
+          <Brand />
+        </a>
+        <nav aria-label="Primary navigation">
+          <a href="#portfolio">Products</a>
+          <a href="#release-standard">Release standard</a>
+          <a href="/#contact">Contact</a>
+          <a className="apps-nav-cta" href="https://builder.micirql.com/">
+            Open Builder
+          </a>
+        </nav>
+      </header>
+
+      <main id="main-content">
+        <section className="apps-hero" aria-labelledby="apps-title">
+          <div className="apps-hero-copy">
+            <span className="apps-kicker">MICIRQL PRODUCT PORTFOLIO</span>
+            <h1 id="apps-title">
+              Products with a clear job—and a clear release state.
+            </h1>
+            <p>
+              MiCirql builds focused software around real operational problems.
+              CapDent is the flagship live product; Builder, Tools and assisted
+              engineering each have a different role and readiness boundary.
+            </p>
+            <div className="apps-hero-actions">
+              <a href="#portfolio">Explore the portfolio</a>
+              <a href="/">How MiCirql builds websites</a>
+            </div>
           </div>
-
-          <section className="market-section dark-showcase">
-            <div className="section-title"><div><h2>Featured Apps</h2><p>CapDent and future Micirql products</p></div><a href="/#contact">MORE</a></div>
-            <div className="hero-app-row">{featured.map((app) => <HeroApp key={app.name} app={app} />)}</div>
-          </section>
-
-          <section className="market-section">
-            <div className="section-title"><div><h2>Editor's Choice</h2><p>Recommended business solutions</p></div><a href="/#contact">MORE</a></div>
-            <div className="market-grid">{apps.map((app) => <AppTile key={app.name} app={app} />)}</div>
-          </section>
+          <aside
+            className="release-ledger"
+            aria-label="Current portfolio summary"
+          >
+            <span>Current portfolio</span>
+            <dl>
+              <div>
+                <dt>Live flagship</dt>
+                <dd>CapDent</dd>
+              </div>
+              <div>
+                <dt>Certified packs</dt>
+                <dd>{CERTIFIED_PACK_COUNT} industries</dd>
+              </div>
+              <div>
+                <dt>Inspection workspace</dt>
+                <dd>{releaseState("tools").status}</dd>
+              </div>
+              <div>
+                <dt>Custom delivery</dt>
+                <dd>{releaseState("assisted").status}</dd>
+              </div>
+            </dl>
+            <small>
+              Status is shown per product. It does not imply deployment.
+            </small>
+          </aside>
         </section>
-      </div>
-    </main>
+
+        <section
+          className="portfolio-section"
+          id="portfolio"
+          aria-labelledby="portfolio-title"
+        >
+          <div className="section-heading">
+            <span className="apps-kicker">
+              FOUR DISTINCT WAYS MICIRQL WORKS
+            </span>
+            <h2 id="portfolio-title">
+              One company. No placeholder product cards.
+            </h2>
+            <p>
+              Each surface is described by what can be verified today—not by a
+              future roadmap presented as finished software.
+            </p>
+          </div>
+          <div className="product-grid">
+            {products.map((product) => (
+              <ProductCard product={product} key={product.id} />
+            ))}
+          </div>
+        </section>
+
+        <section
+          className="release-standard"
+          id="release-standard"
+          aria-labelledby="release-title"
+        >
+          <div className="release-standard-heading">
+            <span className="apps-kicker">THE RELEASE STANDARD</span>
+            <h2 id="release-title">A product earns its public language.</h2>
+            <p>
+              MiCirql keeps product identity, test evidence and commercial
+              availability separate so the next step stays understandable.
+            </p>
+          </div>
+          <ol>
+            {releasePrinciples.map((principle) => (
+              <li key={principle.number}>
+                <span>{principle.number}</span>
+                <div>
+                  <h3>{principle.title}</h3>
+                  <p>{principle.body}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </section>
+
+        <section className="apps-cta" aria-labelledby="apps-cta-title">
+          <div>
+            <span className="apps-kicker">START WITH THE RIGHT SURFACE</span>
+            <h2 id="apps-cta-title">
+              Build a certified website—or scope something custom.
+            </h2>
+          </div>
+          <div>
+            <a href="https://builder.micirql.com/">Open Builder</a>
+            <a href="/#contact">Discuss a project</a>
+          </div>
+        </section>
+      </main>
+
+      <footer className="apps-footer">
+        <a href="/">
+          <Brand compact />
+        </a>
+        <p>Focused products, released with evidence.</p>
+        <nav aria-label="Footer navigation">
+          <a href="/">Website systems</a>
+          <a href="https://tools.micirql.com/tools/">Tools</a>
+          <a href="/#contact">Contact</a>
+        </nav>
+        <small>© 2026 MiCirql · India</small>
+      </footer>
+    </div>
   );
 }
 
-createRoot(document.getElementById('root')).render(<AppsPage />);
+createRoot(document.getElementById("root")).render(<AppsPage />);

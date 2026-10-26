@@ -1,8 +1,13 @@
 :root {
   color-scheme: dark;
   font-family:
-    Aptos, "Segoe UI Variable Text", "Segoe UI", system-ui, -apple-system,
-    BlinkMacSystemFont, sans-serif;
+    Aptos,
+    "Segoe UI Variable Text",
+    "Segoe UI",
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif;
   --sans: Aptos, "Segoe UI Variable Text", "Segoe UI", system-ui, sans-serif;
   --mono: "Cascadia Mono", "SFMono-Regular", Consolas, monospace;
   --ink: #f8f7fb;
@@ -64,8 +69,16 @@ img {
 .site-shell {
   min-height: 100vh;
   background:
-    radial-gradient(circle at 10% 0%, rgba(112, 73, 215, 0.24), transparent 32rem),
-    radial-gradient(circle at 92% 12%, rgba(82, 48, 150, 0.16), transparent 31rem),
+    radial-gradient(
+      circle at 10% 0%,
+      rgba(112, 73, 215, 0.24),
+      transparent 32rem
+    ),
+    radial-gradient(
+      circle at 92% 12%,
+      rgba(82, 48, 150, 0.16),
+      transparent 31rem
+    ),
     var(--surface);
 }
 
@@ -285,7 +298,8 @@ img {
 .hero-copy h1 {
   max-width: 11ch;
   margin: 24px 0 25px;
-  font-family: "Segoe UI Variable Display", "Aptos Display", "Segoe UI", sans-serif;
+  font-family:
+    "Segoe UI Variable Display", "Aptos Display", "Segoe UI", sans-serif;
   font-size: clamp(3.25rem, 5.5vw, 5.45rem);
   font-weight: 600;
   letter-spacing: -0.052em;
@@ -454,7 +468,8 @@ figure figcaption {
 .status-heading h2,
 .faq-contact h2 {
   margin: 17px 0 19px;
-  font-family: "Segoe UI Variable Display", "Aptos Display", "Segoe UI", sans-serif;
+  font-family:
+    "Segoe UI Variable Display", "Aptos Display", "Segoe UI", sans-serif;
   font-size: clamp(2.5rem, 4.6vw, 4.55rem);
   font-weight: 590;
   letter-spacing: -0.047em;
@@ -488,7 +503,7 @@ figure figcaption {
 .proof-copy li::before {
   position: absolute;
   left: 0;
-  content: '✓';
+  content: "✓";
   color: #6045b1;
   font-weight: 800;
 }
@@ -543,7 +558,7 @@ figure figcaption {
   padding-bottom: 5px;
 }
 
-.step-grid,
+.builder-stage-rail,
 .industry-grid,
 .product-family,
 .status-list {
@@ -551,24 +566,31 @@ figure figcaption {
   margin-inline: auto;
 }
 
-.step-grid {
+.builder-stage-rail {
+  padding: 0;
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   border-block: 1px solid var(--line);
+  list-style: none;
 }
 
-.step-grid article {
-  min-height: 235px;
-  padding: 27px 30px 33px;
+.builder-stage-rail:focus-visible {
+  outline: 3px solid #bca8ff;
+  outline-offset: 6px;
+}
+
+.builder-stage-rail li {
+  min-height: 154px;
+  padding: 20px 22px 23px;
   border-left: 1px solid var(--line);
 }
 
-.step-grid article:first-child {
+.builder-stage-rail li:first-child {
   padding-left: 0;
   border-left: 0;
 }
 
-.step-grid span,
+.builder-stage-rail span,
 .industry-card header > span,
 .family-card > div > span {
   color: #9f89e5;
@@ -576,7 +598,6 @@ figure figcaption {
   font-weight: 760;
 }
 
-.step-grid h3,
 .industry-card h3,
 .family-card h3,
 .status-list h3 {
@@ -586,7 +607,7 @@ figure figcaption {
   letter-spacing: -0.025em;
 }
 
-.step-grid p,
+.builder-stage-rail p,
 .industry-card p,
 .family-card p,
 .status-list p {
@@ -594,6 +615,143 @@ figure figcaption {
   color: #9893a0;
   font-size: 0.88rem;
   line-height: 1.68;
+}
+
+.builder-stage-rail h3 {
+  margin: 21px 0 9px;
+  font-size: 1.08rem;
+  font-weight: 620;
+  letter-spacing: -0.025em;
+}
+
+.builder-stage-rail p {
+  font-size: 0.78rem;
+  line-height: 1.55;
+}
+
+.sequence-swipe-note {
+  display: none;
+}
+
+.editor-proof {
+  width: min(100%, 1260px);
+  margin: 38px auto 0;
+  display: grid;
+  grid-template-columns: minmax(330px, 0.78fr) minmax(0, 1.22fr);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 22px;
+  background:
+    radial-gradient(
+      circle at 9% 8%,
+      rgba(119, 84, 232, 0.16),
+      transparent 24rem
+    ),
+    #121018;
+  box-shadow: 0 32px 90px rgba(0, 0, 0, 0.28);
+}
+
+.editor-proof-copy {
+  padding: clamp(27px, 3vw, 40px);
+  align-self: center;
+}
+
+.editor-proof-copy h3 {
+  max-width: 11ch;
+  margin: 17px 0 17px;
+  font-family:
+    "Segoe UI Variable Display", "Aptos Display", "Segoe UI", sans-serif;
+  font-size: clamp(1.85rem, 2.8vw, 2.7rem);
+  font-weight: 590;
+  letter-spacing: -0.045em;
+  line-height: 1.02;
+}
+
+.editor-proof-copy > p {
+  margin: 0;
+  color: #aaa5b1;
+  font-size: 0.9rem;
+  line-height: 1.68;
+}
+
+.editor-proof-copy ul {
+  margin: 18px 0 17px;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 17px;
+  list-style: none;
+}
+
+.editor-proof-copy li {
+  min-height: 38px;
+  padding: 9px 0 8px 16px;
+  position: relative;
+  border-top: 1px solid var(--line);
+  color: #d5d1dc;
+  font-size: 0.79rem;
+  line-height: 1.45;
+}
+
+.editor-proof-copy li::before {
+  position: absolute;
+  left: 0;
+  content: "·";
+  color: #ad95f7;
+  font-size: 1.2rem;
+  line-height: 0.85;
+}
+
+.editor-proof-copy small {
+  display: block;
+  padding: 10px 12px;
+  border: 1px solid rgba(194, 178, 246, 0.22);
+  border-radius: 10px;
+  background: rgba(117, 82, 226, 0.08);
+  color: #aaa4b2;
+  font-size: 0.7rem;
+  line-height: 1.55;
+}
+
+.editor-shot {
+  min-width: 0;
+  margin: 0;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  border-left: 1px solid rgba(255, 255, 255, 0.13);
+  background: #f2f3f7;
+}
+
+.shot-window-editor {
+  aspect-ratio: 1.6 / 1;
+}
+
+.shot-window-editor picture,
+.shot-window-editor img {
+  height: 100%;
+}
+
+.shot-window-editor img {
+  object-fit: cover;
+  object-position: top;
+}
+
+.editor-shot figcaption {
+  min-height: 44px;
+  padding: 12px 15px;
+  display: flex;
+  align-items: center;
+  border-top: 1px solid #ddd8e2;
+  background: #fff;
+  color: #6f6875;
+}
+
+.workflow {
+  padding-block: clamp(66px, 6vw, 88px);
+}
+
+.workflow .section-heading {
+  margin-bottom: 34px;
 }
 
 .industries {
@@ -679,7 +837,11 @@ figure figcaption {
 
 .products {
   background:
-    radial-gradient(circle at 50% 0%, rgba(115, 75, 218, 0.18), transparent 33rem),
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(115, 75, 218, 0.18),
+      transparent 33rem
+    ),
     #0d0a12;
   border-block: 1px solid var(--line);
 }
@@ -1074,6 +1236,19 @@ footer nav a {
     max-width: 660px;
   }
 
+  .builder-stage-rail {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .builder-stage-rail li:nth-child(3) {
+    border-top: 1px solid var(--line);
+    border-left: 0;
+  }
+
+  .builder-stage-rail li:nth-child(4) {
+    border-top: 1px solid var(--line);
+  }
+
   .industry-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1189,24 +1364,74 @@ footer nav a {
     aspect-ratio: 0.92 / 1;
   }
 
-  .step-grid {
-    grid-template-columns: 1fr;
+  .sequence-swipe-note {
+    width: min(100%, 1260px);
+    margin: -25px auto 13px;
+    display: block;
+    color: #8f8998;
+    font-size: 0.72rem;
   }
 
-  .step-grid article,
-  .step-grid article:first-child {
-    min-height: 0;
-    padding: 24px 0 29px;
+  .builder-stage-rail {
+    width: auto;
+    margin-inline: -18px;
+    padding: 0 18px 10px;
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    scroll-padding-inline: 18px;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: thin;
+  }
+
+  .builder-stage-rail li,
+  .builder-stage-rail li:first-child,
+  .builder-stage-rail li:nth-child(3),
+  .builder-stage-rail li:nth-child(4) {
+    min-height: 190px;
+    padding: 21px 20px 23px;
+    flex: 0 0 min(78vw, 284px);
+    border-top: 0;
+    border-left: 1px solid var(--line);
+    scroll-snap-align: start;
+  }
+
+  .builder-stage-rail li:first-child {
     border-left: 0;
-    border-bottom: 1px solid var(--line);
   }
 
-  .step-grid article:last-child {
-    border-bottom: 0;
+  .builder-stage-rail h3 {
+    margin-top: 27px;
   }
 
-  .step-grid h3 {
-    margin-top: 25px;
+  .editor-proof {
+    margin-top: 27px;
+    grid-template-columns: 1fr;
+    border-radius: 16px;
+  }
+
+  .editor-shot {
+    border-top: 1px solid rgba(255, 255, 255, 0.13);
+    border-left: 0;
+  }
+
+  .editor-proof-copy {
+    padding: 27px 20px;
+  }
+
+  .editor-proof-copy h3 {
+    max-width: 12ch;
+    font-size: clamp(1.9rem, 9vw, 2.65rem);
+  }
+
+  .editor-proof-copy ul {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 12px;
+  }
+
+  .shot-window-editor {
+    max-height: 520px;
+    aspect-ratio: 0.78 / 1;
   }
 
   .industry-grid,

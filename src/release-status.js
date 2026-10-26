@@ -1,10 +1,18 @@
 export const RELEASE_STATUS = Object.freeze({
+  live: 'Live product',
   certified: 'Certified',
   validation: 'In validation',
   planned: 'Planned',
   assisted: 'Assisted',
   beta: 'Beta',
 });
+
+export const PRODUCT_RELEASES = Object.freeze([
+  Object.freeze({ id: 'capdent', status: 'live' }),
+  Object.freeze({ id: 'builder', status: 'validation' }),
+  Object.freeze({ id: 'tools', status: 'beta' }),
+  Object.freeze({ id: 'assisted', status: 'assisted' }),
+]);
 
 export const INDUSTRY_RELEASES = Object.freeze([
   Object.freeze({

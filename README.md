@@ -12,10 +12,12 @@ MiCirql turns verified business facts and supplied brand assets into researched,
 
 The single-page experience includes:
 
-- the verified Dental example, Physiotherapy availability, and three representative design directions;
+- real Builder captures for the structured brief, ranked design review, and responsive editor;
+- the verified Dental example and certified Physiotherapy availability;
 - the one-industry-at-a-time release roadmap;
 - a factual capability-status section;
 - the design contract separating fixed business truth from direction-specific presentation;
+- an evidence-backed `/apps/` portfolio for CapDent, Builder, Tools, and assisted engineering;
 - accessible FAQ, navigation, and enquiry controls;
 - responsive layouts tested at 320, 390, 768, 1024, and 1440 pixels.
 
@@ -44,7 +46,7 @@ npm run build
 npm run test:ui
 ```
 
-The UI suite checks factual release claims, the official brand mark, responsive behavior, document overflow, keyboard navigation, mobile target sizes, reduced-motion behavior, runtime errors, accessibility, and visual snapshots.
+The UI suite checks the homepage and `/apps/` portfolio for factual release claims, the official brand mark, responsive behavior, document overflow, keyboard navigation, mobile target sizes, reduced-motion behavior, runtime errors, accessibility, and visual snapshots.
 
 It also builds against test-only Supabase values and verifies that the enquiry form sends a constrained payload with a publishable key in the `apikey` header, does not expose backend error bodies, and can retry safely. The test endpoint is intercepted; the suite never writes to an external project.
 

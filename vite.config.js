@@ -8,7 +8,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(import.meta.dirname, 'index.html'),
-        apps: resolve(import.meta.dirname, 'apps.html'),
+        apps: resolve(import.meta.dirname, 'apps/index.html'),
         blogs: resolve(import.meta.dirname, 'blogs/index.html'),
         capdent: resolve(import.meta.dirname, 'capdent/index.html'),
       },

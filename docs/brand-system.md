@@ -1,8 +1,8 @@
-# Micirql brand system
+# MiCirql brand system
 
 ## Positioning
 
-Micirql is a founder-led Android software company building a portfolio of focused products around real operational problems. CapDent is the flagship live product, not the full definition of the company.
+MiCirql is a founder-led software company building a portfolio of focused products around real operational problems. CapDent is the flagship live Android product, while Builder, Tools, and assisted engineering each keep a separate evidence-backed release state.
 
 ## Brand personality
 
@@ -14,7 +14,7 @@ Micirql is a founder-led Android software company building a portfolio of focuse
 
 ## Logo concept
 
-The Micirql mark combines two interlocking constructed forms. The shapes suggest:
+The MiCirql mark combines two interlocking constructed forms. The shapes suggest:
 
 - products being assembled in layers;
 - forward movement;
@@ -37,15 +37,15 @@ All assets are SVG and scale from favicon and app-icon usage to large-format app
 
 ## Colour system
 
-| Role | Colour | Hex |
-|---|---|---|
-| Graphite | Primary company background and authority | `#0B0D12` |
-| Electric indigo | Product engineering and primary action | `#6268FF` |
-| Amber | Energy, opportunity and selective emphasis | `#FFB45B` |
-| Warm white | High-contrast text and editorial surfaces | `#F5F3EE` |
-| CapDent teal | Used only inside CapDent product contexts | `#087F72` |
+| Role            | Colour                                     | Hex       |
+| --------------- | ------------------------------------------ | --------- |
+| Graphite        | Primary company background and authority   | `#0B0D12` |
+| Electric indigo | Product engineering and primary action     | `#6268FF` |
+| Amber           | Energy, opportunity and selective emphasis | `#FFB45B` |
+| Warm white      | High-contrast text and editorial surfaces  | `#F5F3EE` |
+| CapDent teal    | Used only inside CapDent product contexts  | `#087F72` |
 
-Do not recolour the entire Micirql website teal. Teal is a product-level colour belonging to CapDent.
+Do not recolour the entire MiCirql website teal. Teal is a product-level colour belonging to CapDent.
 
 ## Typography
 
