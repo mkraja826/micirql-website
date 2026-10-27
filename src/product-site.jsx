@@ -56,7 +56,7 @@ const EDITOR_CAPABILITIES = [
 const FAQS = [
   [
     "Which industries can I build today?",
-    "Dental and Physiotherapy are certified. Restaurants are the next certification target, but remain unavailable in the Builder until that gate is complete.",
+    "Dental, Physiotherapy and Restaurant are certified locally. Deployment and commercial availability are separate release decisions.",
   ],
   [
     "Does Rank 1 mean the best-looking design?",
@@ -190,7 +190,7 @@ function App() {
         <section className="hero" aria-labelledby="hero-title">
           <div className="hero-copy">
             <div className="eyebrow">
-              <i /> Dental + Physiotherapy certified
+              <i /> Dental + Physiotherapy + Restaurant certified
             </div>
             <h1 id="hero-title">
               A website shaped by your industry.{" "}
@@ -214,11 +214,11 @@ function App() {
               aria-label="Current certified product evidence"
             >
               <div>
-                <dt>40</dt>
+                <dt>60</dt>
                 <dd>certified directions</dd>
               </div>
               <div>
-                <dt>2</dt>
+                <dt>3</dt>
                 <dd>independent industry packs</dd>
               </div>
               <div>
@@ -419,8 +419,9 @@ function App() {
               </div>
               <h3>Builder</h3>
               <p>
-                Create a certified Dental or Physiotherapy website from a
-                structured brief, ranked directions and one editable project.
+                Create a certified Dental, Physiotherapy or Restaurant website
+                from a structured brief, ranked directions and one editable
+                project.
               </p>
               <a href={BUILDER_URL}>
                 Open Builder <span aria-hidden="true">↗</span>
@@ -529,10 +530,10 @@ function App() {
 
           <div className="contact-panel">
             <div className="section-kicker">START WITH THE TRUTH</div>
-            <h2>Build a certified clinic site—or scope something custom.</h2>
+            <h2>Build a certified industry site—or scope something custom.</h2>
             <p>
-              Use Builder for Dental or Physiotherapy. For the next industry or
-              a custom product, tell us what must work.
+              Use Builder for Dental, Physiotherapy or Restaurant. For the next
+              industry or a custom product, tell us what must work.
             </p>
             <RequestForm />
           </div>

@@ -4,8 +4,9 @@ This repository contains the public product website for the MiCirql industry web
 
 MiCirql turns verified business facts and supplied brand assets into researched, responsive website directions. The public website deliberately mirrors the product's current release state:
 
-- Dental and Physiotherapy are independently certified local industry packs.
-- Restaurants, cafes, and consulting are planned and remain unavailable in the Builder.
+- Dental, Physiotherapy, and Restaurant are independently certified local industry packs.
+- Restaurant includes 20 ranked directions and six pack-owned routes with fact-bound menu, visit, story, contact, and reservation-request content.
+- Cafe and consulting remain planned and unavailable in the Builder.
 - Builder workflow, publishing, export, and media-storage work are described by their actual validation status rather than as finished commercial capabilities.
 
 ## Product Website
@@ -13,7 +14,7 @@ MiCirql turns verified business facts and supplied brand assets into researched,
 The single-page experience includes:
 
 - real Builder captures for the structured brief, ranked design review, and responsive editor;
-- the verified Dental example and certified Physiotherapy availability;
+- the verified Dental example plus certified Physiotherapy and Restaurant availability;
 - the one-industry-at-a-time release roadmap;
 - a factual capability-status section;
 - the design contract separating fixed business truth from direction-specific presentation;

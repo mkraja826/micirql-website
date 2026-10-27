@@ -14,6 +14,7 @@ const serviceOptions = [
   'Build a certified industry website',
   'Build a certified Dental website',
   'Build a certified Physiotherapy website',
+  'Build a certified Restaurant website',
   'Discuss a planned industry',
   'Custom website or backend project',
   'Custom product engineering',

@@ -4,9 +4,10 @@ This is the release boundary for the public MiCirql product website. It does not
 
 ## Truth contract
 
-- Dental and Physiotherapy are independently certified in the local Builder source/runtime.
+- Dental, Physiotherapy, and Restaurant are independently certified in the local Builder source/runtime.
 - Pack certification does not approve a specific customer's facts, identity, deployment, or publication.
-- Restaurants, cafés, and consulting remain `Planned` and receive no Builder CTA.
+- Restaurant owns 20 ranked directions and exactly six routes, with the supplied HTML menu, visit, contact, story, and reservation-request facts protected by its local selection and publish gates.
+- Cafés and consulting remain `Planned` and receive no Builder CTA.
 - The public Tools surface links only the verified beta routes for SEO Studio, QA Testing Lab, and UI/UX Inspector.
 - Screenshot Studio is not linked or advertised as usable until its direct route works without redirecting to the Tools index.
 - The `/apps/` portfolio exposes only evidence-backed product states: CapDent is the live flagship, Builder remains in validation, Tools remains beta, and custom engineering is assisted.
@@ -21,7 +22,7 @@ The public labels live in `src/release-status.js`. Change those labels only afte
 
 1. Confirm the release branch and review every working-tree change.
 2. Run `npm ci`, `npm run build`, and `npm run test:ui`.
-3. Confirm all Builder links resolve to `https://builder.micirql.com/` and that the deployed Builder state supports both certified industry handoffs before publishing these claims.
+3. Confirm all Builder links resolve to `https://builder.micirql.com/` and that the deployed Builder state supports all three certified industry handoffs before publishing these claims.
 4. Confirm the three Tools links resolve to `/tools/seo/`, `/tools/qa/`, and `/tools/ui-ux/`; do not add a Screenshot Studio link until its direct route is verified.
 5. Confirm `/` and the canonical nested `/apps/` output pass their five-width visual/accessibility gates without a redirect loop.
 6. Confirm `robots.txt`, `sitemap.xml`, canonical URLs, and social metadata resolve from the built output.
@@ -43,7 +44,7 @@ Record the commit SHA, Cloudflare deployment ID/URL, environment-key names (neve
 
 - Load `/` and `/apps/` at 390px and desktop width; check the official logo, product states, navigation, roadmap labels, editor evidence, FAQ, form, and document overflow.
 - Check `/robots.txt` and `/sitemap.xml` return 200.
-- Follow every Builder CTA and confirm it reaches the expected authentication/onboarding path with Dental and Physiotherapy certified and Restaurant non-actionable.
+- Follow every Builder CTA and confirm it reaches the expected authentication/onboarding path with Dental, Physiotherapy, and Restaurant certified.
 - Submit one clearly labelled release-test enquiry only with approval to create that external record. Confirm it appears once, contains `source = micirql.com` and `status = new`, and does not expose any lead through an anonymous read.
 - Confirm no planned-industry control implies availability and no local certification claim implies that a customer site was approved or published.
 

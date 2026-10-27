@@ -30,8 +30,8 @@ export const INDUSTRY_RELEASES = Object.freeze([
   Object.freeze({
     id: 'restaurant-restaurant',
     name: 'Restaurants',
-    status: 'planned',
-    description: 'The next certification target, with its own menu, visit and reservation journey.',
+    status: 'certified',
+    description: 'Twenty table-editorial directions across six routes, with a fact-bound HTML menu, visit details and reservation requests.',
   }),
   Object.freeze({
     id: 'restaurant-cafe',
@@ -81,6 +81,11 @@ export const CAPABILITY_RELEASES = Object.freeze([
     name: 'Certified Physiotherapy generation',
     status: 'certified',
     description: 'Business brief, six-page care anatomy, 20 ranked directions, responsive previews and evidence-safe appointment requests.',
+  }),
+  Object.freeze({
+    name: 'Certified Restaurant generation',
+    status: 'certified',
+    description: 'Twenty ranked directions, six routes and fact-bound menu, visit, story and reservation-request content.',
   }),
   Object.freeze({
     name: 'Builder product workflow',

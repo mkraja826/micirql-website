@@ -89,7 +89,7 @@ test("keeps SEO, pricing, and Builder handoff inside the release boundary", asyn
   );
 
   const builderLinks = page.locator(`a[href="${BUILDER_URL}"]`);
-  await expect(builderLinks).toHaveCount(7);
+  await expect(builderLinks).toHaveCount(8);
   await expect(page.locator("body")).not.toContainText(
     /₹\s*\d|\bper month\b|\bpricing\b/i,
   );
@@ -120,7 +120,7 @@ test("keeps SEO, pricing, and Builder handoff inside the release boundary", asyn
   const plannedCards = page.locator(".industry-grid article").filter({
     has: page.locator(".status-planned"),
   });
-  await expect(plannedCards).toHaveCount(1);
+  await expect(plannedCards).toHaveCount(0);
   await expect(plannedCards.locator("a")).toHaveCount(0);
 
   const toolLinks = page.locator(".tool-list a");
@@ -141,7 +141,7 @@ test("keeps SEO, pricing, and Builder handoff inside the release boundary", asyn
   expect(sitemap.ok()).toBeTruthy();
   const sitemapBody = await sitemap.text();
   expect(sitemapBody).toContain("<loc>https://micirql.com/</loc>");
-  expect(sitemapBody).toContain("<lastmod>2026-10-25</lastmod>");
+  expect(sitemapBody).toContain("<lastmod>2026-10-27</lastmod>");
 });
 
 test("submits a constrained lead without treating the publishable key as a bearer token", async ({
@@ -227,7 +227,7 @@ test.describe("MiCirql truthful product marketing", () => {
       const response = await page.goto("/", { waitUntil: "networkidle" });
       expect(response?.ok()).toBeTruthy();
       await expect(page).toHaveTitle(
-        "MiCirql | Industry Website Builder for Dental & Physiotherapy",
+        "MiCirql | Dental, Physiotherapy & Restaurant Website Builder",
       );
       await expect(page.locator("h1")).toHaveCount(1);
       await expect(
@@ -256,7 +256,7 @@ test.describe("MiCirql truthful product marketing", () => {
         "Physiotherapy clinics",
         "Certified",
       );
-      await expectReleaseState(industries, "Restaurants", "Planned");
+      await expectReleaseState(industries, "Restaurants", "Certified");
       await expect(industries.getByRole("heading", { level: 3 })).toHaveCount(
         3,
       );
